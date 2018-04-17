@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+
+.drMainList{width:100%; background:#fff; /* border-top:1px solid #d6d6d6; */ /* border-bottom:1px solid #d6d6d6; */ overflow:hidden;}
+.nameBox{padding:10px 10px 0 10px; overflow:hidden;}
+.nameBox .name{width:90%;}
+.name span{display:inline-block; vertical-align:middle;}
+.name span h1{color:#686868; font-size:14px; line-height:24px; font-weight:normal;}
+.name span p{font-size:12px; color:#a6a6a6;}
+.name .tx{width:40px; height:40px; border-radius:40px; overflow:hidden;}
+.name .tx img{width:100%;}
+.zanPl{width:8%; overflow:hidden; }
+.zanPl img{width:20px;margin-top: 12px;}
+
+.storyCommentBox{padding: 10px 10px 0 10px; background:#fff; /* border-bottom:1px solid #e8e8e8; */ overflow:hidden;}
+.storyCommentBox .sj{ width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 12px solid #ffedf3; margin-left: 12px;}
+.storyCommentBox p{color:#4a4a4a; line-height: 18px; text-indent:2em;background: #ffedf3;padding: 8px;border-radius: 5px;font-size: 13px;}
+.storyCommentBox h2{padding:10px 0; width:100%;}
+
+
+.storyMainBox{padding-top: 5px; overflow:hidden; position:relative;margin: 0 5px 5px 5px;}
+.timeBox{width:100%; overflow:hidden; margin:8px 0;}
+.timeBox span{display:inline-block; vertical-align:top; color:#9a9a9a;}
+.timeBox .axCommentBox{width:92%; float:right;margin-top: 3px; font-size:14px;}
+.timeBox .iconBox{position: absolute;z-index: 10;left: 0;}
+.timeBox .xmjzText{font-weight: bold;color: #828282; width:86%; background:url(../images/pl-3.png) no-repeat left; padding-left:20px;}
+
+.lineBox{width:2px; background:#ffedf3;position: absolute; left: 9px; top: 5px; height:100%;}

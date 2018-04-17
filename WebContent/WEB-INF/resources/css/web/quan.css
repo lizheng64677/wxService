@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+body{background:#f3f3f3;}
+
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+.qNavBox{margin:10px; overflow:hidden;}
+.qNavBox ul li{width:33%; overflow:hidden; float:left; text-align:center;}
+.qNavBox ul li a{display:inline-block; width:95%; padding:10px 0; text-align:center; color:#fff; font-size:14px; background:#c7c7c7;}
+.qNavBox .wxf{border-radius:20px 0 0 20px;}
+.qNavBox .yxf{border-radius:0 20px 20px 0;}
+.qNavBox .chooseBox{background:#e83228;}
+
+
+.qListBox{margin:10px; overflow:hidden;}
+.qListBox ul{width:100%; overflow:hidden;}
+.qListBox ul li{padding:10px; overflow:hidden;border-radius: 6px; position:relative; margin-bottom:10px;}
+.qListBox .bgColor1{background:#fd4e6f;}
+.qListBox .bgColor2{background:#39be8d;}
+.qListBox .bgColor3{background:#f49a0d;}
+.qListBox .bgColor4{background:#B25FEA;}
+.qListBox .bgColor5{background:#5079DC;}
+.qListBox .bgColor6{background:#C3C0BD;}
+.qListBox .nameTimeBox{border-bottom:1px dashed rgba(255,255,255,0.7); overflow:hidden;}
+.qListBox .nameTimeBox h1{color:#fff; font-size: 14px; height: 30px; line-height: 20px;}
+.qListBox .nameTimeBox p img{width: 15px; vertical-align:middle;}
+.qListBox .nameTimeBox p span{color:#fff; font-size:12px; vertical-align:middle; margin-left: 6px;line-height: 24px;}
+
+.qListBox .qCommentBox{width:100%; overflow:hidden;margin-top: 8px;}
+.qListBox .leftNameBox{width: 70%;}
+.qListBox .leftNameBox h2{color:#fff; font-size:16px; font-weight:normal; line-height: 22px;height: 44px;}
+.qListBox .leftNameBox p{color:#fff; font-size:12px;}
+.qListBox .rightButon{width: 30%; text-align: center;}
+.qListBox .rightButon h3{font-size: 22px; line-height: 30px; color:#fff;}
+.qListBox .rightButon a{display: inline-block; width:80px; padding:8px 0; border:1px solid #fff; border-radius:3px; text-align:center; color:#fff; font-size:14px;}
+
+.byBox1{position:absolute; left:0; top:32px;}
+.byBox2{position:absolute; right:0; top:32px;}
+#ddsds a{
+	color:#fff;
+	float:right;
+}

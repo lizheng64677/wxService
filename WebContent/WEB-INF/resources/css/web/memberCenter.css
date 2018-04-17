@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+.fLeft{float:left;}
+.fRight{float:right;}
+body{background:#f3f3f3;}
+
+
+.topBox{width:100%; background:url(../images/topBg.png) no-repeat; background-size:cover; height:160px; text-align:center; padding-top:20px;}
+.txPic{width:80px; height:80px; border-radius:100%; overflow:hidden; margin:0 auto;border: 3px solid rgba(255,255,255,0.6);}
+.txPic img{width:100%;}
+.topBox h1{color:#fff; font-size:16px;margin-top: 20px;line-height: 30px;}
+
+.twoNavBox{width:100%; background:#fff; overflow:hidden;}
+.twoNavBox a{display:block; float:left; width:49%; overflow:hidden; text-align:center;padding: 10px 0;}
+.twoNavBox .leftBox{ background:url(../images/line.png) no-repeat right center;}
+.twoNavBox a span{display:inline-block; vertical-align:middle; color:#585858; font-size:14px; line-height:26px;}
+.twoNavBox a span img{width:20px;}
+
+.navListBox{width:100%;overflow:hidden; margin-bottom:10px; border-bottom:1px solid #eaeaea; background:#fff;border-top: 1px solid #eaeaea;}
+.navListBox ul li{width:100%; overflow:hidden;}
+.navListBox ul li p{width:20%; padding:8px 0; text-align:center;}
+.navListBox ul li p img{width:30px;}
+.navListBox .rightTextBox{width:80%; padding: 12px 0; border-bottom:1px solid #eaeaea;}
+.navListBox .lastBox{border:none;}
+.navListBox .rightTextBox span{display:inline-block; vertical-align:middle; color:#767676; font-size: 16px;}
+.navListBox .rightTextBox .mycj{width:90%;}
+.navListBox .rightTextBox span img{width: 10px;}
+.navListBox .xxNumber{width:20px; height:20px; background:#f60505; font-size:12px; color:#fff; text-align:center; line-height:20px; position:absolute; right:0; top:0; border-radius:100%;}
+
+
+
+.he60{height:70px;}
+.bottom{ height: 60px; background:#fafafa; border-top:#CCC solid 1px; width:100%; position:fixed; bottom:0px;}
+.bottom img{ height:25px; margin-top: 9px;}
+.bottom span{ float:left; display:inline-block; width:100%; text-align:center; font-size:80%; line-height: 20px;}
+.bottom a{ display:inline-block; width:33%; height: 60px; float:left; color:#666666;}
+
+.bottom .chooseBox span{ color:#fd8a1a;}

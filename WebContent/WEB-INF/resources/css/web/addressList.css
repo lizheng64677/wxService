@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0; font-size:12px;}
+a{text-decoration:none;}
+li{list-style:none;}
+input{border:none;}
+input[type=button]{
+				-webkit-appearance:none;
+					outline:none
+						}
+
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+.actListBox{width: 100%; overflow:hidden;}
+.actListBox ul li{padding: 10px; overflow:hidden; border-bottom:1px solid #e7e7e7;/* padding: 10px 0; */}
+.actListBox ul li a{display:inline-block; width:100%; overflow:hidden;}
+.actListBox ul li a span{display:inline-block; vertical-align:middle;}
+.actListBox .picbox{width:30%;height: 60px;overflow: hidden;border-radius: 8px;}
+.actListBox .picbox img{width:100%;}
+.actListBox .actTextBox{width:70%;}
+.actListBox .actTextBox h1{color:#403f3f;font-size:16px;line-height: 28px; font-weight:normal;width:100%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;padding-left:15px;}
+.actListBox .actTextBox p{color:#707070; line-height:20px; font-size:13px; background:url(../images/dw01.png) no-repeat 0 2px; padding-left:15px;}

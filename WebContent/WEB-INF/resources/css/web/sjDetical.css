@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0; font-size:12px;}
+li{list-style:none;}
+a{text-decoration:none;}
+input{border:none; outline:none;}
+body{background:#f6f6f6; }
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+.bannerBox{width:100%; position:relative;}
+.bannerBox img{width:100%;}
+.picYm{ position:absolute; right:10px; bottom:10px; text-align:center;}
+.picYm span{display:inline-block;width:25px; height:25px; border-radius:100%; background:rgba(0,0,0,0.6); color:#fff; line-height:25px;}
+.textSmBox{padding:10px; background:#fff; border-bottom:1px solid #e5e5e5;}
+.textSmBox h1{color:#666565;font-size:16px; font-weight:normal; margin-bottom:8px;}
+.textSmBox .textCommentBox,.productActivityBox .actCommentBox{color:#868686; font-size:14px; line-height:20px;}
+.textSmBox .textCommentBox a,.productActivityBox .actCommentBox a{color:#f8b81e; font-size:12px; margin-left:8px;margin-top: 2px;}
+
+
+.freeShopBox{width:100%; background:#fff; border-top:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8; margin-top:10px;margin-bottom: 10px;}
+.freeShopBox h5{padding:10px; overflow:hidden;font-weight: normal;}
+.freeShopBox h5 span img{width:10px;float: right;}
+.freeShopBox h5 .starBox{width:15px;}
+.freeShopBox h5 span{display:inline-block; vertical-align:middle; color:#666565; font-size:16px;}
+.freeShopBox .rightText{font-size:12px; color:#a6a6a6;line-height:16px;}
+.freeShopBox h5 div font{display:inline-block; vertical-align:middle; color:#e9c818; font-size:14px;}
+
+
+.productActivityBox{width:100%;border-top:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8; background:#fff; overflow:hidden;}
+.productActivityBox h1{ padding:10px; color:#666565; font-size:16px; font-weight:normal;}
+.productActivityBox dl dt{margin: 0 10px; overflow:hidden; border-top:1px dotted #e8e8e8;}
+.productActivityBox dl dt h2{color:#f9c344; font-size:14px; font-weight:normal; margin: 8px 0;}
+.productActivityBox .picMainBox{margin:8px 0;width:100%;}
+.productActivityBox .picMainBox img{width:100%;}
+
+.priceButton{width:100%; margin:8px 0; overflow:hidden;}
+.priceButton p{font-size:16px; color:#f8b81e; font-weight:bold; line-height:34px;}
+.priceButton p s{color:#cbcbcb; font-weight:normal; margin-left:8px;}
+.priceButton input{width:100px; background:none; border-radius:20px; text-align:center; padding:8px 0; color:#f8b81e; border:1px solid #f8b81e; font-size:14px;}

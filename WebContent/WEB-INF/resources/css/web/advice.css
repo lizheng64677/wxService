@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+
+
+
+.adviceBox{margin:10px; overflow:hidden;}
+.adviceBox textarea{border:1px solid #eaeaea; height:100px; border-radius:8px; padding:5px; line-height:20px; font-size:14px; color:#999; width:96%; outline:none;}
+
+
+.addmore{width:100%; text-align:center; margin:20px 0;}
+.addmore a{display:inline-block; width:40%; padding:8px 0; background:#fd8a1a; border-radius:20px; text-align:center; font-size:14px; color:#fff;}

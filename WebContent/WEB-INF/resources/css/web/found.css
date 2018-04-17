@@ -1,0 +1,186 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+}
+a {
+	text-decoration:none;
+}
+li {
+	list-style:none;
+}
+input {
+	border:none;
+	border-radius:0px;
+	outline:none;
+}
+select, textarea {
+	border:none;
+	outline:none;
+	-webkit-appearance:none;
+}
+input[type=button] {
+	-webkit-appearance:none;
+}
+input[type=text] {
+	-webkit-appearance:none;
+}
+body {
+	
+	font-family:"微软雅黑";
+}
+
+
+.ui-btn-inner{
+    height: 175px;
+}
+
+.box{	
+    width:100%;
+	
+	height:20px;
+	
+
+	margin:20px auto;
+	border-radius:10px;
+	}
+.box p{
+	text-align:center;
+	font-size:16px;
+	color:#fd8a1a;
+	padding-bottom:10px;
+	border-bottom:1px solid #dedede;
+}
+
+.boxb{
+	width:100%;
+}
+.back1{
+	float:left;
+	/* padding-bottom:10px; */
+}
+#back1{
+	
+}
+.back1 img {
+	width:100%;
+	
+	border-radius: 5px;
+}
+.back1 .textBox {
+	width:100%;
+	background:rgba(0, 0, 0, 0.3);
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	position: absolute;
+	bottom: 9px;
+	height: 35px;
+	line-height: 35px;
+}
+.textBox h1 {
+	color:#fff;
+	font-size: 14px;
+	font-weight:normal;
+	margin-left: 10px;
+}
+.textBox h1 font {
+	color:#fff;
+	margin-left:10px;
+}
+.button{
+	width:100px;
+	height:40px;
+	background:#66a147;
+	color:#fff;
+	font-size:20px;
+	border-radius:8px;
+	font-family:"黑体";
+	position:relative;
+	top:-170px;
+	float:right;
+	right:20px;
+}
+
+.boxgoing{
+    position: absolute;
+    right: 10px;
+    width: 60px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    height: 29px;
+    z-index: 100000;
+    top: 0px;
+}
+.boxgoing1{
+    position: absolute;
+    right: 10px;
+    background-size: 60px 30px;
+    width: 60px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    height: 29px;
+}
+.boxgoing span,.boxgoing1 span{
+    
+    font-size:12px;
+	font-weight:bold;
+    line-height: 24px;
+}
+
+.he60 {
+	height:70px;
+}
+.bottom {
+	height: 60px;
+	background:#2d2d2d;
+	border-top:#CCC solid 1px;
+	width:100%;
+	position:fixed;
+	bottom:0px;
+}
+.mokuai{
+    width: 33.3%;
+	height:60px;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 8px;
+	float:left;
+	}
+.bottom img{
+	width: 25px;
+    height: 23px;
+	}
+.Mybottom{
+    width: 33.3%;
+	height:60px;
+    color: #f00;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 8px;
+	float:left;
+	background:#000;
+	}
+	
+.headerContent {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px #ccc solid;
+    background: #fff;
+}
+.headerFont {
+    color: #fe8a1b;
+    text-align: center;
+    line-height: 60px;
+    font-size: 16px;
+}
+.he30{
+	line-height: 23px;
+}
+.ui-btn-text{
+    position: relative;
+}

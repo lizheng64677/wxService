@@ -1,0 +1,202 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+	font-size:12px;
+}
+a {
+	text-decoration:none;
+}
+li {
+	list-style:none;
+}
+input {
+	border:none;
+	outline:none;
+}
+input[type=button] {
+	-webkit-appearance:none;
+	outline:none;
+}
+body {
+	background:#f3f3f3;
+}
+.txMainBox {
+	width:100%;
+	text-align:center;
+	overflow:hidden;
+}
+.txMainBox p {
+	width:80px;
+	height:80px;
+	border-radius:80px;
+	overflow:hidden;
+	margin:10px auto;
+	position:relative;
+}
+.txMainBox p img {
+	width:100%;
+}
+.txMainBox div {
+	width:100%;
+	text-align:center;
+	overflow:hidden;
+	color:#707070;
+	padding:5px 0;
+	font-size:14px;
+}
+.txMainBox .scBox {
+	position:absolute;
+	left:50%;
+	margin-left:-40px;
+	z-index:10;
+	opacity:0;
+	width:80px;
+	height:80px;
+	border-radius:100%;
+}
+.tjForm {
+	padding:10px;
+}
+.welText {
+	text-align:center;
+	color:#fe8800;
+	font-size:14px;
+	padding:10px;
+	background:#d6d6d6;
+}
+.tjForm ul li .s4 .txButton {
+	width:60px;
+	height:60px;
+	background:url(../images/ctx.png) no-repeat center;
+	border-radius:60px;
+	overflow:hidden;
+}
+.tjForm ul li .s4 .fButton {
+	width:60px;
+	height:60px;
+	border-radius:60px;
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	z-index:10;
+	opacity:0;
+}
+.inputStyle {
+	width:98%;
+	border:#ddd solid 1px;
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	color:#878787;
+	border-radius: 20px;
+}
+.tjForm ul li span {
+	display:inline-block;
+	vertical-align:middle;
+}
+.tjForm ul li {
+	margin:10px 0;
+}
+.tjForm ul li .s3 {
+	width:23%;
+	color:#707070;
+	font-size:14px;
+}
+.tjForm ul li .s3 font {
+	color:#F60;
+}
+.tjForm ul li .s4 {
+	width:73%;
+	font-size:14px;
+	text-align:left;
+	position:relative;
+}
+.tjForm ul li .s5 span {
+	margin-right:10px;
+	color:#666;
+}
+.tjForm ul li .s5 .woman {
+	margin-left:20px;
+}
+.tjForm ul li .s4 .year {
+	width: 40%;
+	margin-right: 4px;
+}
+.tjForm ul li .s4 .year select {
+	width:100%;
+	height:35px;
+	line-height:35px;
+	border:1px solid #dddddd;
+	color:#878787;
+	-webkit-appearance: button;
+	background:url(../images/downJt.png) no-repeat 95% #fff;
+}
+.tjForm ul li .s4 .xfBox {
+	width:103%;
+	border:1px solid #dddddd;
+	line-height:35px;
+	height:35px;
+	color:#b6b6b6;
+	-webkit-appearance: button;
+	background:url(../images/downjt01.png) no-repeat 95% #fff;
+	border-radius: 20px;
+	outline:none;
+	padding-left: 5px;
+}
+.tjForm ul li .s4 p {
+	margin:10px 0;
+	float:left;
+	color:#666;
+}
+.tjForm ul li .s4 p span {
+	margin-right:8px;
+}
+.formCon p font {
+	font-size:12px;
+}
+.bradius {
+	border-radius:5px;
+}
+.radioStyle {
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border: none;
+	-webkit-appearance: button;
+	border-radius: 100%;
+	border: solid 1px #e5e5e5;
+	overflow: hidden;
+	outline: none;
+	outline: navajowhite;
+}
+.chooseRadio {
+	background:#fd8a1a;
+	border:1px solid #fd8a1a;
+}
+.tjBtn2 {
+	background:#ff9945;
+	color:#FFF;
+	text-align:center;
+	padding:15px 0;
+	width:70%;
+	text-decoration:none;
+	display:inline-block;
+	border:0px;
+}
+.qrxg {
+	margin: 20px;
+	overflow:hidden;
+	text-align: center;
+}
+.qrxg input {
+	width: 50%;
+	background:#ff7d00;
+	padding:10px 0;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	border-radius: 20px;
+}

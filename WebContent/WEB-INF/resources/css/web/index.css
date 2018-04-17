@@ -1,0 +1,189 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;font-family: "微软雅黑";}
+a{text-decoration:none;}
+li{list-style:none;}
+.fLeft{float:left;}
+.fRight{float:right;}
+body{
+    background-color: #f9f9f9;
+}
+
+header{
+	width:100%;
+	height:60px;
+	background:#fff;
+	}
+.Return{
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+	}
+.Return img{
+    width: 15px;
+    z-index: 10;
+    position: fixed;
+    top: 20px;
+	padding-left: 10px
+	}
+.Return span{
+	color:#000;
+	padding-left: 25px
+	}
+.select{
+    width: 80px;
+    border: 0px;
+    line-height: 35px;
+    height: 35px;
+    color: #000;
+    -webkit-appearance: button;
+    background: url(../../images/web/u15.png) no-repeat 95% #fff;
+    background-size: 15px;
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+.headerFont{
+	text-align:center;
+	line-height:60px;
+	color:#fd8a1a;
+    font-size: 16px;
+}
+.more{
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+    top: 3px;
+    right: 10px;
+}
+.more img{
+    width: 25px;
+    z-index: 10;
+}
+.more span{
+    width: 10px;
+    height: 10px;
+    background: #f00;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    left: 19px;
+    z-index: 10;
+}
+
+
+.bannerBox{width:100%;}
+.bannerBox img{width:100%;}
+
+.hdzqMainBox{width:100%; border-bottom:1px solid #cecece; background:#fff; overflow:hidden;}
+.activeCommentBox{padding:10px; overflow:hidden;}
+.activeCommentBox ul li{width:33%; float:left; overflow:hidden;}
+.activeCommentBox ul li a{display:inline-block; width:100%; text-align:center; overflow:hidden;}
+.activeCommentBox ul li a div{width:80px; height:80px; border-radius:100%; border:2px solid #f1f1f1;margin:0 auto;}
+.activeCommentBox ul li a div p{width:70px; height:70px; border-radius:100%; overflow:hidden; margin:5px auto;}
+.activeCommentBox ul li a div p img{width:100%;}
+.activeCommentBox ul li a h6{color:#656565; font-size:14px; line-height:28px; font-weight:normal; width:100%; text-overflow:ellipsis;white-space:nowrap; overflow:hidden;}
+.opition{width:100%; text-align:center; overflow:hidden;}
+.opition span{display:inline-block; width:6px; height:6px; border-radius:100%; border:1px solid #b2b2b2;}
+.opition .dqOpition{background:#b2b2b2;}
+.num{width:35%}
+.rightcolor{color:#f00;font-size: 12px;}
+.hotProductBox{width:100%; background:#fff; overflow:hidden;margin-bottom: 10px;border-top: 1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;}
+/* .hotProductBox{width:100%; background:#fff; overflow:hidden; margin-top:10px;border-bottom:1px solid #e5e5e5;border-top:1px solid #cecece;} */
+.titleBox{padding:10px;border-bottom:1px solid #e5e5e5; overflow:hidden;}
+.titleBox h1{color:#505050; font-size: 16px;}
+.titleBox p font{color:#4f4f4f; font-size:13px; vertical-align:middle; margin-right: 5px;}
+.titleBox p img{width:15px; vertical-align:middle;}
+.picBox{margin:10px; border-radius:20px; overflow:hidden;height: 170px; position:relative;}
+.picBox img{width:100%;}
+.timeBox{position:absolute; top:50px; left:0; width:100%; text-align:center;}
+.timeBox .timeText{color:#fff; text-shadow: 0px 2px 2px #565656; line-height:35px; font-size:16px; font-weight:bold;}
+.timeBox .time span{display:inline-block; vertical-align:middle; font-weight:bold; color:#fff; font-size:16px;}
+.timeBox .time .number{width:35px; height:35px; border-radius:5px; background-image:-moz-linear-gradient(top,#eeeeee,#a4a4a4); background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#eee),color-stop(1,#a4a4a4)); box-shadow:0px -1px 0 #fff; line-height:35px; text-align:center; color:#0d0d0d; font-size:24px; text-shadow:0 1px 0 #fff;}
+
+
+.projectMainBox{margin:10px; overflow:hidden;}
+.projectMainBox dl dt{width: 49%;  overflow:hidden;}
+.projectMainBox dl dt img{width:100%; height: 100%;}
+.projectMainBox dl dt p{width:100%;border-radius:10px;overflow:hidden;height: 105px;}
+
+.projectMainBox .picNameBox{width:100%; line-height:34px; border-radius:0 0 10px 10px; color:#6e6e6e; }
+.projectMainBox .picNameBox h2{font-size:14px; font-weight:normal;width: 60%;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.projectMainBox .picNameBox h6 s{font-size:14px; font-weight:normal;margin-right: 5px;}
+
+.he60 {
+	height:70px;
+}
+.bottom {
+	height: 60px;
+	background:#2d2d2d;
+	border-top:#CCC solid 1px;
+	width:100%;
+	position:fixed;
+	bottom:0px;
+	line-height: 27px;
+}
+.mokuai{
+    width: 33.3%;
+	height:60px;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 8px;
+	float:left;
+	}
+.bottom img{
+	width:25px;
+	height: 23px;
+}
+.Mybottom{
+    width: 33.3%;
+	height:60px;
+    color: #f00;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 8px;
+	float:left;
+	background:#000;
+	}
+.he30{
+	line-height: 33px;
+}
+.he20{
+	line-height: 31px;
+}
+.labelLeft{
+    position: absolute;
+    width: 77px;
+    background-color: #ff3535;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    height: 20px;
+    padding: 0px 3px;
+    margin-left: -91px;
+    left: 50%;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 17px;
+	
+}
+.labelRight{
+	position: absolute;
+    width: 77px;
+    background-color: #ff3535;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    height: 20px;
+    margin-left: -91px;
+    right: 2.5%;
+    padding: 0px 3px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 17px;
+}

@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0; }
+a{text-decoration:none;}
+
+
+.pmxz{margin:20px 0;color:393939; font-weight:bold; font-size:16px; width:100%; text-align:center;}
+
+.timeBox{margin:10px; text-align:right; color:#777777;}
+.firstOne{margin:10px 10px;}
+.firstOne p{color:#393939; line-height:20px;}
+.childText{margin-bottom:15px;}

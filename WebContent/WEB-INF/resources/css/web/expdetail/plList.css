@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0; font-size:12px;}
+li{list-style:none;}
+a{text-decoration:none;}
+input{border:none; outline:none;}
+body{background:#f3f3f3; }
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+.plMainBox{overflow: hidden;
+    border: 1px solid #e9e9e9;
+    margin-top: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;}
+.plMainBox dl dt{margin: 8px 0px; overflow:hidden; padding: 10px 0px; background:#fff;border-radius: 8px;padding-left:10px;}
+.plMainBox .firstBox{width:100%; overflow:hidden;}
+.plMainBox .firstBox .nameTime{color:#333; font-size:14px;line-height: 20px;}
+.plMainBox .firstBox .nameTime span{margin-left:10px; color:#acacac;}
+.plMainBox .firstBox .smallStar{color:#d3d3d3;line-height: 20px;margin-right: 10px;}
+.plMainBox .starMainBox{width:100%; padding:8px 0;}
+.plMainBox .starMainBox span{display:inline-block; vertical-align:middle;}
+.plMainBox .starMainBox span  img{width:15px;}
+.plMainBox .middleBox{color:#666666;  line-height:20px; padding:5px 0;}
+.plMainBox .pictureBox span{display:inline-block;padding: 5px 0px; vertical-align:middle; width: 65px;height: 65px;overflow: hidden;}
+.plMainBox .pictureBox span img{width:100%;height:100%;}
+.bottomBox{padding:10px; overflow:hidden;}
+.bottomBox a{display:inline-block; width:100%; overflow:hidden;}
+.bottomBox .allPl{color:#2a2a2a; font-size:14px;}
+.bottomBox .allPl font{color:#666; font-size:13px;}
+.bottomBox .rjt img{width:9px;}
+
+/*弹出框*/
+.hide{ display:block;   width: 100%; position:fixed; top:0px; bottom:0px; background:rgba(0,0,0,0.5);}
+.boximg{ margin: 10px 10px 10px 10px;}
+.boximg img{width:100%;}

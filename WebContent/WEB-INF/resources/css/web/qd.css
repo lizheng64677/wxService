@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+.fLeft{float:left;}
+.fRight{float:right;}
+
+.qdMainBox{width: 100%; border-bottom:1px solid #cecece; overflow:hidden;padding: 8px 0;}
+.leftMainBox{width: 67%; overflow:hidden; border-right:1px solid #c9c9c9;margin-left: 10px;}
+.leftMainBox span{display:inline-block; vertical-align:middle;}
+.leftMainBox .txBox{width:70px; height:70px; border-radius:100%; overflow:hidden;}
+.leftMainBox .txBox img{width:100%;}
+.leftMainBox span h1{color:#4d4d4d; font-size:16px; line-height:26px;}
+.leftMainBox span p{color:#818181; font-size:14px;}
+.rightMainBox{width:29%; text-align: center;}
+.rightMainBox a{display:inline-block; width: 75px; padding:8px 0; border-radius: 20px; border:1px solid #c1c1c1; text-align:center; font-size:14px; color:#797979;margin-top: 18px;}
+
+.jfNavList{margin:20px; overflow:hidden;}
+.jfNavList ul li{width:100%; padding:10px 0; overflow:hidden; position:relative;}
+.jfNavList ul li a{width:100%; display:inline-block; height:50px; border-radius:30px; text-align:right;}
+.jfNavList .bcolor1{background:#fa5f8e;}
+.jfNavList .bcolor2{background:#8576f3;}
+.jfNavList .bcolor3{background:#45b93c;}
+.jfNavList .bcolor4{background:#f88702;}
+.jfNavList .textBox{ text-align:center;margin-top: 10px;float: right;margin-right: 10%;}
+.jfNavList .textBox h1{color:#fff; font-size:16px; padding: 0 20px; border-left:1px solid #fff;}
+.jfNavList .textBox p{color:rgba(255,255,255,0.7); font-size:12px;line-height: 20px;}
+.jfNavList .iconBox{position:absolute; bottom: 13px; left:5%;}
+.jfNavList .iconBox img{width: 50%;}
+
+
+
+.he60{height:60px;}
+.bottom{ height: 60px; background:#240505; border-top:#CCC solid 1px; width:100%; position:fixed; bottom:0px;}
+.bottom img{ height:25px; margin-top: 9px;}
+.bottom span{ float:left; display:inline-block; width:100%; text-align:center; font-size:80%; line-height: 20px;}
+.bottom a{ display:inline-block; width:20%; height: 60px; float:left; color:#666666;}
+
+.bottom .chooseBox span{background: #ef2828;border-bottom: 6px solid #720808; color:#fff;}

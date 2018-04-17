@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+body{background:url(../images/bg.png) no-repeat; background-size:cover;}
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+
+.drMainList{margin:10px; background:#fff; border:1px solid #dedede;  overflow:hidden; border-radius:8px;}
+.nameBox{padding:10px 10px 0 10px; overflow:hidden;}
+.nameBox .name{width:100%;}
+.name span{display:inline-block; vertical-align:middle;}
+.name span h1{color:#686868; font-size:14px; line-height:24px; font-weight:normal;}
+.name span p{font-size:12px; color:#a6a6a6;}
+.name .tx{width:40px; height:40px; border-radius:40px; overflow:hidden;}
+.name .tx img{width:100%;}
+.zanPl{width: 100%; overflow:hidden; }
+.zanPl div{width: 50%; padding:8px 0; /* border-radius:5px; */ text-align:center;/* border: 1px solid #eaeaea; */ color: #a0a0a0; /* margin-right:10px; */}
+.zanPl .zanBox{ background:url(../images/line01.png) no-repeat right;}
+.zanPl .plBox{background:#ff7d00; color:#fff;}
+.zanPl div span{display:inline-block; vertical-align:middle; }
+.zanPl div span img{width:20px;}
+
+
+.storyCommentBox{padding: 10px 10px 0 10px; background:#fff; overflow:hidden;}
+.storyCommentBox .sj{ width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 12px solid #ffedf3; margin-left: 12px;}
+.storyCommentBox p{color:#7e7e7e; line-height: 18px; text-indent:2em;background: #ffedf3;padding: 8px;border-radius: 5px;font-size: 13px;}
+.storyCommentBox h2{padding:10px 0; width:100%;}
+.storyCommentBox h2 span{ display:inline-block; vertical-align:middle;border-radius: 8px; width: 30%;height: 85px;overflow: hidden;}
+.storyCommentBox h2 span img{width:100%;}
+
+
+
+.actListBox{width:100%; overflow:hidden; background:#fff;border-bottom: 1px solid #e8e8e8;}
+.actListBox ul li{padding:10px; overflow:hidden; background:url(../images/point_02.png) repeat-x bottom;}
+.actListBox ul li a{display:inline-block; width:100%; overflow:hidden;}
+.actListBox ul li a span{display:inline-block; vertical-align:middle;}
+.actListBox .picbox{width:8%;}
+.actListBox .picbox img{width:100%;}
+.actListBox .actTextBox{width:80%;}
+.actListBox .actTextBox h1{color: #696969;font-size: 14px;font-weight: normal;}
+.actListBox .jt{width:5%; text-align:right;}
+.actListBox .jt img{width:9px;}
+
+
+

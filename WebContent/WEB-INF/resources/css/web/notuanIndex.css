@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+a{text-decoration:none;}
+li{list-style:none;}
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+
+.bannerBox{width:100%;}
+.bannerBox img{width:100%;}
+
+
+.activeCommentBox{padding:10px; overflow:hidden;border-bottom: 1px solid #eaeaea;}
+.activeCommentBox ul li{width:25%; float:left; overflow:hidden;}
+.activeCommentBox ul li a{display:inline-block; width:100%; text-align:center; overflow:hidden;}
+.activeCommentBox ul li a p{width:80%; margin:5px auto;}
+.activeCommentBox ul li a p img{width:100%;}
+.activeCommentBox ul li a h6{color: #bcbcbc; font-size:14px; line-height:28px; font-weight:normal; width:100%; text-overflow:ellipsis;white-space:nowrap; overflow:hidden;}
+
+
+.hotProductBox{width:100%; background:#fff; overflow:hidden; /* margin-top:10px; *//* border-bottom:1px solid #cecece; *//* border-top:1px solid #cecece; */}
+.picBox{margin:10px; border-radius:10px; overflow:hidden; position:relative;border: 1px solid #eaeaea; background:#fbfbfb;}
+.picBox h1{width:100%;border-radius:10px 10px 0 0; overflow:hidden;}
+.picBox h1 img{width:100%;}
+.picBox h2{width:100%; padding:10px 0; color:#666; font-size:14px; font-weight:normal; text-align:center;}
+.picBox p{width: 50px; height: 50px; border-radius:100%; overflow:hidden; position:absolute; bottom:15px;border: 3px solid #fff;left: 15px;background: #fff;}
+.picBox p img{width:100%;}
+
+.addmore{width:100%; text-align:center; margin:10px 0;}
+.addmore a{display:inline-block; width:40%; padding:8px 0; border:2px solid #f4a92c; border-radius:20px; text-align:center; font-size:14px; color:#f4a92c;}
+
+
+.he60{height:70px;}
+.bottom{ height: 60px; background:#fafafa; border-top:#CCC solid 1px; width:100%; position:fixed; bottom:0px;}
+.bottom img{ height:25px; margin-top: 9px;}
+.bottom span{ float:left; display:inline-block; width:100%; text-align:center; font-size:80%; line-height: 20px;}
+.bottom a{ display:inline-block; width:33%; height: 60px; float:left; color:#666666;}
+
+.bottom .chooseBox span{ color:#fd8a1a;}

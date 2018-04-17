@@ -1,0 +1,154 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+i {
+	font-style: normal;
+}
+li {
+	list-style: none;
+}
+.fLeft {
+	float: left;
+}
+.fRight {
+	float: right;
+}
+input {
+	border: none;
+	outline: none;
+}
+input[type=botton]{
+	-webkit-appearance:none;
+	ontline:none;
+}
+input[type=text]{
+	-webkit-appearance:none;
+}
+body {
+	background: #efefef;
+	font-family: "黑体";
+}
+.content {
+	width: 90%;
+	margin: auto;
+}
+dt {
+	height: 40px;
+	line-height: 40px;
+	background: #fff;
+	padding-left: 5%;
+	font-family: "黑体";
+	color: #333;
+}
+dd {
+	border-bottom: 1px solid #e4e4e4;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 5%;
+	font-size: 14px;
+	color: #646464;
+}
+div.ul{
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background:#e7e7e7;
+    margin-top: 10px;
+}
+div li{
+    list-style: none;
+    text-align: left;
+    padding: 1px 10px;
+
+}
+.search{
+    width: 100%;
+    line-height: 30px;
+    background: #fff;
+    height: 30px;
+    margin-top: 6px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+.magnifying{
+	position: relative;
+    top: 3px;
+    margin-left: 19%;
+}
+.searchtext {
+	color: #999;
+}
+
+.current {
+	height: 60px;
+	line-height: 60px;
+	color: #bdbdbd;
+	border-bottom: 1px solid #cacaca;
+}
+.hotcity {
+	border-bottom: hidden;
+    float: left;
+}
+.current span {
+	float: right;
+    padding-right: 5px;
+}
+.city {
+    width: 80px;
+    border: 1px solid #e92c2d;
+    height: 40px;
+    color: #e92c2d;
+    font-size: 15px;
+    font-family: "黑体";
+    background: #efefef;
+    margin-top: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;  
+}
+.hotcitys {
+    min-height: 57px;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #cacaca;
+}
+.hotcitys li {
+	width: 30%;
+	height: 35px;
+	line-height: 35px;
+	margin-left: 3%;
+	margin-bottom: 18px;
+	float: left;
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+	background: #fff;
+}
+.menu{
+    float: left;
+    width: 100%;
+}
+.menu dl{
+    margin: 0px auto;
+    width: 90%;
+}
+.rightbox {
+	position: fixed;
+    right: 3px;
+    top: 50px;
+}
+.rightbox ul li {
+	height: 21px;
+	color: #999;
+	font-size:15px;

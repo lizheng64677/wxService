@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+}
+a {
+	text-decoration:none;
+}
+li {
+	list-style:none;
+}
+.fLeft {
+	float:left;
+}
+.fRight {
+	float:right;
+}
+body {
+	font-family:"微软雅黑";
+}
+input[type=button]{
+	-webkit-appearance:none;
+	outline:none
+}
+header {
+	text-align:center;
+	color:#fd8a1a;
+	height:50px;
+	line-height:50px;
+	letter-spacing:5px;
+}
+.content {
+	width:100%;
+	text-align: center;
+}
+.loginbar {
+	width: 100%;
+	text-align: center;
+	margin-top:40px;
+}
+.loginimg {
+	position: absolute;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+.loginbar ul li {
+	margin-bottom:15px;
+}
+.logintel {
+	width:70%;
+	border:#ddd solid 1px;
+	height:35px;
+	line-height:35px;
+	padding-left:30px;
+	color:#878787;
+	border-radius: 20px;
+	font-size: 14px;
+	-webkit-appearance:none;
+}
+.loginbutton {
+	margin-top: 30px;
+	overflow:hidden;
+	text-align: center;
+}
+.loginbutton input {
+	width: 75%;
+	background:#e83228;
+	padding:10px 0;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	border-radius: 20px;
+	border:0px;
+	cursor: pointer;
+}
+.registered {
+	margin:0px auto;
+	margin-top:20px;
+	width:63%;
+}
+.registeredfont {
+	float:left;
+	font-size:12px;
+	margin-top: 5px;
+}
+.registered input {
+	float: right;
+	background:#fff;
+	width: 30%;
+	padding: 6px 0;
+	text-align: center;
+	color: #999;
+	font-size: 12px;
+	border-radius: 15px;
+	border: 1px #ccc solid;
+	cursor: pointer;
+	margin-top: 3px;
+}
+
+.registeredpwd {
+    float: left;
+    font-size: 12px;
+    margin-top: 20px;
+    width: 60%;
+}
+.registered span{
+	color: #6f93de;
+	font-size:14px;
+}

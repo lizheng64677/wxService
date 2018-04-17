@@ -1,0 +1,81 @@
+.zcTipBox {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.4);
+	top: 0;
+	z-index: 100;
+}
+
+.tipMainBox {
+	width: 80%;
+	margin: 0 auto;
+	background: #fff;
+	overflow: hidden;
+	margin-top: 40%;
+	position: relative;
+}
+
+.tipMainBox h1 {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid #dddddd;
+}
+
+.tipMainBox h1 span {
+	display: inline-block;
+	vertical-align: middle;
+	color: #666666;
+	font-size: 16px;
+	text-align: center;
+}
+
+.tipMainBox h1 span img {
+	width: 30px;
+}
+
+.tipMainBox p {
+	padding: 20px 40px;
+	overflow: hidden;
+}
+
+.tipMainBox p input {
+	width: 100%;
+	background: #ff8e01;
+	font-size: 14px;
+	border-radius: 3px;
+	text-align: center;
+	color: #fff;
+	padding: 8px 0;
+}
+
+.tipMainBox div {
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+
+.tipMainBox div img {
+	width: 24px;
+}
+
+.hidden {
+	display: none;
+}
+
+.tjBtn {
+	width: 100%;
+	background: #ff8e01;
+	font-size: 14px;
+	border-radius: 3px;
+	text-align: center;
+	color: #fff;
+	padding: 8px 0;
+}
+
+.tjBtn {
+	display: inline-block;
+	width: 100%;
+	padding: 8px 0;
+}
+}

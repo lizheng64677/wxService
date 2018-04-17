@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0; font-size:12px;}
+li{list-style:none;}
+a{text-decoration:none;}
+input{border:none; outline:none;}
+body{background:#f6f6f6; }
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+.freeShopBox{width:100%; background:#fff; border-top:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;margin-bottom: 10px;}
+.freeShopBox h1{padding:10px; font-size:16px; color:#757575; overflow:hidden;font-weight: normal;}
+.addressPhoneBox{margin:0 10px; overflow:hidden;}
+.addressPhoneBox ul li{ overflow:hidden; width: 100%; border-bottom:1px solid #e8e8e8; padding: 10px 0;}
+.addressPhoneBox ul li span{display:inline-block; vertical-align:middle; color:#666; font-size:13px;}
+.addressPhoneBox .address{width: 82%;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+.addressPhoneBox .iconBox{width:15%; text-align:right;}
+.addressPhoneBox .iconBox img{width:20px;}
+.addressPhoneBox .telBox{border-bottom:none;}
+.freeShopBox h5 .sqjl{width: 94%;}
+.freeShopBox h5 span img{width:10px;float: right;}

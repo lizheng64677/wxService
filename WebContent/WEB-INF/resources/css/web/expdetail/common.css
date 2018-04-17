@@ -1,0 +1,73 @@
+.hidden {
+	display: none;
+}
+.m05 {
+margin: 10px;
+overflow: hidden;
+text-align: center;
+}
+.m05 .viewAllBtn {
+border-radius: 20px;
+width: 40%;
+margin: 0 auto;
+font-size: 14px;
+}
+.viewAllBtn{display: inline-block; width:100%; padding: 8px 0; background:#fd8a1a;color:#fff; text-decoration: none; text-align: center;}
+.emptyDiv img{vertical-align: middle;margin-right:5px;}
+.emptyDiv{height:20px; width:100%;text-align: center; line-height: 50px; color:#666;}
+.fLeft{ float:left;}
+.img100 img{width:100%;}
+a{
+	text-decoration: none;
+}
+
+
+.picBox .he220{height:220px;}
+.picBox .he220 a{height:220px;}
+
+/*申请成功*/
+.sqSuccessBox{width:100%; height:100%; background:rgba(0,0,0,0.5); position:fixed; top:0;z-index: 200;}
+.sqSuccess{width:80%; margin:50% auto 0 auto; margin-bottom:-80px; border-radius:5px; background:#fff; position:relative;}
+.Successbox{padding:20px; overflow:hidden;}
+.Successbox h1{padding: 10px 0 10px 0;color: #8d8d8d;;font-size: 14px;line-height: 20px;font-weight: normal;}
+.Successbox h6{font-size:10px; font-weight:normal; color:#999;text-align:center; }
+.Successbox p{text-align:center; width:100%; padding:10px 0;}
+.Successbox p img{width:30%;}
+.Successbox div{width:100%; text-align:center;padding: 10px 0;}
+.Successbox div input{    width: 120px;
+    border-radius: 20px;
+    border: none;
+    background: #e83228;
+    color: #fff;
+    padding: 10px 0}
+.delBox{position:absolute; top:0; right:10px;}
+.delBox img{width:20px;}
+
+
+/*分享至朋友*/
+.sqSuccessBox1{background:rgba(0,0,0,0.8);}
+.tipBox{width:80%; margin:20% auto 0 auto; margin-bottom:-80px; border-radius:5px; position:relative;}
+.tipBox img{width:100%;}
+.texrsm{color:#ff7d00; font-size:14px; line-height: 20px;/* padding: 14% 14%; */ position:absolute; width: 74%; left:50%; margin-left: -37%;top: 15%; text-align:center;}
+.ydBox{width:100%; text-align:right;}
+.ydBox img{width:40%;}
+.tipText{width:100%; }
+.tipText p{ color:#ff7d00; font-size:14px; line-height:24px;padding: 14% 14%;}
+.tipBox div a{width: 100%; display:inline-block; border-radius:3px;  background-size:cover; background:none; color:#ff7d00;  padding:7% 0;position: absolute;bottom: 1%;left: 50%;margin-left: -50%;font-size: 14px;text-align: center;}
+.tipBox .Iknow{width: 50%; position:relative;margin: 20px auto;}
+.tipBox .Iknow img{width:100%;}
+
+/*刮刮乐*/
+.sqSuccessBox2{width:100%; height:100%; background:rgba(0,0,0,0.5); position:fixed; top:0;z-index: 200;}
+
+
+.peopleBox{width:101px; overflow:hidden;  background:rgba(255, 155, 104, 0.4); border-radius:5px; position:fixed; bottom:20px; right:10px;}
+.peopleBox span{display:inline-block;padding:8px 0; width:50px; text-align:center;float: left;}
+.peopleBox span img{width:26px;}
+.peopleBox .line{width:1px; background:rgba(255,255,255,0.5); height:28px;}
+
+
+
+/**NO团顶部位置固定**/
+.fixed_t{position: fixed; top: 0px; z-index: 10}
+.fixed_b{position: fixed; bottom: 0px; z-index: 10}

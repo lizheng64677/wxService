@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0; font-size:12px;}
+a{text-decoration:none;}
+li{list-style:none;}
+
+.hzsjMainBox{margin:12px 10px; color:#e83228; font-size:16px;}
+
+
+.sjListBox{ margin:10px; overflow:hidden;}
+.sjListBox table{width:100%;border-top:1px solid #efefef; table-layout:fixed;}
+.sjListBox table tr td{padding:6px;width:33%; border-bottom:1px solid #efefef; text-align:center;}
+.sjListBox table tr td p img{width: 80px; height: 80px;}
+.sjListBox table tr td h1{color:#666; font-size:14px;line-height: 20px; margin-top:10px; font-weight:normal;text-align: center;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.sjListBox .middleBox{border-left:1px solid #efefef; border-right:1px solid #efefef;}

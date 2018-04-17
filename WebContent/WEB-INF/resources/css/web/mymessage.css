@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+.drMainList{width:100%; background:#fff;  overflow:hidden; }
+.nameBox{padding:10px 10px 0 10px; overflow:hidden;}
+.nameBox .name{width:40%;}
+.name span{display:inline-block; vertical-align:middle;}
+.name .tx{width:40px; height:40px; border:1px solid #dadada; border-radius:40px; overflow:hidden;}
+.name .tx img{width:100%;}
+.zanPl{width:60%; overflow:hidden; }
+.zanPl div{width: 75px; padding:8px 0; border-radius:5px; text-align:center;border: 1px solid #eaeaea; color: #a0a0a0; margin-right:10px;}
+.zanPl .zanBox{}
+.zanPl .plBox{background:#ff7d00; color:#fff;}
+.zanPl div span{display:inline-block; vertical-align:middle; }
+.zanPl div span img{width:20px;}
+
+.storyCommentBox{padding: 10px 10px 0 10px; background:#fff; /* border-bottom:1px solid #e8e8e8; */ overflow:hidden;}
+.storyCommentBox .sj{ width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 12px solid #f6f6f6; margin-left: 12px;}
+.storyCommentBox .messageBox{background: #f6f6f6;padding: 8px;border-radius: 5px;}
+.storyCommentBox .messageBox p{color:#666666; line-height: 20px;font-size: 14px;}
+.storyCommentBox .messageBox h6{text-align:right; color:#b4b4b4; font-size:12px; font-weight:normal; margin-top:8px;}

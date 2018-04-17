@@ -1,0 +1,52 @@
+.swipe_zoom {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+}
+.swipe-wrap_zoom{height: 100%;}
+.swipe-wrap_zoom>div {
+	float: left;
+	height: 100%;
+	position: relative;
+	display: inline-table;
+}
+
+.slider_swipe_zoom { /*position: relative;
+	top: 52px;*/
+	width: 100%;
+	z-index:10;
+	text-align: center;
+	overflow: hidden;
+	height: 100%;
+	border-radius: 5px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display:none;
+}
+.cinema_banner_zoom img {
+	width: 100%;
+	-webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+	vertical-align: middle;
+}
+
+.cinema_banner_zoom a {
+	height: 100%;
+	width: 100%;
+	border-radius: 5px;
+	display: table-cell;
+	vertical-align: middle;
+}
+.topNav .s1 .topReg {
+	color: #FFFFFF;
+	margin-top: 0px;
+	display: inline-block;
+	font-weight: normal;
+	height: 30px;
+	padding: 0 5px;
+	border-radius: 3px;
+	background-color: #fe8a44;
+}
+.postFixed{top:0px;position: fixed;z-index: 0; height: 100%;width:100%; background: #000;display:none;}

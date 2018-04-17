@@ -1,0 +1,143 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0;
+	padding:0;"
+	font-size:14px;
+}
+a {
+	text-decoration:none;
+}
+li {
+	list-style:none;
+}
+input {
+	border:none;
+	border-radius:0px;
+	outline:none;
+}
+select, textarea {
+	border:none;
+	outline:none;
+	-webkit-appearance:none;
+}
+input[type=button] {
+	-webkit-appearance:none;
+}
+input[type=text] {
+	-webkit-appearance:none;
+}
+.fLeft {
+	float:left;
+}
+.fRight {
+	float:right;
+}
+body {
+	background:#f1f1f1;
+	font-family:"微软雅黑";
+}
+.box{
+	height:40px;
+	line-height:40px;
+	background:#f1f1f1;
+	font-size:16px;
+	width:100%;
+	padding-left:10px;
+}
+.box p{
+	font-size:16px;
+	font-family:"黑体";
+}
+.box img{
+	position:relative;
+	top:3px;
+	padding-right:3px;
+}
+.evaluation{
+	width:95%;
+	background:#fff;
+	margin:auto;
+	border:1px solid #dedede;
+	border-radius:5px;
+	height:170px;
+	
+}
+.evaluation p{
+	font-size:15px;
+	line-height:40px;
+	height:40px;
+	width:90%;
+	margin:auto;
+	
+	border-bottom:1px solid #dedede;
+}
+.evaluation p span{
+	color:#aaa;
+	padding-left:2px;
+	font-size:12px;
+}
+.evaluation p i{
+	color:#aaa;
+	float:right;
+	font-style:normal;
+	font-size:12px;
+	
+}
+.textarea{
+	width:90%;
+	height:120px;
+	margin:auto;
+	margin-left:5%;
+	font-size:14px;
+	line-height:30px;
+	color:#aaa;
+
+}
+.photo{
+	background:#fff;
+	margin-left:8px;
+	margin-right: 8px;
+	margin-top:10px;
+	border:1px solid #dedede;
+	border-radius:5px;
+	height:170px;
+}
+.photobox{
+	width:80px;
+	height:80px;
+	
+	border:2px dashed #dedede;
+	margin:10px auto;
+	border-radius:5px;
+}
+.photobox img {
+	width: 80px;
+	height: 77px;
+	/* position:relative; */
+	/* top:24px; */
+	/* left:23px; */
+}
+.buttonbox{
+	width:95%;
+	margin:10px auto;
+}
+.buttona{
+	margin:auto;
+	width:100%;
+	height:50px;
+	background:#fc8a18;
+	font-size:16px;
+	color:#fff;
+	font-weight:bold;
+	border-radius:8px;
+	
+}
+.buttonbox p{
+	font-size:12px;
+	padding-top:10px;
+}
+.buttonbox span{
+	color:#ff3535;
+	font-weight:bold;
+}

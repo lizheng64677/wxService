@@ -1,0 +1,145 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+}
+a {
+	text-decoration:none;
+}
+li {
+	list-style:none;
+}
+.fLeft {
+	float:left;
+}
+.fRight {
+	float:right;
+}
+body {
+	font-family:"微软雅黑";
+    background:#f9f9f9;
+    overflow: hidden;
+}
+input[type=button]{
+	-webkit-appearance:none;
+	outline:none
+}
+.header{
+	width:100%;
+	height:160px;
+	background:url(../../images/web/zichan.jpg) no-repeat;
+	background-size:100% 100%;
+	}
+.headerContent{
+	width:100%;
+	height:60px;
+	}
+.headerimg{
+    padding-left: 20px;
+    line-height: 80px;
+    float: left;
+    z-index: 99;
+    position: absolute;
+	}
+.headerFont{
+    color: #FFF;
+    text-align: center;
+    line-height: 80px;
+	}
+.headeGold{
+	width:100%;
+	color:#fff;
+	text-align: center;
+	}
+.headeGold span{
+	font-size: 65px;
+	}
+.content {
+	width:100%;
+	overflow-y: auto;
+	overflow-x:hidden;
+	float: left;
+}
+.box{
+	margin: 0px auto;
+    width: 90%;
+    height: 110px;
+    border: 1px #ccc solid;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-top: 15px;
+	}
+.bt{
+        float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 80%;
+    height: 40px;
+    position: relative;
+    height: 4.2em;
+    overflow: hidden;
+	}
+.pic{
+	float: right;
+    padding-top: 12px;
+    padding-right: 20px;
+	}
+.time{
+	float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+	font-size:12px;
+	color:#999;
+	}
+.money{
+    float: right;
+    padding-top: 6px;
+    padding-right: 10px;
+    font-size: 16px;
+    color: #666;
+	}
+.button {
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    text-align: center;
+    border-top: 1px #ccc solid;
+    position: fixed;
+    bottom: 0px;
+    background: #f2f2f2;
+}
+.buttonContent{
+	width:90%;
+	margin:0px auto;
+	}
+.buttonMoney {
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 10px;
+    background: #e83228;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 20px;
+    border: 0px;
+    cursor: pointer;
+}
+.buttonBox {
+	width: 49%;
+	margin-top:10px;
+	background:#ff7d00;
+	padding:10px 0;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+	border:0px;
+	cursor: pointer;
+	float:right;
+}

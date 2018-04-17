@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0; font-size:12px;}
+a{text-decoration:none;}
+li{list-style:none;}
+body{background:#f3f3f3;}
+.fLeft{float:left;}
+.fRight{float:right;}
+
+.productMainList{width:100%;  overflow:hidden; border-top:1px solid #e4e4e4;}
+.productMainList dl{width:100%; overflow:hidden;}
+.productMainList dl dt{padding:10px; overflow:hidden;background:#fff; border-bottom:1px solid #dbdbdb; border-top:1px solid #cecece; margin-bottom:10px;}
+.picBox{width: 43%;border-radius: 5px;overflow: hidden;height: 105px; position:relative;margin-top: 10px;margin-left: 5px;z-index: 10;}
+.picBox img{width:100%;height: 100%;}
+.picBox .dwPic{position:absolute; top: 5px; right: 5px;}
+.picBox .dwPic img{width: 60px;}
+.picBox .jjsx{position:absolute; right:0; bottom:-3px;z-index: 100;height: 60px;width: 60px;}
+.picBox .jjsx img{width: 60px;display: block;}
+.commentMainBox{width: 52%; overflow:hidden;margin-top: 5px;margin-bottom: 5px;margin-right: 1px;}
+.commentMainBox .titleBox{width:100%; padding:3px 0; overflow:hidden;}
+.commentMainBox .titleBox h2{color:#4f4f4f; font-size:16px;width: 100%;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.commentMainBox h3{font-weight:normal; color:#7d7d7d; font-size:13px;  text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.commentMainBox h4{color:#fe0000; font-size:16px;line-height: 18px;margin-top: 5px;}
+.commentMainBox h4 s{font-weight:normal; color:#7e7e7e; margin-left:10px;}  
+.commentMainBox p{color:#7e7e7e;}
+.commentMainBox p font{color:#fe0000;}
+.commentMainBox .timeButtonBox{width:100%; overflow:hidden;}
+.timeButtonBox .time p{color:#7e7e7e;line-height: 24px;/* margin-bottom: 5px; */}
+.timeButtonBox .time .number{}
+.timeButtonBox .time p font{color:#fe0000;font-weight: bold;/* margin-right: 3px; *//* margin-left: 4px; */}
+.timeButtonBox .timeComment{border-bottom:1px solid #dbdbdb;}
+.timeButtonBox .timeComment span{display:inline-block; vertical-align:middle; color:#505050;line-height: 24px;padding-right: 10px;}
+.timeButtonBox .timeComment span img{width:12px;}
+.box1{
+	width: 96%;
+    margin: 0px auto;
+    
+	height: 125px;
+    border: 1px #e5e5e5 solid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.he60{height:60px;}
+.bottom{ height: 65px; background:#240505; border-top:#eaeaea solid 1px; width:100%; position:fixed; bottom:0px;}
+.bottom img{ height:25px; margin-top: 10px;}
+.bottom span{ float:left; display:inline-block; width:100%; text-align:center; font-size:80%; line-height: 20px;}
+.bottom a{ display:inline-block; width:33%; height: 65px; float:left; color:#666666;}
+.bottom span p{line-height:30px;}
+a {
+  -webkit-tap-highlight-color: transparent;(rgba(0,0,0,0);)
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+} 
+.bottom .chooseBox span{ color:#ef2828;box-shadow: 0 -3px 0 #ef2828 inset;-webkit-box-shadow: 0 -3px 0 #ef2828 inset;-moz-box-shadow: 0 -3px 0 #ef2828 inset;}
+.label{
+position: absolute;
+    z-index: 88;
+    right: 0.1%;
+    width: 77px;
+    background-color: #ff3535;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    height: 20px;
+    padding: 0px 3px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 17px;
+	}

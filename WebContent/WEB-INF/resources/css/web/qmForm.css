@@ -1,0 +1,278 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+	font-size:14px;
+}
+a {
+	text-decoration:none;
+}
+li {
+	list-style:none;
+}
+input {
+	border:none;
+	outline:none;
+}
+input[type=button] {
+	-webkit-appearance:none;
+	outline:none;
+}
+body {
+	background:#fff;
+	font-family:"微软雅黑";
+}
+.headerContent{
+	width:100%;
+	height:60px;
+	border-bottom:1px #ccc solid;
+	}
+.headerimg{
+    padding-top: 10px;
+    padding-left: 20px;
+    line-height: 60px;
+    float: left;
+    z-index: 99;
+    position: absolute;
+	}
+.headerFont{
+    color: #fe8a1b;
+    text-align: center;
+    line-height: 60px;
+	font-size:16px;
+	}
+.txMainBox {
+	width:100%;
+	text-align:center;
+	overflow:hidden;
+}
+.txMainBox p {
+	width:80px;
+	height:80px;
+	border-radius:80px;
+	overflow:hidden;
+	margin:10px auto;
+	position:relative;
+	cursor: pointer;
+}
+.txMainBox p img {
+	width:100%;
+}
+.txMainBox div {
+	width:100%;
+	text-align:center;
+	overflow:hidden;
+	color:#707070;
+	padding:5px 0;
+	font-size:14px;
+}
+.txMainBox .scBox {
+	position:absolute;
+	left:50%;
+	margin-left:-40px;
+	z-index:10;
+	opacity:0;
+	width:80px;
+	height:80px;
+	border-radius:100%;
+	cursor: pointer;
+}
+.tjForm {
+	padding:10px;
+}
+.welText {
+	text-align:center;
+	color:#fe8800;
+	font-size:14px;
+	padding:10px;
+	background:#d6d6d6;
+}
+.tjForm ul li .s4 .txButton {
+	width:60px;
+	height:60px;
+	background:url(../images/ctx.png) no-repeat center;
+	border-radius:60px;
+	overflow:hidden;
+}
+.tjForm ul li .s4 .fButton {
+	width:60px;
+	height:60px;
+	border-radius:60px;
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	z-index:10;
+	opacity:0;
+}
+.inputStyle {
+	width:98%;
+	border:#ddd solid 1px;
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	color:#878787;
+	border-radius: 20px;
+}
+.tjForm ul li span {
+	display:inline-block;
+	vertical-align:middle;
+	margin: 3px;
+	color: #666;
+}
+.tjForm ul li {
+	margin:10px 0;
+}
+.tjForm ul li .s3 {
+	width:100%;
+	color:#707070;
+	font-size:14px;
+}
+.tjForm ul li .s3 font {
+	color:#F60;
+}
+.tjForm ul li .s4 {
+	width:100%;
+	font-size:14px;
+	text-align:left;
+	position:relative;
+}
+.tjForm ul li .s5 span {
+	margin: 3px;
+	color:#666;
+}
+.tjForm ul li .s5 .woman {
+	margin: 0px 0 -8px 0;
+}
+.tjForm ul li .s4 .year {
+	width: 40%;
+	margin-right: 4px;
+}
+.tjForm ul li .s4 .year select {
+	width:100%;
+	height:35px;
+	line-height:35px;
+	border:1px solid #dddddd;
+	color:#878787;
+	-webkit-appearance: button;
+	background:url(../images/downJt.png) no-repeat 95% #fff;
+}
+.tjForm ul li .s4 .xfBox {
+	width:103%;
+	border:1px solid #dddddd;
+	line-height:35px;
+	height:35px;
+	color:#b6b6b6;
+	-webkit-appearance: button;
+	background:url(../images/downjt01.png) no-repeat 95% #fff;
+	border-radius: 20px;
+	outline:none;
+	padding-left: 5px;
+	cursor: pointer;
+}
+.tjForm ul li .s4 p {
+	margin:10px 0;
+	float:left;
+	color:#666;
+}
+.tjForm ul li .s4 p span {
+	margin-right:8px;
+}
+.formCon p font {
+	font-size:12px;
+}
+.bradius {
+	border-radius:5px;
+}
+.radioStyle {
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border: none;
+	-webkit-appearance: button;
+	border-radius: 100%;
+	border: solid 1px #e5e5e5;
+	overflow: hidden;
+	outline: none;
+	outline: navajowhite;
+}
+.chooseRadio {
+	background:#fd8a1a;
+	border:1px solid #fd8a1a;
+}
+.tjBtn2 {
+	background:#ff9945;
+	color:#FFF;
+	text-align:center;
+	padding:15px 0;
+	width:70%;
+	text-decoration:none;
+	display:inline-block;
+	border:0px;
+}
+.qrxg {
+	margin: 0px auto;
+	overflow: hidden;
+	width: 55%;
+}
+.qrxg input {
+	width: 50%;
+	background:#ff7d00;
+	padding:10px 0;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	border-radius: 20px;
+}
+.qrxg img {
+	float:left;
+	padding-right:10px;
+}
+.qrxg span {
+	height:20px;
+	line-height:20px;
+}
+.pic {
+	position: relative;
+	z-index: 9999;
+	margin-top: -30px;
+	margin-left: 30px;
+}
+.tjbutton {
+	margin-top: 20px;
+	overflow:hidden;
+	text-align: center;
+	/* position: fixed;
+    z-index: 9999;
+    bottom: 0px;
+	position: fixed;
+	top: 5px;
+	width: 100%; */
+}
+.tjbutton input {
+	width: 50%;
+	background:#ff7d00;
+	padding: 8px 0;
+	text-align: center;
+	color:#fff;
+	font-size:14px;
+	border-radius: 20px;
+	border:0px;
+	cursor: pointer;
+	margin-right: 35px;
+}
+
+.surveytel {
+    width: 100%;
+    border: #ddd solid 1px;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 10px;
+    color: #878787;
+    border-radius: 20px;
+    margin: 10px auto;
+}
+.inputs{
+	width: 90%;
+}

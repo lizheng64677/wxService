@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+a{text-decoration:none;}
+li{list-style:none;}
+.fLeft{float:left;}
+.fRight{float:right;}
+body{background:#f3f3f3;}
+
+
+.txBox{ background:#fff; ;padding: 25px 15px; border-bottom:1px solid #eaeaea;}
+.txBox span{display:inline-block; vertical-align:middle;}
+.txBox .tx{width: 80px;height: 80px;border-radius: 100%;overflow: hidden;}
+.txBox .tx img{width:100%;}
+.txBox .txText{width: 63%;}
+.txBox .txText h1{color: #707070; font-size: 16px; /* font-weight:normal; */ line-height:22px;}
+.txBox .txText p{color: #ff8933; font-size: 16px; line-height:26px;font-weight: bold; background:url(../images/star.png) no-repeat left; padding-left:20px;}
+.txBox span img{width:10px;}
+
+
+.jfmxMainBox{width:100%; margin:10px 0; background:#fff;}
+.jfmxMainBox h1{padding:10px; background:#fd8a1a; color:#fff; font-size:16px; font-weight:normal;}
+.jfmxMainBox ul li{padding:10px; overflow:hidden; border-bottom:1px solid #eaeaea;}
+.jfmxMainBox ul li h2{color:#666666; font-weight:normal; font-size:14px; width:80%;}
+.jfmxMainBox ul li p{color:#fd8a1a; font-size:14px; background:url(../images/upjt.png) no-repeat right; padding-right:20px;}
+.jfmxMainBox .puls{background:url(../images/downgray.png) no-repeat right;}

@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+body{background:#f3f3f3;
+}
+a{text-decoration:none;}
+input[type=button] {
+    -webkit-appearance: none;
+    outline: none;
+}
+li{list-style:none;}
+.fLeft{float:left;}
+.fRight{float:right;}
+
+
+.topBg{width:100%;}
+.topBg img{width:100%;}
+
+
+
+.flMainBox{padding: 10px;
+    background-color: #fff;
+    overflow: hidden;}
+.flMainBox ul li{width:49%; margin:auto;float:left;}
+.flMainBox ul li a{    display: inline-block;
+    padding: 10px 0;
+    width: 90%;
+    float: right;
+    color: #4f4f4f;
+    font-size: 14px;
+    text-align: center; }
+
+
+.phoneBox{
+	width: 100%;
+    position: fixed;
+    bottom: 20px;
+    text-align: center;
+    }
+.phoneBox img{width:20px; vertical-align:middle; margin-right:10px;margin-bottom: 10px;}
+.phoneBox span{color:#555555; vertical-align:middle; font-size:16px;}
+.phoneBox a{color:#000000;}
+.flMainBox ul li img{
+	width:30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.buttons{
+	width: 40%;
+    height: 35px;
+    border-radius: 15px;
+    border: 1px solid #E4E1E1;
+    font-size: 14px;
+    background-color: #fff;
+    color: #4f4f4f;
+}
+.xian{
+	float: left;
+    width: 1px;
+    height: 75px;
+    background-color: #ebebeb;
+}
+.martop{
+	margin-top:13px;
+	
+}

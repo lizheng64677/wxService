@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0;}
+a{text-decoration:none;}
+li{list-style:none;}
+input{border:none;border-radius:0px;outline:none;}
+input[type=text]{
+	-webkit-appearance:none;
+}
+input[type=button]{
+				-webkit-appearance:none;
+					outline:none
+						}
+
+.fLeft{float:left;}
+.fRight{float:right;}
+body{background:#f2f2ed;margin-top: 5px;}
+
+.actListBox{/* width: 98%; */ overflow:hidden;}
+.actListBox ul li{ width: 97%;margin: 5px;overflow:hidden;        background:#fff;  border-radius: 5px;}
+.actListBox .overBox{position:absolute; right:8px; bottom:8px;}
+.actListBox .overBox img{width:32px;}
+.actListBox ul li a{width:100%; overflow:hidden;display: inline-block;height: 175px;border-radius: 5px;}
+.actListBox ul li a span{display:inline-block; vertical-align:middle;}
+.actListBox .picbox{width:25%;height: 55px;  margin-right: 8px;overflow: hidden;border-radius: 8px;}
+.actListBox .picbox img{width:100%;}
+.actListBox .actTextBox{width:70%;padding-left: 5px;}
+.actListBox .actTextBox h1{color:#333;font-size:16px;line-height: 28px; font-weight:normal;width:100%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.actListBox .actTextBox p{color:#999999; line-height:20px; font-size:13px; }
+
+
+.addMoreBox{width:100%; padding:20px 0; text-align:center;}
+.addMoreBox a{display:inline-block; width:40%; padding:8px 0; color:#fd8a1a; border:1px solid #fd8a1a; text-align:center; border-radius:20px;}

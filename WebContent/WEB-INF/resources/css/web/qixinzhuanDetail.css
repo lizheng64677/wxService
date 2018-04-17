@@ -1,0 +1,339 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+}
+li {
+	list-style:none;
+}
+a {
+	text-decoration:none;
+}
+body {
+	background:#f3f3f3;
+	font-family:"微软雅黑";
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #4f4f4f;
+}
+input[type=button]{
+	-webkit-appearance:none;
+	outline:none
+}
+.headerContent{
+	width:100%;
+	height:60px;
+	border-bottom:1px #ccc solid;
+	background:#fff;
+	}
+.headerimg{
+    padding-top: 10px;
+    padding-left: 20px;
+    line-height: 60px;
+    float: left;
+    z-index: 99;
+    position: absolute;
+	}
+.headerFont{
+    color: #fe8a1b;
+    text-align: center;
+    line-height: 60px;
+	}
+.content {
+	width:100%;
+	margin:0px auto;
+    margin-bottom: 100px;
+}
+.data{
+    width: 100%;
+    height:85px;
+    border-bottom: 1px #ccc solid;
+    border-top: 1px #ccc solid;
+    background: #fff;
+    margin: 15px 0px;
+	}
+.dataLeft{
+	width:49%;
+	height:100%;
+	float:left;
+	font-size: 14px;
+	}
+.border{
+    height: 50px;
+    width: 1px;
+    background: #ccc;
+    float: left;
+    margin-top: 10px;
+	}
+.dataLeft p{
+	margin-top: 10px;
+    margin-left: 10px;
+	}
+.dataRight{
+	width: 50%;
+    height: 100%;
+    font-size: 16px;
+    float: right;
+    position: relative;
+	}
+.dataRight p{
+	margin-top: 10px;
+    margin-left: 10px;
+    font-size: 14px;
+	}
+.data span{
+	color:#f00;
+	}
+.Process{
+	width:100%;
+	background:#fff;
+    margin-bottom: 50px;
+	}
+.processBt{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	border-bottom: 1px #ccc solid;
+    border-top: 1px #ccc solid;
+	font-size:16px;
+	text-align: center;
+	}
+.processContect{
+	width:100%;
+	margin-bottom:10px;
+	margin-top:10px;
+	}
+.read{
+    width: 100%;
+    float: right;
+    text-align: right;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+	}
+.read img{
+	width: 20px;
+    position: relative;
+    top: 2px;
+    right: 4px;
+	}
+.readBorder{
+    width: 1px;
+    height: 60px;
+    background: #ccc;
+    float: left;
+    margin-top: 10px;
+	}
+.gold{
+	width:50%;
+	height:100%;
+	line-height:80px;
+	float:right;
+    text-align: center;
+	font-size:14px;
+	}
+.gold img{
+	width:18px;
+	}
+.Process p{
+	font-size:14px;
+	color:#999;
+    margin-left: 15px;
+	margin-right:15px;
+	}
+.Process p span{
+	}
+.contentPic{
+	width:95%;
+	margin:0px auto;
+    margin-top: 20px;
+	}
+.contentPic img{
+	width:100%;
+	}
+/*微信朋友圈*/
+.wxBox{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    background-color:rgba(0, 0, 0, 0.6);
+	display:none;
+	}
+.wxkuang{
+    width: 100%;
+    height: 140px;
+    margin: 0px auto;
+    background-color: #fff;
+    z-index: 2000;
+    position: fixed;
+    bottom: 0px;
+    opacity: 1;
+    bottom: 0px;
+	}
+.wxfriends{
+    width: 50%;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+	}
+.wxfriends img{
+	width:50px;
+	}
+.wxfriendsQuan{
+    width: 50%;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+	}
+.wxfriendsQuan img{
+	width:50px;
+	}
+.button {
+	text-align: center;
+}
+.button input {
+    width: 95%;
+    background: #ff7d00;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 20px;
+    border: 0px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.syqq {
+	width:100%;
+	background:rgba(0, 0, 0, 0.4);
+	position:fixed;
+	bottom:0;
+	padding:10px 0;
+	padding-top:0px;
+	text-align:center;
+}
+
+
+.imgCss{
+	width: 25px;
+    float: right;
+    position: relative;
+    top: -43px;
+    right: 10px;
+}
+
+.aclass{
+	display:inline-block;
+	width:40%;
+	border-radius:20px;
+	padding:8px 0;
+	background:#e83228;
+	color:#fff;
+	text-align:center;
+	font-size:14px;
+}
+
+.aclassa{
+	display:inline-block;
+	width:40%;
+	border-radius:20px;
+	padding:8px 0;
+	background:#ccc;
+	color:#fff;
+	text-align:center;
+	font-size:14px;
+}
+
+.intro{
+	    width: 30px;
+    position: relative;
+    top: 10px;
+    right: 5%;
+}
+
+.syqqa {
+	width:100%;
+	background:rgba(0, 0, 0, 0.4);
+	position:fixed;
+	bottom:0;
+	padding:10px 0;
+	text-align:center;
+	padding-top: 0;
+}
+.myProcess{
+	width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px #ccc solid;
+    border-top: 1px #ccc solid;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.processContect1 {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+.read1 {
+    width: 49%;
+    height: 100%;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+}
+.readBorder1 {
+    width: 1px;
+    height: 40px;
+    background: #ccc;
+    float: left;
+}
+.gold1 {
+    width: 50%;
+    height: 100%;
+    line-height: 40px;
+    float: right;
+    text-align: center;
+    font-size: 14px;
+}
+.gold1 img {
+    width: 18px;
+}
+.read1 img {
+    width: 20px;
+}
+
+.Process1 {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 50px;
+}
+
+.Process1 p {
+    font-size: 14px;
+}
+
+.headerFont1 {
+    color: #e83228;
+    text-align: center;
+    line-height: 40px;
+}
+
+.contentImage{}
+
+.contentImage img{width:100%;}
+.tips{
+	float: left;
+    margin-top: -22px;
+    font-size: 13px;
+    padding-left: 10px;
+    color: #999
+}
+.tips span{
+	color:#f00;
+}

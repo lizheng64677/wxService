@@ -1,0 +1,210 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+}
+a {
+	text-decoration:none;
+}
+li {
+	list-style:none;
+}
+.fLeft {
+	float:left;
+}
+.fRight {
+	float:right;
+}
+body {
+	font-family:"微软雅黑";
+}
+input[type=button]{
+	-webkit-appearance:none;
+	outline:none
+}
+.headerContent{
+	width:100%;
+	height:60px;
+	border-bottom:1px #ccc solid;
+	}
+.headerimg{
+    padding-top: 10px;
+    padding-left: 20px;
+    line-height: 60px;
+    float: left;
+    z-index: 99;
+    position: absolute;
+	}
+.headerFont{
+    color: #fe8a1b;
+    text-align: center;
+    line-height: 60px;
+	}
+.content{
+	width:100%;
+	background:#e83228;
+	}
+.gold{
+	width:80%;
+	margin:0px auto;
+	color:#fff;
+	padding: 15px 0px;
+	}
+.gold span{
+	font-size:36px;
+	padding-right: 20px;
+	}
+.goldBorder{
+	border-bottom:1px #fff solid;
+	}
+.goldNum{
+    width:80%;
+    margin:0px auto;
+	color:#fff;
+	padding: 15px 0px;
+	}
+input::-webkit-input-placeholder {
+    color: #e83228;
+}
+input:-moz-placeholder {
+    color: #e83228;
+}
+.goldinput{
+	width:100%;
+	border:#fff solid 1px;
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	border-radius: 20px;
+    margin: 10px 0px;
+	font-size: 14px;
+	color: #878787;
+}
+.goldNum img{
+    position: absolute;
+    margin-left: 5px;
+	}
+.goldNum span{
+    font-size: 14px;
+    line-height: 26px;
+    padding-left: 25px;
+	}
+.goldtishi{
+	width:80%;
+	margin:0px auto;
+	color:#666;
+	font-size:12px;
+    margin-top: 20px;
+	}
+.goldCoins{
+    width: 100%;
+    height: 80px;
+    background: #fff8f2;
+    margin-top: 30px;
+	font-size:24px;
+	line-height:80px;
+	text-align:center;
+	}
+.goldCoins span{
+	color:#e83228;
+	}
+.goldbutton {
+	margin-top: 40px;
+	overflow:hidden;
+	text-align: center;
+}
+.goldbutton input {
+	width: 66%;
+	background:#e83228;
+	padding:10px 0;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	border-radius: 20px;
+	border:0px;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+/*确认密码*/
+.goldkuang{
+    width: 80%;
+    height: 120px;
+    margin: 0px auto;
+    background-color: #fff;
+    z-index: 2000;
+    border-radius: 10px;
+    position: relative;
+    top: 200px;
+    opacity: 1;
+	}
+.goldpwd{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    background-color:rgba(0, 0, 0, 0.6);
+    background-color: #000;
+	display:none;
+	}
+.password {
+	width:70%;
+	border:#ddd solid 1px;
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	color:#878787;
+	border-radius: 20px;
+}
+.pwdfont{
+	float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+	}
+.goldkuang input{
+	margin-top:15px;
+	margin-left:10px;
+	}
+.Kpwd{
+	text-align: center;
+	overflow:hidden;
+	}
+.Kpwd input {
+	width: 50%;
+	background:#e83228;
+	padding: 10px 0;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	border-radius: 20px;
+	border:0px;
+	cursor: pointer;
+}
+/*转出提示*/
+.turnOut{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color:rgba(0, 0, 0, 0.6);
+	display:none;
+	}
+.turnOutkuang{
+    width: 80%;
+    height: 120px;
+    margin: 0px auto;
+    background-color: #fff;
+    z-index: 2000;
+    border-radius: 10px;
+    position: relative;
+    top: 200px;
+	}
+.turnOutkuang p{
+    /* text-align: center; */
+    padding: 20px 20px;
+    width: 90%;
+    color: #8d8d8d;
+    font-size: 14px;
+}

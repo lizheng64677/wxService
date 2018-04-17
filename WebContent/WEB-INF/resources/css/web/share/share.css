@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0; font-size:12px;}
+a{ text-decoration:none;}
+li{list-style:none;}
+.fLeft{float:left;}
+.fRight{float:right;}
+input{border:none;}
+input[type=button]{
+	-webkit-appearance:none;
+	outline:none;
+	}
+body{background:#88ba1c;}
+
+.topMainBox{background-size:cover; text-align:center;}
+.topMainBox img{width:38%; padding:15px 0;}
+.topMiddle{width:100%;}
+.topMiddle img{width:100%;}
+.zuBox{padding: 10px 0; width:100%; text-align:center; font-size:18px; font-weight:bold; color:#fff; bottom:10px;}
+.zuBox span{font-size:18px;}
+
+.sjProductMain{width:100%; background:#fff; overflow:hidden;}
+.sjProductBox{padding:10px; overflow:hidden; position:relative;}
+.sjProductBox span{display:inline-block; vertical-align:middle;}
+.picBox{width:35%;}
+.picBox img{width:100%;}
+.commentMainBox{width:60%; overflow:hidden;}
+.commentMainBox h2{color:#2a2a2a; font-size:16px; font-weight:normal;line-height: 24px;}
+.commentMainBox h3{font-weight:normal; color:#737373; font-size:13px;line-height: 20px;}
+.commentMainBox h4{color:#fe0000; font-size:16px;line-height: 20px;}
+.commentMainBox h4 s{font-weight:normal; color:#7e7e7e; margin-left:10px;}
+.commentMainBox .timeComment span{display:inline-block; vertical-align:middle; color:#636363;}
+.commentMainBox .timeComment span img{width:15px;}
+.ckxq{position:absolute; right:5px; bottom:5px;}
+.ckxq input{width:80px; padding:8px 0; background:#e83228; color:#fff; font-size:14px; text-align:center; border-radius:5px;}
+
+.bottomPic{width:100%;}
+.bottomPic img{width:100%;}

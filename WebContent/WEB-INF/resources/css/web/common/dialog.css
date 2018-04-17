@@ -1,0 +1,77 @@
+.goldkuang {
+	width: 80%;
+	height: 120px;
+	margin: 0px auto;
+	background-color: #fff;
+	z-index: 2000;
+	border-radius: 10px;
+	position: fixed;
+	top: 40%;
+	opacity: 1;
+	left:10%;
+}
+
+.goldkuang p {
+	color: #8d8d8d;
+	padding: 10px 20px 20px 20px;
+	height: 40px;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.goldpwd {
+	width: 100%;
+	height: 200%;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+}
+
+.password {
+	width: 70%;
+	border: #ddd solid 1px;
+	height: 35px;
+	line-height: 35px;
+	padding-left: 10px;
+	color: #878787;
+	border-radius: 20px;
+}
+
+.pwdfont {
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.Kpwd {
+	width: 35%;
+	background: #e83228;
+	padding: 5px 0px 5px 0px;
+	border: 1px solid #e83228;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 20px;
+	/* border: 0px; */
+	cursor: pointer;
+	margin-left: 10%;
+	display:inline-block;
+	margin-top: 5px;
+}
+
+.Kpwd1 {
+	width: 35%;
+	background: #fff;
+	padding: 6px 0 5px 0;
+	border: 1px solid #e83228;
+	text-align: center;
+	color: #e83228;
+	font-size: 14px;
+	border-radius: 20px;
+	margin-left: 10%;
+	cursor: pointer;
+	display:inline-block;
+	margin-top: 5px;
+}

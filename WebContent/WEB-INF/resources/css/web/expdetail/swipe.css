@@ -1,0 +1,34 @@
+.swipe {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+}
+
+.swipe-wrap>div {
+	float: left;
+	width: 100%;
+	position: relative;
+}
+
+.slider_swipe { /*position: relative;
+	top: 52px;*/
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.cinema_banner img {
+	width: 100%;
+	-webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+	height: 200px;
+}
+
+.cinema_banner a {
+	display: inline-block;
+	overflow: hidden;
+	height: 228px;
+	width: 100%;
+}
