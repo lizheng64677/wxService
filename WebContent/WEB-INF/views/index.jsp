@@ -2,4 +2,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script>
 	window.location.href="<c:url value='/index/toIndex.html'/>";	
+	<!--测试下-->
 </script>
