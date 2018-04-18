@@ -137,17 +137,24 @@ public class ImageHandleHelper {
 		}
 	}
 	
-	public static String generateCode(String codeUrl, Integer userId, String userName) {  
+	/**
+	 * 二维码海报合成
+	 * @param projectUrl  项目相对路径
+	 * @param userCodeUrl 用户二维码路径
+	 * @param userId	 用户主键id
+	 * @param userName	 用户名称
+	 * @return
+	 */
+	public static String generateCode(String projectUrl,String userCodeUrl,String requestUrl, String userId, String userName) {  
 	    Font font = new Font("微软雅黑", Font.PLAIN, 30);// 添加字体的属性设置  
-	  
-	    String projectUrl = "d:/sss/";  
+	  	
 	    String imgName = projectUrl + userId + ".png";  
 	    try {  
 	        // 加载本地图片  
 	        String imageLocalUrl = projectUrl + "weixincode2.jpg";  
 	        BufferedImage imageLocal = ImageIO.read(new File(imageLocalUrl));  
 	        // 加载用户的二维码  
-	        BufferedImage imageCode = ImageIO.read(new File(codeUrl));  
+	        BufferedImage imageCode = ImageIO.read(new File(userCodeUrl));  
 	        // 以本地图片为模板  
 	        Graphics2D g = imageLocal.createGraphics();  
 	        // 在模板上添加用户二维码(地址,左边距,上边距,图片宽度,图片高度,未知)  
@@ -172,7 +179,7 @@ public class ImageHandleHelper {
 	        e.printStackTrace();  
 	    }  
 	    // 返回给页面的图片地址(因为绝对路径无法访问)  
-	    imgName = "http://localhost" + "codeImg/" + userId + ".png";  
+	    imgName ="codeImg/" + userId + ".png";  
 	  
 	    return imgName;  
 	}  
@@ -180,10 +187,12 @@ public class ImageHandleHelper {
 	public static void main(String[] args) {
 		String url="d:/ddd/1234.png";
 		File file=new File(url);
-		int userId=1234;
+		String userId="1234";
 		String userName="llllllz";
+	    String projectUrl = "d:/sss/";  
+	    String requestUrl=SystemPropertiesHolder.get("ROOT_URL");
 		try{
-		generateCode(file.toString(), userId, userName);
+		generateCode(projectUrl,file.toString(), requestUrl,userId, userName);
 		}catch(Exception ex){
 			
 		}
