@@ -52,6 +52,7 @@ public class IndexController {
 
 	
 	/**
+	 * 投票排名，最强标兵最美军嫂
 	 * 进入投票首页
 	 * @return
 	 */
