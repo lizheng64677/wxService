@@ -55,7 +55,7 @@ public class IndexController {
 	 * 进入投票首页
 	 * @return
 	 */
-	@RequestMapping("/toIndex.html")
+	//@RequestMapping("/toIndex.html")
 	public ModelAndView toAction(HttpServletRequest request) {
 		ModelMap map=new ModelMap();
 		String type=request.getParameter("type");//0:标兵 1:警嫂
@@ -78,7 +78,7 @@ public class IndexController {
 	 * 进入首页
 	 * @return
 	 */
-//	@RequestMapping("/toIndex")
+	@RequestMapping("/toIndex.html")
 	public ModelAndView toIndex(HttpServletRequest request) {
 		ModelMap map=new ModelMap();
 		map.put("position","index");
