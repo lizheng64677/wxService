@@ -38,8 +38,8 @@
 </head>
 <body>
    <div class="detialCommentBox">
-       <img id="image" src="${result.activeImg}" class="he200">
-       <p id="title" align='center'>${result.name}</p>
+       <img id="image" src="<c:url value='/resources/images/web/rankpm.png'/>" class="he200">
+       <p id="title" align='center'></p>
        <div class="Profit">
          	<a class="aclass" id="share" href="#">分享好友</a>
          	<a class="aclass" id="imgh" href="#">获取海报</a>
@@ -47,7 +47,6 @@
       <div class="introduction">
            <p><span>商家介绍</span></p>
            <div  id="sellerDescription"  class="introductionFont">
-           ${result.sellerDescription}
            </div>
       </div>
      
@@ -55,7 +54,6 @@
     <div class="action">
              <div class="actionContent"><span>活动规则</span></div>
             <div id="rule" class="introductionFont" >
-            ${result.description}
             </div>
       </div>
    <div class="he60"></div>
@@ -111,46 +109,6 @@
 		});
 	}
 	
-	
-	//查询数据
-	/* function initData(){
-		post('/decorate/findDecorateInfoById',{expId:'${expId}'},true).then(function(data){
-			$("#title").html(data.name);
-			$("#image").attr("src",data.data.exp_img_url);
-			$("#user_total").html(data.data.user_join+"人已领取");
-			$("#exp_user_gold").html("收益："+data.data.exp_user_gold+"金币");
-			$(".introductionFont").html(data.data.member_info);
-			$("#rule").html(data.data.exp_info);
-			showType=data.data.show_type;
-			if(data.data.exp_total_status==0){
-				
-				$(".syqqa").show(); 
-			}else{
-				
-				$(".syqq").show();
-			}
-			if(data.data.exp_status==1){
-				$("#img").html("即将开始");
-				$(".syqq").show();
-			}else if(data.data.exp_status==0){
-				$("#img").on("click",function(){
-					var u = navigator.userAgent, app = navigator.appVersion;
-					var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-// 					if(!isiOS){
-						
-						joinExpZ();
-// 					}else{
-						
-// 						showAlert("本活动暂不支持IOS苹果操作系统参与"); 
-// 					}
-				});
-			}else if(data.data.exp_status==2){
-				$("#imga").html("已结束");
-				$(".syqqa").show();
-			}
-			
-		});
-	} */
 </script>
 <script type="text/javascript">
 var shareData = {
