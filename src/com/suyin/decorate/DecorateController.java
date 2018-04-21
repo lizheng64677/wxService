@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.suyin.utils.HttpClientUtils;
@@ -186,9 +187,15 @@ public class DecorateController {
 	@RequestMapping(value="/index.html")
 	public ModelAndView index(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
-		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/indecorate/findDecorateById");
-		model.put("result", result);
+/*		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/indecorate/findDecorateById");
+		model.put("result", result);*/
 		return new ModelAndView("decorate/index",model);
+	}
+	
+	@RequestMapping(value="/findDecorateInfoById")
+	public @ResponseBody String findDecorateInfoById(Integer id){
+		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/indecorate/findDecorateById" + "?id="+id);
+		return result.toString();
 	}
 
 

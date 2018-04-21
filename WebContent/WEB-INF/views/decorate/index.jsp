@@ -46,7 +46,7 @@
       </div>
       <div class="introduction">
            <p><span>商家介绍</span></p>
-           <div class="introductionFont">
+           <div  id="sellerDescription"  class="introductionFont">
            ${result.sellerDescription}
            </div>
       </div>
@@ -54,7 +54,7 @@
    </div>
     <div class="action">
              <div class="actionContent"><span>活动规则</span></div>
-            <div id="rule" class="introductionFont">
+            <div id="rule" class="introductionFont" >
             ${result.description}
             </div>
       </div>
@@ -89,7 +89,7 @@
 <script type="text/javascript">
 	var showType=-1;
 	$(document).ready(function(){
-		//initData();
+		initData();
 		//分享层弹出
 		$("#share").on("click",function(){
 		
@@ -101,11 +101,21 @@
 			showDialog("是否确定生成海报","","取消","<c:url value='/createpost/create.html'/>","确定");
 		})
 	});
-	
 	//查询数据
 	function initData(){
-		post('/index/findQuanminZhuanDetail',{expId:'${expId}'},true).then(function(data){
-			$("#title").html(data.data.title);
+		post('/decorate/findDecorateInfoById',{id:'1'},true).then(function(data){
+			$("#title").html(data.name);
+			$("#image").attr("src",data.activeImg);
+			$("#sellerDescription").html(data.sellerDescription);
+			$("#rule").html(data.description);
+		});
+	}
+	
+	
+	//查询数据
+	/* function initData(){
+		post('/decorate/findDecorateInfoById',{expId:'${expId}'},true).then(function(data){
+			$("#title").html(data.name);
 			$("#image").attr("src",data.data.exp_img_url);
 			$("#user_total").html(data.data.user_join+"人已领取");
 			$("#exp_user_gold").html("收益："+data.data.exp_user_gold+"金币");
@@ -140,7 +150,7 @@
 			}
 			
 		});
-	}
+	} */
 </script>
 <script type="text/javascript">
 var shareData = {
