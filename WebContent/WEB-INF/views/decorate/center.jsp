@@ -34,7 +34,7 @@
 	<a href="<c:url value='/user/toCoin'/>" class="leftBox">
     	<ul>
             
-            <li class="zcFont">我的资产</li>
+            <li class="zcFont">我的金币</li>
             <li class="zcFont"><span id="coin"></span><i>金币</i></li>
         </ul>
     </a>
@@ -45,13 +45,7 @@
             <li class="qbFont">￥<span id="money"></span></li>
         </ul>
     </a>
-    <a href="<c:url value='/user/toCoin'/>" class="leftBox">
-    	<ul>
-            
-            <li class="zcFont">我的券</li>
-            <li class="zcFont"><span id="coin"></span>金币</li>
-        </ul>
-    </a>
+   
 </div>
 </div>
 <div class="navListBox">

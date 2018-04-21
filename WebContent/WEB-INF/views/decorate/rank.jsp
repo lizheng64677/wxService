@@ -11,6 +11,7 @@
 <link href="<c:url value='/resources/css/web/expdetail/swipe.css'/>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/web/expdetail/swipe_zoom.css'/>" />
 <link rel="stylesheet" href="<c:url value='/resources/css/web/pull/pull.css'/>" />
+<link href="<c:url value='/resources/css/web/My.css'/>"  rel="stylesheet" type="text/css"/>
 <style type="text/css">
 .ui-loader{display:none;}
 .swipe-wrap img {height:200px;}
@@ -79,6 +80,13 @@
        </div>
     </div>
 </div>
+	<div class="bottom">
+	  <ul>
+	      <a href="<c:url value='/decorate/index.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
+	      <a href="<c:url value='/decorate/rank.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
+	      <a href="<c:url value='/decorate/center.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
+	  </ul>
+	</div>
 <script src="<c:url value='/resources/js/expdetail/common.js'/>"></script>
 <script src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script> 
