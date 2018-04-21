@@ -35,7 +35,19 @@ public class DecorateController {
         return new ModelAndView("decorate/share",model);
     }
     
+    /**
+	 * 分享页面跳转
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+    @RequestMapping(value="/rank.html")
+    public ModelAndView rank(HttpServletRequest request,HttpServletResponse response){
+        ModelMap  model=new ModelMap();
+        return new ModelAndView("decorate/rank",model);
+    }
     
+   
     /**
      * 活动首页面跳转
      * @param request

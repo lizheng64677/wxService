@@ -9,13 +9,22 @@
 <title>活动标题</title>
 <link href="<c:url value='/resources/css/web/expdetail/common.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/web/expdetail/dialog.css'/>" rel="stylesheet" type="text/css" />
-<link href="<c:url value='/resources/css/web/expdetail/zeroQiangDetical.css'/>"  rel="stylesheet" type="text/css"/>
 <link href="<c:url value='/resources/css/web/Task.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/resources/css/web/My.css'/>"  rel="stylesheet" type="text/css"/>
 <!-- 重新样式 -->
 <style>
 	.aclass{
-    margin-left: 20px;
-    border-radius: 0px;
+	    margin-left: 20px;
+	    border-radius: 0px;
+	}
+	.mokuai {
+	    width: 33.3%;
+	    height: 60px;
+	    color: #999;
+	    font-size: 12px;
+	    text-align: center;
+	    padding-top: 8px;
+	    float: left;
 	}
 </style>
 </head>
@@ -41,12 +50,7 @@
             </div>
       </div>
    <div class="he60"></div>
-   <div class="bottom">
-	  <ul>
-	      <a href="<c:url value='/find/toThemeIndex'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian.png'/>"><p class="he20">排名</p></li></a>
-	      <a href="<c:url value='/decorate/center.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_0.png'/>"/><p class="he20">我的</p></li></a>
-	  </ul>
-</div>
+
    <!--申请成功-->
 <div class="sqSuccessBox hidden" id="sqSuccessBox">
 
@@ -60,6 +64,13 @@
         <div class="delBox" onclick="closeDialog(0)"><img src="<c:url value='/resources/css/images/del.png'/>" /></div>
     </div>
 </div>
+	<div class="bottom">
+	  <ul>
+	      <a href="<c:url value='/decorate/index.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
+	      <a href="<c:url value='/decorate/rank.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
+	      <a href="<c:url value='/decorate/center.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
+	  </ul>
+	</div>
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script> 
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>

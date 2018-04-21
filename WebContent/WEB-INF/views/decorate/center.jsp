@@ -28,7 +28,7 @@
 		<img id="img" src="<c:url value='/resources/images/web/tx.png'/>" />
 		<input type="file" name="test" id="test" style="display:none;">
 	</div>
- <div class="qiandao"><a id="signInEntry" class="headerbotton" value="签到" href="<c:url value='/user/toSignIn'/>">签到</a>
+<%--  <div class="qiandao"><a id="signInEntry" class="headerbotton" value="签到" href="<c:url value='/user/toSignIn'/>">签到</a> --%>
 </div>   
 <div class="twoNavBox">
 	<a href="<c:url value='/user/toCoin'/>" class="leftBox">
@@ -70,22 +70,6 @@
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
-        <a href="<c:url value='/user/toMyInfo'/>"><li> 
-            <p class="fLeft"><img src="<c:url value='/resources/images/web/my/30.png'/>" /></p>
-            <div class="fRight rightTextBox">
-            	<span class="mycj">我的资料</span>
-                <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
-            </div>
-        </li></a>
-        
-        
-        <%-- <a href="<c:url value='/userProblem'/>"><li> 
-            <p class="fLeft"><img src="<c:url value='/resources/images/web/icon05.png'/>" /></p>
-            <div class="fRight rightTextBox">
-            	<span class="mycj">完善资料</span>
-                <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
-            </div>
-        </li></a> --%>
         
         <a href="<c:url value='/user/toMyMessage'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/40.png'/>" /></p>
@@ -121,13 +105,13 @@
 </div>
 <!--底部导航-->
 <div class="he60"></div>
-<div class="bottom">
-  <ul>
-      <a href="<c:url value='/index/toIndex'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_0.png'/>"><p class="he20">首页</p></li></a>
-      <a href="<c:url value='/find/toThemeIndex'/>" target="_self"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian.png'/>"><p class="he20">发现</p></li></a>
-      <a href="<c:url value='/user/toMain'/>"><li class="Mybottom"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
-  </ul>
-</div>
+	<div class="bottom">
+	  <ul>
+	      <a href="<c:url value='/decorate/index.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
+	      <a href="<c:url value='/decorate/rank.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
+	      <a href="<c:url value='/decorate/center.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
+	  </ul>
+	</div>
 <input type="hidden" value="${isWait}" id="isWait"/>
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script>
