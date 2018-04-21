@@ -38,8 +38,8 @@
 </head>
 <body>
    <div class="detialCommentBox">
-       <img id="image" src="<c:url value='/resources/images/web/rankpm.png'/>" class="he200">
-       <p id="title">${result.title}</p>
+       <img id="image" src="${result.activeImg}" class="he200">
+       <p id="title" align='center'>${result.name}</p>
        <div class="Profit">
          	<a class="aclass" id="share" href="#">分享好友</a>
          	<a class="aclass" id="imgh" href="#">获取海报</a>
@@ -47,6 +47,7 @@
       <div class="introduction">
            <p><span>商家介绍</span></p>
            <div class="introductionFont">
+           ${result.sellerDescription}
            </div>
       </div>
      
@@ -54,7 +55,7 @@
     <div class="action">
              <div class="actionContent"><span>活动规则</span></div>
             <div id="rule" class="introductionFont">
-            
+            ${result.description}
             </div>
       </div>
    <div class="he60"></div>
@@ -88,7 +89,7 @@
 <script type="text/javascript">
 	var showType=-1;
 	$(document).ready(function(){
-		initData();
+		//initData();
 		//分享层弹出
 		$("#share").on("click",function(){
 		
