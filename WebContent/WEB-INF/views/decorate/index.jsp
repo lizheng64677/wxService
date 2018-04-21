@@ -51,7 +51,6 @@
       </div>
      
    </div>
-   
     <div class="action">
              <div class="actionContent"><span>活动规则</span></div>
             <div id="rule" class="introductionFont">
