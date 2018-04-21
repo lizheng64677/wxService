@@ -9,9 +9,19 @@
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.0.0.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
-
-
 <link href="<c:url value="/resources/css/web/share/share.css"></c:url>" rel="stylesheet" type="text/css" />
+<style>
+.nametext{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.zuBox .picBox img{
+    width: 20%;
+    border-radius: 160px;
+    height: 20%;
+    }
+</style>
 <script type="text/javascript">
 $(function(){
 	var color = '${color}';
@@ -24,16 +34,7 @@ $(function(){
     $("#imgsrc").attr("src",""+pic[0]);
 });
 function toDetail(detailId,userId){
-// 	alert(detailId+"========="+userId);
-	window.location.href="<c:url value='/experience/toShareExpDetailInfo'/>?expType=1&userId="+userId+"&detailId="+detailId;
-}
-function experience(){
-	var userId=$("#userId").val();
-	var detailId=$("#detailId").val();
-	var expTimeId=$("#expTimeId").val();
-	console.log("share success back function ok");
-// 	window.location.href="<c:url value='/thememonth/updateShareDetail'></c:url>?userId=${userId}&detailId=${detailId}&expTimeId=${expTimeId}";
-	
+	window.location.href="<c:url value='/decorate/index.html'/>?expType=1&userId="+userId+"&detailId="+detailId;
 }
 </script>
 </head>
@@ -41,32 +42,30 @@ function experience(){
 <body>
 
 <div class="topMainBox">
-	<img src="${widePic }" />
+	<img src="${themePic }" />
 </div>
 <div class="topMiddle"><img src="${themeLogo}" /></div>
-<div class="zuBox"><span>"${busname}"</span>倾情赞助</div>
+<div class="zuBox">
+  		<span class="picBox">
+  			<img id="img" src="<c:url value='/resources/images/web/picpic.jpg'/>"/>
+  		</span>
+  		</br>
+		<span>"王海春"</span>真诚邀请您!
+</div>
 
 <div class="sjProductMain">
 	<div class="sjProductBox">
-    	<span class="picBox"><img id="img" src="${proImg}"/></span>
+    	<span class="picBox"><img id="img" src="<c:url value='/resources/images/web/rankpm.png'/>"/></span>
         <span class="commentMainBox">
-        	<h2>${proName }</h2>
-            <h3>[${title }]</h3>
-            <h4>￥0<s>￥${price }</s></h4>
-            <div class="timeComment">
-                 <span><img src="<c:url value="/resources/images/web/share/time.png"></c:url>" /></span>                 
-                 <span id="time">剩余<font>${time}</font>${unit}</span>
-            </div>
-            
+        	<h2 class="nametext">活动名称</h2>
+            <h3 class="nametext">活动标题活动标题活动标题活动标题</h3>            
         </span>
-        <div class="ckxq"><input type="button" value="查看详情" onclick="toDetail('${detailId}','${userId}');"/></div>
+        <div class="ckxq"><input type="button" value="查看活动" onclick="toDetail('${detailId}','${userId}');"/></div>
     </div>
 </div>
 
 <div class="bottomPic"><img src="${bottomPic}" /></div>
 	<!-- 预留隐藏域参数 -->
-	<input type="hidden" value="${detailId}" id="detailId"/>
-	<input type="hidden" value="${expTimeId}" id="expTimeId"/>
 	<input type="hidden" value="${userId}" id="userId"/>
 </body>
 <script>
@@ -91,7 +90,7 @@ var shareData = {
 
 $(document).ready(function(){
 
-	prodetailshar(shareData);//回调处理  
+// 	prodetailshar(shareData);//回调处理  
 	
 });
 

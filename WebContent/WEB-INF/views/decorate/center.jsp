@@ -7,29 +7,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>我的</title>
-<link href="<c:url value='/resources/css/web/My.css'/>"  rel="stylesheet" type="text/css"/></head>
-<script type="text/javascript">
-<c:if test="${SESSIONUSER==null || SESSIONUSER==''}">
-	window.location.href="<c:url value='/user/toLogin'/>";
-</c:if>
-</script>
+<link href="<c:url value='/resources/css/web/My.css'/>"  rel="stylesheet" type="text/css"/>
+<style>
+	.headerbotton{
+    border: 0px solid #fff; 
+    }
+</style>
+</head>
 <body>
- <!--  <div class="headerContent">
-           <ul>
-              <li class="headerFont">
-                  <span class="title">我的</span>
-	              
-              </li>
-              <li class="headerimg"></li>
-           </ul>  
-        </div>  -->
  <div class="topBox">
 	<div class="txPic">
-		<img id="img" src="<c:url value='/resources/images/web/tx.png'/>" />
-		<input type="file" name="test" id="test" style="display:none;">
+		<img src="<c:url value='/resources/images/web/tx.png'/>" />
 	</div>
-<%--  <div class="qiandao"><a id="signInEntry" class="headerbotton" value="签到" href="<c:url value='/user/toSignIn'/>">签到</a> --%>
+ <div class="qiandao"><a  class="headerbotton" href="#">名称</a>
 </div>   
+
 <div class="twoNavBox">
 	<a href="<c:url value='/user/toCoin'/>" class="leftBox">
     	<ul>
@@ -50,14 +42,21 @@
 </div>
 <div class="navListBox">
 	<ul>
-    	<a href="<c:url value='/user/toInvolvement'/>"><li>
+	     <a href="<c:url value='/user/toASecurity'/>"><li>
+            <p class="fLeft"><img src="<c:url value='/resources/images/web/my/70.png'/>" /></p>
+            <div class="fRight rightTextBox lastBox">
+            	<span class="mycj">我的资料</span>
+                <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
+            </div>
+        </li></a>   
+    	<a href="#"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/10.png'/>" /></p>
             <div class="fRight rightTextBox">
-            	<span class="mycj">我的参与</span>
+            	<span class="mycj">我的邀请</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
-         <a href="<c:url value='/user/toVouch'/>"><li>
+         <a href="#"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/20.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的券</span>
@@ -88,13 +87,7 @@
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
-        <a href="<c:url value='/user/toASecurity'/>"><li>
-            <p class="fLeft"><img src="<c:url value='/resources/images/web/my/70.png'/>" /></p>
-            <div class="fRight rightTextBox lastBox">
-            	<span class="mycj">账户安全</span>
-                <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
-            </div>
-        </li></a>    
+    
     </ul>
 </div>
 <!--底部导航-->
@@ -106,19 +99,15 @@
 	      <a href="<c:url value='/decorate/center.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
 	  </ul>
 	</div>
-<input type="hidden" value="${isWait}" id="isWait"/>
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/fileCompress/mobileBUGFix.mini.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/fileCompress/compress.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
-<%-- <script type="text/javascript" src="<c:url value='/resources/js/common/fileUpload.js'/>"></script> --%>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	    var isWait=$("#isWait").val();
-
 		post("/sen/getUserSInfoAndSignIn",{},false).then(function(data){
 			$("#money").html(data.userInfo.money);
 			$("#coin").html(data.userInfo.gold_coin);
@@ -126,28 +115,7 @@
 			if(data.userInfo.unread >0){
 				$(".yuan").show();
 			}
-			// 设置右上角签到
-			if(data.msg == "1") {
-				// 已签到
-				$("#signInEntry").attr("class", "headerbottonNoSignIn");
-				$("#signInEntry").html("已签到");
-				$('#signInEntry').removeAttr('href');
-			} else if (data.msg == "0") {
-				// 未签到
-				$("#signInEntry").attr("class", "headerbotton");
-				$("#signInEntry").html("签到");
-				$("#signInEntry").attr("href", "/wxService/user/toSignIn");
-			} else {
-				// 已签到
-				$("#signInEntry").attr("class", "headerbottonNoSignIn");
-				$("#signInEntry").html("已签到");
-				$('#signInEntry').removeAttr('href');
-			}
 		});
-	    if(isWait=="N"){	    	
-			showDialog("您的资料不完善，请先完善资料！","","取消","<c:url value='/userProblem'/>","确定");
-			return false; 
-	    }
 	});
 </script>
 <script type="text/javascript">
@@ -160,69 +128,8 @@
 		param:location.href
     };
 	$(document).ready(function(){
-		 //hideOptionMenu(shareData);
+		 hideOptionMenu(shareData);
 	}); 
-</script>
-<script type="text/javascript">
-//重写前台验证失败后的回调
-function showError(res){
-	$("#error").html(res);
-}
-//重写上传成功后的回调
-function showSuccess(res){
-	if(res.flag==0){
-		alert("chenggong");
-	}
-}
-
-// 上传头像
-$(document).ready(function(){
-	$("#img").click(function(){
-		$('#test').trigger('click');
-	});
-});
-var loading;
-var uId = ${SESSIONUSER.userid };
-$('#test').UploadImg({
-	module:'user_center',
-    url : '../userlr/fileUpload',
-    width : '600',    //如果设置了width，就会改变原图长，那样压缩的图片更小
-    quality : '0.8', //压缩率，默认值为0.8 ，如果是1，并且没有设置width，那就上传原图
-    mixsize : '10000000',  //最大图片大小，单位是B，这里设置为大约10M
-    type : 'image/png,image/jpg,image/jpeg,image/pjpeg,image/gif,image/bmp,image/x-png',
-    before : function(blob){
-        $('#img').attr('src',blob);
-    },
-    error : function(res){
-    	showError(res);
-    },
-    success : function(res){
-       //showSuccess(res);
-	    // 发请求保存图片
-	   	$.post("../user/toUploadHead", {url:res.url, userId:uId});
-    },
-    loadStart:function(){
-    	loading=layer.open({
-		    type: 2,
-		    content: '上传中'
-		});
-    },
-    loadStop:function(){
-    	layer.close(loading);
-    }
-});
-
-function showError(res){
-	if(res==1)
-		$("#error").html("图片太大了");
-	else if(res==2)
-		$("#error").html("格式不正确");
-}
-function showSuccess(res){
-	if(res.flag==0){
-		$("#imgurl").html(res.url);
-	}
-}
 </script>
 </body>
 </html>

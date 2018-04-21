@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 <title>活动标题</title>
 <link href="<c:url value='/resources/css/web/expdetail/common.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/web/expdetail/dialog.css'/>" rel="stylesheet" type="text/css" />
@@ -13,10 +13,7 @@
 <link href="<c:url value='/resources/css/web/My.css'/>"  rel="stylesheet" type="text/css"/>
 <!-- 重新样式 -->
 <style>
-	.aclass{
-	    margin-left: 20px;
-	    border-radius: 0px;
-	}
+
 	.mokuai {
 	    width: 33.3%;
 	    height: 60px;
@@ -26,12 +23,23 @@
 	    padding-top: 8px;
 	    float: left;
 	}
+	.Profit{
+			padding:10px;
+			margin-buttom:10px;
+		}
+	.aclass{
+		margin-left: 1%;
+	    text-align: center;
+	    height:65%;
+	    width:45%;
+	    padding-top: 15px;
+	}
 </style>
 </head>
 <body>
    <div class="detialCommentBox">
-       <img id="image" src="" class="he200">
-       <p id="title"></p>
+       <img id="image" src="<c:url value='/resources/images/web/rankpm.png'/>" class="he200">
+       <p id="title">来哇!装饰活动大优惠啦!</p>
        <div class="Profit">
          	<a class="aclass" id="share" href="#">分享好友</a>
          	<a class="aclass" id="imgh" href="#">获取海报</a>
