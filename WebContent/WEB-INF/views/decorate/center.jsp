@@ -42,21 +42,21 @@
 </div>
 <div class="navListBox">
 	<ul>
-	     <a href="<c:url value='/user/toASecurity'/>"><li>
+	     <a href="<c:url value='/decorate/mydata.html'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/70.png'/>" /></p>
             <div class="fRight rightTextBox lastBox">
             	<span class="mycj">我的资料</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>   
-    	<a href="#"><li>
+    	<a href="/decorate/invite.html"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/10.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的邀请</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
-         <a href="#"><li>
+         <a href="<c:url value='/decorate/voucher.html'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/20.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的券</span>
@@ -64,7 +64,7 @@
             </div>
         </li></a>
         
-        <a href="<c:url value='/user/toMyMessage'/>"><li>
+        <a href="<c:url value='/decorate/message.html'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/40.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的消息<b class="yuan" style="display: none;"></b></span>
@@ -73,14 +73,14 @@
         </li></a>
     </ul>
     <ul>
-        <a href="<c:url value='/about/toGuide'/>"><li>
+        <a href="<c:url value='/decorate/newhelp.html'/>"><li>
             <p class="fLeft"><img style="height: 20px; width: 15px;" src="<c:url value='/resources/images/web/my/50.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">新手指南</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
-        <a href="<c:url value='/about/toaboutUs'/>"><li>
+        <a href="<c:url value='/decorate/about.html'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/60.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">关于我们</span>
