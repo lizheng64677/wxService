@@ -34,7 +34,7 @@
        <p id="title"></p>
        <div class="Profit">
          	<a class="aclass" id="share" href="#">分享好友</a>
-         	<a class="aclass" id="imgh" href="#">专属海报</a>
+         	<a class="aclass" id="imgh" href="#">获取海报</a>
       </div>
       <div class="introduction">
            <p><span>商家介绍</span></p>
