@@ -29,7 +29,7 @@ public class DecorateController {
 	 * @param response
 	 * @return
 	 */
-    @RequestMapping(value="/share。html")
+    @RequestMapping(value="/share.html")
     public ModelAndView share(HttpServletRequest request,HttpServletResponse response){
         ModelMap  model=new ModelMap();
         return new ModelAndView("decorate/share",model);
@@ -55,7 +55,7 @@ public class DecorateController {
      * @param response
      * @return
      */
-    @RequestMapping(value="/account。html")
+    @RequestMapping(value="/account.html")
     public ModelAndView account(HttpServletRequest request,HttpServletResponse response){
         ModelMap  model=new ModelMap();
         return new ModelAndView("decorate/account",model);
