@@ -10,9 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.suyin.common.service.ModuleNameService;
 import com.suyin.utils.HttpClientUtils;
-import com.suyin.utils.Utils;
 
 /**
  * 装修活动接口请求类
@@ -188,6 +186,8 @@ public class DecorateController {
 	@RequestMapping(value="/index.html")
 	public ModelAndView index(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
+		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/indecorate/findDecorateById");
+		model.put("result", result);
 		return new ModelAndView("decorate/index",model);
 	}
 
