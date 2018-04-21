@@ -97,7 +97,7 @@
 		//生成海报请求
 		$("#imgh").on("click",function(){
 			
-			showDialog("是否确定生成海报","","取消","<c:url value='/'/>","确定");
+			showDialog("是否确定生成海报","","取消","<c:url value='/createpost/create.html'/>","确定");
 		})
 	});
 	
