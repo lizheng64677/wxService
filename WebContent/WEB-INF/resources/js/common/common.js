@@ -15,7 +15,6 @@ post=function(url,data,isShell,loadingMsg){
 		type:"post",
 		dataType:"json",
 		success:function(data){
-			debugger;
 			if(isShell) layer.close(layIndex);
 			//此处是wxService后台请求inService服务时，如果他们之间的网断了，就是error==1
 			if(data.error==1){
