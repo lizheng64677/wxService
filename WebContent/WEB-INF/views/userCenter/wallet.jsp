@@ -75,14 +75,20 @@ function hiddenDialog() {
 }
 
 var scroll;
-var ROOT="<c:url value='/'/>";
+/* var ROOT="<c:url value='/'/>";
 $(document) .bind("pageshow", function() {
 	post("/sen/getUserSInfo",{},false).then(function(data){
 		$("#money").html(data.money);
 	});
 	initScroller();
+}); */
+var ROOT="<c:url value='/'/>";
+$(document) .bind("pageshow", function() {
+	post("/expdecorateuser/findUserInfoByUserIdOrOpenId",{},false).then(function(data){
+		$("#money").html(data.balancePrice);
+	});
+	initScroller();
 });
-
 function initScroller(){
 	scroll=fixed($(document),46,43);
 	scroll.setUrl("<c:url value='/sen/getWallet' />");
