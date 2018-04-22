@@ -49,7 +49,7 @@
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>   
-    	<a href="/decorate/invite.html?id=${expId }"><li>
+    	<a href="<c:url value='/decorate/invite.html?id=${expId }'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/10.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的邀请</span>
