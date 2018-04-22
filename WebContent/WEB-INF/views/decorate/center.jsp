@@ -17,7 +17,7 @@
 <body>
  <div class="topBox">
 	<div class="txPic">
-		<img src="<c:url value='/resources/images/web/tx.png'/>" />
+		<img id="imgpic" src="<c:url value='/resources/images/web/tx.png'/>" />
 	</div>
  <div class="qiandao"><a class="headerbotton" id='nickName'href="#"></a>
 </div>   
@@ -112,7 +112,7 @@
 			$("#money").html(data.balancePrice);
 			$("#coin").html(data.balancePrice);
 			$("#nickName").html(data.nickName);
-			/* $("#img").attr("src",data.userInfo.head_image_url); */
+			$("#imgpic").attr("src",data.headImg);
 			if(data.balancePrice >0){
 				$(".yuan").show();
 			}
