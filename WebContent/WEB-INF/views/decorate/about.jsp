@@ -6,7 +6,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>关于我们</title>
-<link href="<c:url value='/resources/css/web/notuan.css'/>"  rel="stylesheet" type="text/css"/></head>
+<link href="<c:url value='/resources/css/web/notuan.css'/>"  rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
+<script type="text/javascript">
+	var shareData = {
+		title: '营销活动',
+	    desc: '营销活动', 
+	    link: 'http://'+location.host+'/wxService/decorate/index.html?id=${expId }', 
+	    imgUrl: 'http://'+location.host+'/wxService/resources/images/web/memberjt.png', 
+	    requrl: 'http://'+location.host+'/wxService/share/sharePrepare',
+		param:location.href
+    };
+	$(document).ready(function(){
+		 hideOptionMenu(shareData);
+	}); 
+</script>
 </head>
 <body>
 <div class="topBg"><img src="<c:url value='/resources/images/web/rankpm.png'/>" /></div>
@@ -41,5 +59,6 @@
 <div class="phoneBox">
 	<span><a href="tel:#"><input type="button" value="联系我们" class="buttons"></a></span>
 </div>
+
 </body>
 </html>
