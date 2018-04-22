@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.suyin.common.service.ModuleNameService;
 import com.suyin.model.LoginUser;
 import com.suyin.utils.Constant;
 import com.suyin.utils.HttpClientUtils;
@@ -78,6 +79,17 @@ public class DecorateController {
 	public ModelAndView invite(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
 		return new ModelAndView("decorate/invite",model);
+	}
+	
+	/**
+	 * 查询我的邀请
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/findInvite")
+	public @ResponseBody String findInvite(HttpServletRequest request){
+		String result=HttpClientUtils.postRemote("/indecoraterecord/findInvite",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+		return result;
 	}
 	/**
 	 * 我的券页面跳转
