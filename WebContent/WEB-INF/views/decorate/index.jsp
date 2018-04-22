@@ -110,7 +110,7 @@
 	    };
 	//查询数据
 	function initData(){
-		post('/decorate/findDecorateInfoById',{id:'${expId}'},true).then(function(data){
+		post('/decorate/findDecorateInfoById',{"id":"${expId}"},true).then(function(data){
 			$("#title").html(data.name);
 			$("#toptitle").html(data.title);
 			$("#image").attr("src",data.activeImg);

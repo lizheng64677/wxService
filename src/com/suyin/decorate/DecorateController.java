@@ -238,8 +238,9 @@ public class DecorateController {
 	}
 
 	@RequestMapping(value="/findDecorateInfoById")
-	public @ResponseBody String findDecorateInfoById(Integer id){
-		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/indecorate/findDecorateById" + "?id="+id);
+	public @ResponseBody String findDecorateInfoById(HttpServletRequest request){
+		String id=request.getParameter("id");
+		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/indecorate/findDecorateById?id="+id);
 		return result.toString();
 	}
 
