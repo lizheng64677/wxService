@@ -26,15 +26,10 @@
 $(function(){
 	var color = '${color}';
 	$("body").css("background",color);
-	if('${isBegin}'==3){
-		$("#time").html("已结束");
-	}
-    var picUrl = '${detailMap.picUrl}';
-    var pic = picUrl.split(",");
-    $("#imgsrc").attr("src",""+pic[0]);
 });
+
 function toDetail(detailId,userId){
-	window.location.href="<c:url value='/decorate/index.html'/>?expType=1&userId="+userId+"&detailId="+detailId;
+	window.location.href="<c:url value='/decorate/index.html'/>?id=${expId}";
 }
 </script>
 </head>
@@ -60,13 +55,12 @@ function toDetail(detailId,userId){
         	<h2 class="nametext">活动名称</h2>
             <h3 class="nametext">活动标题活动标题活动标题活动标题</h3>            
         </span>
-        <div class="ckxq"><input type="button" value="查看活动" onclick="toDetail('${detailId}','${userId}');"/></div>
+        <div class="ckxq"><input type="button" value="查看活动" onclick="toDetail('${expId}');"/></div>
     </div>
 </div>
 
 <div class="bottomPic"><img src="${bottomPic}" /></div>
-	<!-- 预留隐藏域参数 -->
-	<input type="hidden" value="${userId}" id="userId"/>
+
 </body>
 <script>
 var img="";
@@ -82,7 +76,7 @@ var shareData = {
 		
 		title: '${themeTitle}',
 	    desc: '${themeTitle}',
-	    link: 'http://'+location.host+'/wxService/thememonth/index?userId=${userId}&detailId=${detailId}&expTimeId=${expTimeId}', // 
+	    link: 'http://'+location.host+'/wxService/decorate/share.html?publishopenid=${publishopenid}&expId=${expId}', // 
 	    imgUrl:img, 
 		requrl:"<c:url value='/share/sharePrepare'></c:url>",
 		param:location.href
@@ -90,7 +84,7 @@ var shareData = {
 
 $(document).ready(function(){
 
-// 	prodetailshar(shareData);//回调处理  
+	prodetailshar(shareData);//回调处理   
 	
 });
 

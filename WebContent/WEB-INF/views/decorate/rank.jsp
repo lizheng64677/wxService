@@ -82,9 +82,9 @@
 </div>
 	<div class="bottom">
 	  <ul>
-	      <a href="<c:url value='/decorate/index.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
-	      <a href="<c:url value='/decorate/rank.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
-	      <a href="<c:url value='/decorate/center.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
+	      <a href="<c:url value='/decorate/index.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
+	      <a href="<c:url value='/decorate/rank.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
+	      <a href="<c:url value='/decorate/center.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
 	  </ul>
 	</div>
 <script src="<c:url value='/resources/js/expdetail/common.js'/>"></script>
@@ -92,13 +92,9 @@
 <script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script> 
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
 <script src="<c:url value='/resources/js/expdetail/swipe.js'/>"></script>
-<%-- <script src="<c:url value='/resources/js/pull/jquery.mobile.min.js'/>"></script> --%>
 <script src="<c:url value='/resources/js/pull/fastclick.js'/>"></script>
-<%-- <script src="<c:url value='/resources/js/pull/iscroll.js'/>"></script>
-<script src="<c:url value='/resources/js/pull/initScroll1.js'/>"></script> --%>
 <script type="text/javascript">
 $(document).ready(function(){
-//	loadInitImg();
 	initRank();
 	initScroller();
 });
@@ -124,15 +120,6 @@ function initRank(){
 		$("#fuckf").html($(html.join("")));
 	});
 }
-
-
-/* function initScroller(){
-	scroll=fixed($(document),300,43);
-	scroll.setUrl("<c:url value='/experience/findExpRank'/>");
-	scroll.setSearchCondition({"page.currentPage":1,detailId:'${exp_detail_id}'});
-	scroll.setDisplay(display);
-	scroll.initSearch(); 
-} */
 
 var page={"page.currentPage":0,"page.showCount":5,detailId:'${exp_detail_id}'};
 var total;
@@ -204,7 +191,6 @@ function createSingle(data){
     
 function createPhone(p){
 	return p.substr(0,3)+"***"+p.substr(8,3);
-//return p;
 }
 </script>
 </body>

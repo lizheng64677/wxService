@@ -1,5 +1,7 @@
 package com.suyin.decorate;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.suyin.model.LoginUser;
+import com.suyin.utils.Constant;
 import com.suyin.utils.HttpClientUtils;
 import com.suyin.utils.Utils;
 
@@ -127,7 +131,26 @@ public class DecorateController {
 	public ModelAndView share(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
 		try{
-			model=setDataInfo("","","");
+			//邀请者openid
+			String publishopenid=request.getParameter("publishopenid");
+			//1:根据发起者openid查询邀请发起者的微信昵称和头像
+			//当前活动id
+			String expId=request.getParameter("expId");
+			//根据活动id查询活动信息
+
+			
+			//当前查看者openid(被邀请者)插入到记录表中
+			//将发起者的营销金额增加
+			String accptopenid=Utils.getOpenId(request);
+			//根据发起者openid 和 受邀者openid  添加数据记录到 t_exp_decorate_record 金额根据 活动配置范围随机，
+			//变更邀请者账户
+			
+			//根据发起者openid 插入对应的消息
+		
+			//查询分享主题信息
+			model=setDataInfo(expId);
+			model.put("expId", expId);
+			model.put("publishopenid", publishopenid);
 		}catch(Exception ex){
 
 		}
@@ -142,7 +165,7 @@ public class DecorateController {
 	 * @throws JSONException 
 	 * @see
 	 */
-	private  ModelMap setDataInfo(String detailId,String userId,String expTimeId) throws JSONException{
+	private  ModelMap setDataInfo(String expId) throws JSONException{
 		ModelMap  model=new ModelMap();
 		//请求主题月相关信息
 		String themeInfo=HttpClientUtils.getRemote("/thememonth/findThemeMonthInfo").toString();
@@ -178,6 +201,12 @@ public class DecorateController {
 	@RequestMapping(value="/rank.html")
 	public ModelAndView rank(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
+		//获取活动id
+		String expId=request.getParameter("id");
+		//获取当前操作者的openid
+		String publishopenid=Utils.getOpenId(request);
+		model.put("publishopenid", publishopenid);
+		model.put("expId", expId);
 		return new ModelAndView("decorate/rank",model);
 	}
 
@@ -187,15 +216,20 @@ public class DecorateController {
 	 * @param request
 	 * @param response
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping(value="/index.html")
-	public ModelAndView index(HttpServletRequest request,HttpServletResponse response){
+	public ModelAndView index(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		ModelMap  model=new ModelMap();
-/*		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/indecorate/findDecorateById");
-		model.put("result", result);*/
+		//获取活动id
+		String expId=request.getParameter("id");
+		//获取当前操作者的openid
+		String publishopenid=Utils.getOpenId(request);
+		model.put("publishopenid", publishopenid);
+		model.put("expId", expId);
 		return new ModelAndView("decorate/index",model);
 	}
-	
+
 	@RequestMapping(value="/findDecorateInfoById")
 	public @ResponseBody String findDecorateInfoById(Integer id){
 		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/indecorate/findDecorateById" + "?id="+id);

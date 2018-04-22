@@ -20,6 +20,13 @@
 			<bean class="com.suyin.interceptor.VerificationHandlerInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
+	
+		<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/decorate/**.html"/>
+			<bean class="com.suyin.interceptor.HandlerDecorateInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 		
 	<mvc:annotation-driven>
 		<mvc:message-converters>

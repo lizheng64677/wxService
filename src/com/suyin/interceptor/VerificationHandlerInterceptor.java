@@ -51,18 +51,18 @@ public class VerificationHandlerInterceptor extends HandlerInterceptorAdapter {
 //                request.getSession().setAttribute(Constant.SESSION_OPEN_ID,Utils.getOpenId(request.getParameter("code")));
 //            }
 //        }
-        
-        request.getSession().setAttribute(Constant.SESSION_OPEN_ID, "oEWBhuH1TWxGFhibxzLM4XYtbDYo");
-        if(request.getSession().getAttribute(Constant.SESSION_LOGIN_USER)==null) {
-            JSONObject jso = HttpClientUtils.getRemote("/nouser/findUserByOpenId?openid="+ request.getSession().getAttribute(Constant.SESSION_OPEN_ID));
-            if ("success".equals(jso.getString("message"))) {
-                LoginUser user = new LoginUser()
-                .setUserid(jso.getString("userid"))
-                .setOpenid(jso.getString("openid"))
-                .setState(jso.getString("state"));
-                request.getSession().setAttribute(Constant.SESSION_LOGIN_USER,user);
-            }
-        }
+        //测试
+//        request.getSession().setAttribute(Constant.SESSION_OPEN_ID, "oEWBhuH1TWxGFhibxzLM4XYtbDYo");
+//        if(request.getSession().getAttribute(Constant.SESSION_LOGIN_USER)==null) {
+//            JSONObject jso = HttpClientUtils.getRemote("/nouser/findUserByOpenId?openid="+ request.getSession().getAttribute(Constant.SESSION_OPEN_ID));
+//            if ("success".equals(jso.getString("message"))) {
+//                LoginUser user = new LoginUser()
+//                .setUserid(jso.getString("userid"))
+//                .setOpenid(jso.getString("openid"))
+//                .setState(jso.getString("state"));
+//                request.getSession().setAttribute(Constant.SESSION_LOGIN_USER,user);
+//            }
+//        }
         return true;
     }
 }

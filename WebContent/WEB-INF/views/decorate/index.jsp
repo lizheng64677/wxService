@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-<title> ${result.title}</title>
+<title id="toptitle"></title>
 <link href="<c:url value='/resources/css/web/expdetail/common.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/web/expdetail/dialog.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/web/Task.css'/>" rel="stylesheet" type="text/css" />
@@ -25,14 +25,15 @@
 	}
 	.Profit{
 			padding:10px;
-			margin-buttom:10px;
+			margin-buttom:18px;
 		}
 	.aclass{
-		margin-left: 1%;
 	    text-align: center;
 	    height:65%;
-	    width:45%;
-	    padding-top: 15px;
+	    width:47%;
+	    padding-top: 10px;
+	    border-radius: 0px;
+	    margin: 1px;
 	}
 </style>
 </head>
@@ -73,9 +74,9 @@
 </div>
 	<div class="bottom">
 	  <ul>
-	      <a href="<c:url value='/decorate/index.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
-	      <a href="<c:url value='/decorate/rank.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
-	      <a href="<c:url value='/decorate/center.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
+	      <a href="<c:url value='/decorate/index.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
+	      <a href="<c:url value='/decorate/rank.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
+	      <a href="<c:url value='/decorate/center.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
 	  </ul>
 	</div>
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>
@@ -96,29 +97,33 @@
 		//生成海报请求
 		$("#imgh").on("click",function(){
 			
-			showDialog("是否确定生成海报","","取消","<c:url value='/createpost/create.html'/>","确定");
+			showDialog("是否确定生成海报","","取消","<c:url value='/createpost/create.html?id=${expId}'/>","确定");
 		})
 	});
+	var shareData = {
+			title: 'NO团网',
+		    desc: 'NO团网', 
+		    link: 'http://'+location.host+'/wxService/decorate/share.html',
+		    imgUrl: 'http://'+location.host+'/wxService/resources/images/web/rankpm.png', 
+		    requrl: 'http://'+location.host+'/wxService/share/sharePrepare',
+			param:location.href
+	    };
 	//查询数据
 	function initData(){
-		post('/decorate/findDecorateInfoById',{id:'1'},true).then(function(data){
+		post('/decorate/findDecorateInfoById',{id:'${expId}'},true).then(function(data){
 			$("#title").html(data.name);
+			$("#toptitle").html(data.title);
 			$("#image").attr("src",data.activeImg);
 			$("#sellerDescription").html(data.sellerDescription);
 			$("#rule").html(data.description);
+			shareData.title=data.shareTitle;
+			shareData.desc=data.shareTitle;
+			shareData.imgUrl='http://'+location.host+'/'+data.shareImg;
+			shareData.link='http://'+location.host+'/wxService/decorate/share.html?expId=${expId}&publishopenid=${publishopenid}'; 
 		});
 	}
-	
 </script>
 <script type="text/javascript">
-var shareData = {
-		title: 'NO团网',
-	    desc: 'NO团网', 
-	    link: 'http://'+location.host+'/wxService/',
-	    imgUrl: 'http://'+location.host+'/wxService/resources/images/web/memberjt.png', 
-	    requrl: 'http://'+location.host+'/wxService/share/sharePrepare',
-		param:location.href
-    };
 	$(document).ready(function(){
 		sharTimelineFun(shareData);
 	}); 

@@ -7,6 +7,8 @@ public class LoginUser {
 	private String userid;
 	private String userPhone;
 	private String openid;
+	private String nickname;
+	private String headimg;
 	private String state;
 	private Date lastModifyTime;  //上一次修改属性的时间，因为有一个月只能修改一次的限制,所有登录时就应该获得这个值
 	private String token;
@@ -52,6 +54,19 @@ public class LoginUser {
 	public LoginUser setState(String state) {
 		this.state = state;
 		return this;
+	}
+	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getHeadimg() {
+		return headimg;
+	}
+	public void setHeadimg(String headimg) {
+		this.headimg = headimg;
 	}
 	@Override
 	public String toString() {

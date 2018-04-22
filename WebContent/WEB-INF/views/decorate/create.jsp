@@ -6,6 +6,7 @@
  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <title>我的专属海报</title>
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script> 
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.0.0.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
@@ -41,16 +42,29 @@ body{
   <p class="alertinfo">(*)长按图片保存，分享至朋友圈</p>
 </div>
 <div class="topMiddle">
-	<img src="<c:url value='/resources/images/web/template1.jpg'/>" />
+	<img id="image" src="<c:url value='/resources/images/web/template1.jpg'/>" />
 </div>
 <div class="bottom">
 	  <ul>
-	      <a href="<c:url value='/decorate/index.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
-	      <a href="<c:url value='/decorate/rank.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
-	      <a href="<c:url value='/decorate/center.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
+	      <a href="<c:url value='/decorate/index.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
+	      <a href="<c:url value='/decorate/rank.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
+	      <a href="<c:url value='/decorate/center.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
 	  </ul>
 	</div>
 </body>
+<script type="text/javascript">
+$(function(){
+	initData();//查询数据
+})
+//查询数据
+function initData(){  
+	post('/createpost/writeImage',{id:'${expId}',"openid":"${publishopenid}",url:"http://"+location.host+"/wxService/decorate/share.html?expId=${expId}&publishopenid=${publishopenid}"},true,"专属海报生成中...").then(function(data){
+	
+		$("#image").attr("src",data.imgUrl);
+	
+	});
+}
+</script>
 <script>
 var img="";
 var imgIsSubmt='${themePic}';
@@ -65,8 +79,7 @@ var shareData = {
 		
 		title: '${themeTitle}',
 	    desc: '${themeTitle}',
-	    link: 'http://'+location.host+'/wxService/thememonth/index?userId=${userId}&detailId=${detailId}&expTimeId=${expTimeId}', // 
-	    imgUrl:img, 
+	    link: 'http://'+location.host+'/wxService/decorate/share.html?publishopenid=${publishopenid}&expId=${expId}',  	    imgUrl:img, 
 		requrl:"<c:url value='/share/sharePrepare'></c:url>",
 		param:location.href
     };
@@ -74,6 +87,7 @@ var shareData = {
 $(document).ready(function(){
 
 	prodetailshar(shareData);//回调处理
+
 });
 
 </script>
