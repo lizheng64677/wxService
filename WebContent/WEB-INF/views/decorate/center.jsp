@@ -42,21 +42,21 @@
 </div>
 <div class="navListBox">
 	<ul>
-	     <a href="<c:url value='/decorate/mydata.html'/>"><li>
+	     <a href="<c:url value='/decorate/mydata.html?id=${expId }'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/70.png'/>" /></p>
             <div class="fRight rightTextBox lastBox">
             	<span class="mycj">我的资料</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>   
-    	<a href="/decorate/invite.html"><li>
+    	<a href="/decorate/invite.html?id=${expId }"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/10.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的邀请</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
-         <a href="<c:url value='/decorate/voucher.html'/>"><li>
+         <a href="<c:url value='/decorate/voucher.html?id=${expId }'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/20.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的券</span>
@@ -64,7 +64,7 @@
             </div>
         </li></a>
         
-        <a href="<c:url value='/decorate/message.html'/>"><li>
+        <a href="<c:url value='/decorate/message.html?id=${expId }'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/40.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的消息<b class="yuan" style="display: none;"></b></span>
@@ -94,9 +94,9 @@
 <div class="he60"></div>
 	<div class="bottom">
 	  <ul>
-	      <a href="<c:url value='/decorate/index.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
-	      <a href="<c:url value='/decorate/rank.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
-	      <a href="<c:url value='/decorate/center.html'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
+	      <a href="<c:url value='/decorate/index.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
+	      <a href="<c:url value='/decorate/rank.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
+	      <a href="<c:url value='/decorate/center.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
 	  </ul>
 	</div>
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>

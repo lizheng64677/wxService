@@ -260,6 +260,8 @@ public class DecorateController {
 	@RequestMapping(value="/center.html")
 	public ModelAndView center(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
+		model.put("expId", expId);
 		return new ModelAndView("decorate/center",model);
 	}
 
