@@ -42,7 +42,7 @@ function toDetail(detailId,userId){
 <div class="topMiddle"><img src="${themeLogo}" /></div>
 <div class="zuBox">
   		<span class="picBox">
-  			<img id="img" src="${user.headimg}"/>
+  			<img id="img" src="${user.headImg}"/>
   		</span>
   		</br>
 		<span>"${user.nickName }"</span>真诚邀请您!
@@ -50,7 +50,7 @@ function toDetail(detailId,userId){
 
 <div class="sjProductMain">
 	<div class="sjProductBox">
-    	<span class="picBox"><img id="img" src="<c:url value='/resources/images/web/rankpm.png'/>"/></span>
+    	<span class="picBox"><img id="img" src="${decorate.activeImg }"/></span>
         <span class="commentMainBox">
         	<h2 class="nametext">${decorate.name }</h2>
             <h3 class="nametext">${decorate.title }</h3>            
