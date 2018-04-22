@@ -150,12 +150,14 @@ public class DecorateController {
 			//根据发起者openid 和 受邀者openid  添加数据记录到 t_exp_decorate_record 金额根据 活动配置范围随机，
 			//变更邀请者账户
 		    list.add(new BasicNameValuePair("accptopenid", accptopenid));	
-		    String result=HttpClientUtils.postRemote("/qrcode/findShareProjecss",list,null).toString();
-		
+		    net.sf.json.JSONObject result=HttpClientUtils.postRemote("/qrcode/findShareProjecss",list,null);
 			//查询分享主题信息
 			model=setDataInfo(expId);
 			model.put("expId", expId);
 			model.put("publishopenid", publishopenid);
+			model.put("user", result.get("user"));
+			model.put("decorate", result.get("decorate"));
+
 		}catch(Exception ex){
 
 		}

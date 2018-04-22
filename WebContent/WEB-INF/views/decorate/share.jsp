@@ -42,18 +42,18 @@ function toDetail(detailId,userId){
 <div class="topMiddle"><img src="${themeLogo}" /></div>
 <div class="zuBox">
   		<span class="picBox">
-  			<img id="img" src="<c:url value='/resources/images/web/picpic.jpg'/>"/>
+  			<img id="img" src="${user.headimg}"/>
   		</span>
   		</br>
-		<span>"王海春"</span>真诚邀请您!
+		<span>"${user.nickName }"</span>真诚邀请您!
 </div>
 
 <div class="sjProductMain">
 	<div class="sjProductBox">
     	<span class="picBox"><img id="img" src="<c:url value='/resources/images/web/rankpm.png'/>"/></span>
         <span class="commentMainBox">
-        	<h2 class="nametext">活动名称</h2>
-            <h3 class="nametext">活动标题活动标题活动标题活动标题</h3>            
+        	<h2 class="nametext">${decorate.name }</h2>
+            <h3 class="nametext">${decorate.title }</h3>            
         </span>
         <div class="ckxq"><input type="button" value="查看活动" onclick="toDetail('${expId}');"/></div>
     </div>
