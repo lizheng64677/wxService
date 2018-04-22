@@ -26,14 +26,14 @@
 	<a href="<c:url value='/user/toCoin'/>" class="leftBox">
     	<ul>
             
-            <li class="zcFont">我的金币</li>
-            <li class="zcFont"><span id="coin"></span><i>金币</i></li>
+            <li class="zcFont">总收益</li>
+            <li class="zcFont">￥<span id="coin"></span><i></i></li>
         </ul>
     </a>
     <a href="<c:url value='/user/toWallet'/>">
     	<ul>
            
-            <li class="zcFont">我的钱包</li>
+            <li class="zcFont">余额</li>
             <li class="qbFont">￥<span id="money"></span></li>
         </ul>
     </a>
