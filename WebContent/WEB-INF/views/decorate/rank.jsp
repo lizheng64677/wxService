@@ -91,6 +91,8 @@
 <script src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script> 
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
 <script src="<c:url value='/resources/js/expdetail/swipe.js'/>"></script>
 <script src="<c:url value='/resources/js/pull/fastclick.js'/>"></script>
 <script type="text/javascript">
@@ -192,6 +194,20 @@ function createSingle(data){
 function createPhone(p){
 	return p.substr(0,3)+"***"+p.substr(8,3);
 }
+</script>
+
+<script type="text/javascript">
+	var shareData = {
+		title: '营销活动',
+	    desc: '营销活动', 
+	    link: 'http://'+location.host+'/wxService/decorate/index.html?id=${expId }', 
+	    imgUrl: 'http://'+location.host+'/wxService/resources/images/web/memberjt.png', 
+	    requrl: 'http://'+location.host+'/wxService/share/sharePrepare',
+		param:location.href
+    };
+	$(document).ready(function(){
+		 hideOptionMenu(shareData);
+	}); 
 </script>
 </body>
 </html>

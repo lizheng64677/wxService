@@ -121,9 +121,9 @@
 </script>
 <script type="text/javascript">
 	var shareData = {
-		title: 'NO团网',
-	    desc: 'NO团网', 
-	    link: 'http://'+location.host+'/wxService/user/toMain',
+		title: '营销活动',
+	    desc: '营销活动', 
+	    link: 'http://'+location.host+'/wxService/decorate/index.html?id=${expId }', 
 	    imgUrl: 'http://'+location.host+'/wxService/resources/images/web/memberjt.png', 
 	    requrl: 'http://'+location.host+'/wxService/share/sharePrepare',
 		param:location.href
