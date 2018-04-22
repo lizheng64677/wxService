@@ -1,10 +1,14 @@
 package com.suyin.decorate;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -133,19 +137,20 @@ public class DecorateController {
 		try{
 			//邀请者openid
 			String publishopenid=request.getParameter("publishopenid");
+			List<NameValuePair> list=new ArrayList<NameValuePair>();
+			list.add(new BasicNameValuePair("publishopenid", publishopenid));	
 			//1:根据发起者openid查询邀请发起者的微信昵称和头像
 			//当前活动id
 			String expId=request.getParameter("expId");
 			//根据活动id查询活动信息
-
-			
+		    list.add(new BasicNameValuePair("id", expId));	
 			//当前查看者openid(被邀请者)插入到记录表中
 			//将发起者的营销金额增加
 			String accptopenid=Utils.getOpenId(request);
 			//根据发起者openid 和 受邀者openid  添加数据记录到 t_exp_decorate_record 金额根据 活动配置范围随机，
 			//变更邀请者账户
-			
-			//根据发起者openid 插入对应的消息
+		    list.add(new BasicNameValuePair("accptopenid", accptopenid));	
+		    String result=HttpClientUtils.postRemote("/qrcode/findShareProjecss",list,null).toString();
 		
 			//查询分享主题信息
 			model=setDataInfo(expId);
