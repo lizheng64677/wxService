@@ -26,7 +26,7 @@
 	$(document).ready(function(){
 		 hideOptionMenu(shareData);
 	}); 
-</script>
+</script>  
 <script type="text/javascript">
 	$(document).ready(function(){
 		post("/about1/get",{type:1},false)
