@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.suyin.utils.HttpClientUtils;
+import com.suyin.utils.Utils;
 
 /**
  * 装修活动接口请求类
@@ -54,6 +55,9 @@ public class DecorateController {
 	@RequestMapping(value="/mydata.html")
 	public ModelAndView mydata(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
+		String openId = Utils.getOpenId(request);
+    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/expdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
+		model.put("result",result);	
 		return new ModelAndView("decorate/mydata",model);
 	}
 	/**

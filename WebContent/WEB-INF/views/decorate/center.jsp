@@ -19,7 +19,7 @@
 	<div class="txPic">
 		<img src="<c:url value='/resources/images/web/tx.png'/>" />
 	</div>
- <div class="qiandao"><a  class="headerbotton" href="#">名称</a>
+ <div class="qiandao"><a class="headerbotton" id='nickName'href="#"></a>
 </div>   
 
 <div class="twoNavBox">
@@ -108,11 +108,12 @@
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		post("/sen/getUserSInfoAndSignIn",{},false).then(function(data){
-			$("#money").html(data.userInfo.money);
-			$("#coin").html(data.userInfo.gold_coin);
-			$("#img").attr("src",data.userInfo.head_image_url);
-			if(data.userInfo.unread >0){
+		post("/expdecorateuser/findUserInfoByUserIdOrOpenId",{},false).then(function(data){
+			$("#money").html(data.balancePrice);
+			$("#coin").html(data.balancePrice);
+			$("#nickName").html(data.nickName);
+			/* $("#img").attr("src",data.userInfo.head_image_url); */
+			if(data.balancePrice >0){
 				$(".yuan").show();
 			}
 		});
