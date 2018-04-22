@@ -1,6 +1,7 @@
 package com.suyin.interceptor;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +29,7 @@ import com.suyin.utils.Utils;
 public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		String path = request.getServletPath();
+		String path = request.getServletPath()+"?"+request.getQueryString();
 		//这里保证session中一定有open_id
 		if(request.getSession().getAttribute(Constant.SESSION_OPEN_ID)==null) {
 			if(request.getParameter("code")==null) {
