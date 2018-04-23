@@ -22,7 +22,7 @@ public class RankController {
 	 */
 	@RequestMapping("/findMyRankInfo")
 	public @ResponseBody String findMyRankInfo(HttpServletRequest request) {
-		String result=HttpClientUtils.postRemote("/rank/findMyRankInfo",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+		String result=HttpClientUtils.postRemote("/interfarank/findMyRankInfo",  Utils.convert(request, ModuleNameService.EXP),null).toString();
         return result;
 	}
 	/**
@@ -31,7 +31,7 @@ public class RankController {
 	 */
 	@RequestMapping(value="/findAllRanInfoList")
     public @ResponseBody String findRanKingList(HttpServletRequest request){
-        String result=HttpClientUtils.postRemote("/rank/findAllRankInfo",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+        String result=HttpClientUtils.postRemote("/interfarank/findAllRankInfo",  Utils.convert(request, ModuleNameService.EXP),null).toString();
         return result;
     }
 }

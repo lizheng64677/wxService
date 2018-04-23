@@ -112,15 +112,8 @@ function initRank(){
 			html.push('<li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
 		}
 		html.push('<li class="hdgzFont">'+createPhone(data.expDecorateUser.userPhone)+'</li>');
-		html.push('<li class="hdgzFont">'+data.expDecorateUser.countPrice+'</li>');
-		html.push('    <li class="hdgzCg">'+data.rankNumber+'</li>');
-		/* if(data.status==0)
-			html.push('<li class="hdgzCg">进行中</li>');
-		else if(data.status==1)
-			html.push('<li class="hdgzCg">成功</li>');
-		else if(data.status==2){
-			html.push('<li class="hdgzCg">失败</li>');
-		} */
+		html.push('<li class="hdgzFont">'+data.expDecorateUser.countPrice+'(元)</li>');
+		html.push('<li class="hdgzCg">'+data.rankNumber+'</li>');
 		$("#fuckf").html($(html.join("")));
 	});
 }
@@ -132,7 +125,9 @@ function initScroller(){
 	post("/rank/findAllRanInfoList",page,false)
 	.then(function(data){
 		total=data.args.page.totalPage;
-		display(data);	
+		if(data.data){
+			display(data);
+		}
 		stopLoading();
 	});
 }
@@ -186,7 +181,7 @@ function createSingle(data){
 	else
 		html.push('<li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
 	html.push('    <li class="hdgzFont">'+createPhone(data.user_phone)+'</li>');
-	html.push('	   <li class="hdgzFont">'+data.count_price+'</li>');
+	html.push('	   <li class="hdgzFont">'+data.count_price+'(元)</li>');
 	html.push('    <li class="hdgzCg">'+data.rankNum+'</li>');
 	html.push('</ul>');
 	html.push('</div>');
