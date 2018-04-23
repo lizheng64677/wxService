@@ -6,15 +6,18 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>个人账户安全</title>
+<title>我的资料</title>
 <link href="<c:url value='/resources/css/web/accountSecurity.css'/>"  rel="stylesheet" type="text/css"/></head>
 <body>
-      <!--  <div class="headerContent">
+      <div class="headerContent">
            <ul>
-           	<a href="javascript:history.go(-1);"><li class="headerimg"><img src="<c:url value='/resources/images/web/leftjt.png'/>" width="20"></li></a>
-              <li class="headerFont">账户安全</li>
+           	  <a href="javascript:history.go(-1);">
+           	  <li class="headerimg"><img src="<c:url value='/resources/images/web/leftjt.png'/>" width="20"></li>
+           	  </a>
+              <li class="headerFont">我的资料</li>
            </ul>  
-        </div>  -->
+        </div>  
+        
    <div class="content">
      <input type="hidden" name="openid"  id="openid" value="${result.openid}" />
        <input type="hidden" name="userId"   id="userId" value="${result.userId}" />
@@ -32,21 +35,19 @@
           <li>
              <span class="pwdFont1">手机号码</span>
               <span class="pwdInput">
-              <input type="text" value="${result.userPhone }" class="inputStyle" placeholder="请输入手机号码" id="userPhone"  >
+              <input type="text" value="${result.userPhone}" class="inputStyle" placeholder="请输入手机号码" id="userPhone"  >
             </span>
           </li> 
 
           <li>
              <span class="pwdFont1">钱包提现密码</span>
              <span class="pwdInput">
-                    <input type="password" class="inputStyle"  id="wpassword" placeholder="********">
+                    <input type="password" class="inputStyle" value="${result.password }"  id="wpassword" placeholder="请输入提现密码">
              </span>
           </li>
  
       </ul>
-      <c:if test="${empty withdrawals_password}">
         <div class="qdOver"><a href="javascript:void(0);" id="sumbit">提交保存</a></div>
-       </c:if>
    </div>
  
  <script src="<c:url value='/resources/js/jquery-1.8.2.min.js'/>"></script>
@@ -62,13 +63,11 @@
 	    };		
 	
  	$(document).ready(function(){
- 		
  		//个人中心不允许有多余菜单出现 
  		hideOptionMenu(shareData);
 		var url="";
-		
 		$("#sumbit").bind("click",function(){
-			var zfb=$("#zfb").val();
+			var zfb=$("#zfb").val().trim();
 			var wpassword=$("#wpassword").val().trim();
 			var openid=$("#openid").val().trim();
 			var userId=$("#userId").val().trim();
@@ -79,7 +78,10 @@
 				showAlert("姓名不能为空");
 				return;
 			}
-	
+			if(zfb.trim() == "") {
+				showAlert("支付宝账号不能为空");
+				return;
+			}
 			if(wpassword.trim() == "") {
 				showAlert("钱包提现密码不能为空");
 				return;
@@ -90,10 +92,6 @@
 				return;
 			}
 	
-			if(zfb.trim() == "") {
-				showAlert("支付宝账号不能为空");
-				return;
-			}
 			var data={
 					"alipayNumber":zfb,
 					"password":wpassword,
@@ -112,10 +110,6 @@
 		
 			});
 		});
-		
- 		$("#modifyPwd").bind("click",function(){
- 			location.href = "<c:url value='/user/toWithPwd'/>";
- 		});
  	});
  	
  </script>
