@@ -32,14 +32,14 @@ public class ExpDecorateUserController{
     @RequestMapping(value="/findUserInfoByUserIdOrOpenId")
     public @ResponseBody String findUserInfoByUserIdOrOpenId(HttpServletRequest request) {
 		String openId = Utils.getOpenId(request);
-    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/expdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
+    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/inexpdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
 		return result.toString();
     }
     
     @RequestMapping(value = "/saveOrUptateExpDecorateUserInfo")
     public @ResponseBody String saveOrUptateExpDecorateUserInfo(HttpServletRequest request) {
         ModelMap map=new ModelMap();
-        String result = HttpClientUtils.postRemote("/expdecorateuser/saveOrUptateExpDecorateUserInfo",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+        String result = HttpClientUtils.postRemote("/inexpdecorateuser/saveOrUptateExpDecorateUserInfo",  Utils.convert(request, ModuleNameService.EXP),null).toString();
         return result;
     }
 }
