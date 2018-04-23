@@ -8,8 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta content="telephone=no" name="format-detection"> 
 <title>我的钱包</title>
-<link href="<c:url value='/resources/css/web/wallet.css'/>"  rel="stylesheet" type="text/css"/></head>
+<link href="<c:url value='/resources/css/web/wallet.css'/>"  rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="<c:url value='/resources/css/web/pull/pull.css'/>" />
+<style type="text/css">
+.money {
+    float: right;
+    padding-top: 4px;
+    }
+</style>
+</head>
 <body>
 <div data-role="page" data-iscroll="enable">
     <div class="header" data-role="header">
@@ -88,8 +95,7 @@ $(document) .bind("pageshow", function() {
 });
 function initScroller(){
 	scroll=fixed($(document),46,43);
-// 	scroll.setUrl("<c:url value='/sen/getWallet' />");
-	scroll.setUrl("<c:url value='/decorate/findInvite'/>");
+	scroll.setUrl("<c:url value='/decorate/findOrderRecord'/>");
 	scroll.setSearchCondition({"page.currentPage":1,status:0});
 	scroll.setDisplay(display);
 	scroll.initSearch(); 
@@ -97,8 +103,10 @@ function initScroller(){
 
 function display(data) {
 	var main=$("#main");
-	for(var i=0;i<data.data.length;i++){
-		main.append($(createHtml(data.data[i])));
+	if(data.data){
+		for(var i=0;i<data.data.length;i++){
+			main.append($(createHtml(data.data[i])));
+		}
 	}
 }
 
@@ -115,36 +123,16 @@ function createHtml(data){
 	html+="<li>";
 	html+="<div class='box'>";
 	html+="<ul>";
-	html+="  <li class='bt'>余额提现</li>";
-	if(data.direction==2){
-		html+=" <li class='pic'><img src='<c:url value='/resources/images/web/xia.png'/>' width='15'></li>";
-		if(data.status==0){
-			html+=" <li class='money'>-"+data.money+"元</li>";
-		}else if(data.status==1){
-			
-			html+=" <li class='money'>审核中</li>"; 
-		}else if(data.status==2){
-			
-			html+=" <li class='money'>被驳回</li>"; 
-		}
-	}else{
-		 
-		html+=" <li class='pic'><img src='<c:url value='/resources/images/web/xia.png'/>' width='15'></li>";
-		if(data.status==0){
-			html+=" <li class='money'>+"+data.money+"元</li>";
-		}else if(data.status==1){
-			
-			html+=" <li class='money'>审核中</li>"; 
-		}else if(data.status==2){
-			
-			html+=" <li class='money'>被驳回</li>"; 
-		}
-		html+=" <li class='money'>-20 元</li>"; 
-
+	html+="<li class='bt'>余额提现-"+data.withdrawPrice+"(元)</li>";		
+	html+="<li class='pic'><img src='<c:url value='/resources/images/web/xia.png'/>' width='15'></li>";
+	if(data.state==0){
+		html+=" <li class='money'>审核中</li>"; 
+	}else if(data.state==1){			
+		html+=" <li class='money'>审核通过</li>";
+	}else if(data.state==2){		
+		html+=" <li class='money'>被驳回</li>"; 
 	}
-    	html+=" <li class='time'>"+data.create_time+"</li>";
-	
-
+   	html+=" <li class='time'>"+data.createTime+"</li>";	
 	html+="</ul>";
 	html+="</div>";
 	html+="</li>";

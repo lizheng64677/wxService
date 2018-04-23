@@ -136,6 +136,16 @@ public class DecorateController {
 		String expId=request.getParameter("id");
 		model.put("expId", expId);
 		return new ModelAndView("decorate/wallet",model);
+	}	
+	/**
+	 * 查询我的提现记录
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/findOrderRecord")
+	public @ResponseBody String findOrderRecord(HttpServletRequest request){
+		String result=HttpClientUtils.postRemote("/expdecorateuser/findOrderRecord",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+		return result;
 	}
 	/**
 	 * 提现到账户
