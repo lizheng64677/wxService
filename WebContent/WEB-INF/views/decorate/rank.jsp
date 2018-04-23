@@ -72,6 +72,7 @@
     	<div id="wrapperIndex" class="wrapper" >
     		<div id="scrollerIndex" class="scroller actListBox">
 			<ul data-role="listview" data-theme="a" class="list-fpmx"  id="main">
+			
 			</ul>
 			<div id="pullUp" class="loading" style="margin-top:5px;">
 				<span class="pullUpIcon"></span><span class="pullUpLabel">正在加载......</span>
@@ -106,8 +107,8 @@ function initRank(){
 	.then(function(d){
 		var data=d.data;
 		var html=[];
-		if(data.head_image_url){
-			html.push('<li class="hdgzContentPic"><img src="'+data.head_image_url+'"></li>');
+		if(data.head_img){
+			html.push('<li class="hdgzContentPic"><img src="'+data.head_img+'"></li>');
 		}else{
 			html.push('<li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
 		}
@@ -128,10 +129,10 @@ var page={"page.currentPage":0,"page.showCount":5,detailId:'${exp_detail_id}'};
 var total;
 function initScroller(){
 	startLoading();
-	post("/experience/findExpRank",page,false)
+	post("/rank/findAllRanInfoList",page,false)
 	.then(function(data){
 		total=data.args.page.totalPage;
-		display(data);
+		display(data);	
 		stopLoading();
 	});
 }
@@ -179,13 +180,14 @@ function createSingle(data){
 	html.push('<li>');
 	html.push('<div class="hdgzContent">');
 	html.push('<ul>');
-	if(data.head_image_url)
-		html.push('    <li class="hdgzContentPic"><img src="'+data.head_image_url+'"></li>');
+
+	if(data.head_img.length != 0)
+		html.push('<li class="hdgzContentPic"><img src="'+data.head_img+'"></li>');
 	else
-		html.push('    <li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
+		html.push('<li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
 	html.push('    <li class="hdgzFont">'+createPhone(data.user_phone)+'</li>');
-	html.push('	   <li class="hdgzFont">'+data.share_num+'</li>');
-	html.push('    <li class="hdgzCg">'+data.rank+'</li>');
+	html.push('	   <li class="hdgzFont">'+data.count_price+'</li>');
+	html.push('    <li class="hdgzCg">'+data.rankNum+'</li>');
 	html.push('</ul>');
 	html.push('</div>');
 	html.push('</li>');
