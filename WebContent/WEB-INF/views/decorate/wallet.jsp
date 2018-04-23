@@ -35,6 +35,7 @@
 	</div>
 </div>
 <div class="button">
+	<input type="hidden" id="issubmit" value="no"/>
 	<input type="button" onclick="work11()" value="提现">
 </div>
 
@@ -79,11 +80,15 @@ var ROOT="<c:url value='/'/>";
 $(document) .bind("pageshow", function() {
 	post("/expdecorateuser/findUserInfoByUserIdOrOpenId",{},false).then(function(data){
 		$("#money").html(data.balancePrice);
+		 if(""!=data.password && ""!=data.alipayNumber){
+			 $("#issubmit").val("yes");
+		 }	
 	});
 	initScroller();
 });
 function initScroller(){
 	scroll=fixed($(document),46,43);
+// 	scroll.setUrl("<c:url value='/sen/getWallet' />");
 	scroll.setUrl("<c:url value='/decorate/findInvite'/>");
 	scroll.setSearchCondition({"page.currentPage":1,status:0});
 	scroll.setDisplay(display);
@@ -96,29 +101,13 @@ function display(data) {
 		main.append($(createHtml(data.data[i])));
 	}
 }
-function createSingleLi(data){
-	if(data.direction==2)
-		return $("#htmlTextDown").html().replace("#content",data.content?data.content:"未知操作")
-		.replace("#createTime",data.createTime)
-		.replace("#money",data.money);
-	else
-		return $("#htmlTextUp").html().replace("#content",data.content?data.content:"未知操作")
-		.replace("#createTime",data.createTime)
-		.replace("#money",data.money);	
-}
+
 function work11(){
-	$.ajax({
-		type:"post",
-		url:"<c:url value='/userlr/findSecurityUserInfo' />",
-		dataType:"json",
-		success:function(result){
-			if("success"==result.message){
-				window.location.href="<c:url value='/user/toCash2Ali'/>";
-			}else{
-				showDialog("请先设置安全账户","","取消","<c:url value='/user/toASecurity'/>","确定");
-			}
-		}
-	});
+	 if("yes"==$("#issubmit").val()){
+		window.location.href="<c:url value='/decorate/cashtoali.html'/>";
+	 }else{
+		showDialog("请先补全资料","","取消","<c:url value='/decorate/mydata.html?id=${expId }'/>","确定");
+	 }
 }
 
 function createHtml(data){
@@ -126,7 +115,7 @@ function createHtml(data){
 	html+="<li>";
 	html+="<div class='box'>";
 	html+="<ul>";
-	html+="  <li class='bt'>"+data.content+"</li>";
+	html+="  <li class='bt'>余额提现</li>";
 	if(data.direction==2){
 		html+=" <li class='pic'><img src='<c:url value='/resources/images/web/xia.png'/>' width='15'></li>";
 		if(data.status==0){
@@ -139,8 +128,8 @@ function createHtml(data){
 			html+=" <li class='money'>被驳回</li>"; 
 		}
 	}else{
-		
-		html+=" <li class='pic'><img src='<c:url value='/resources/images/web/upjt.png'/>' width='15'></li>";
+		 
+		html+=" <li class='pic'><img src='<c:url value='/resources/images/web/xia.png'/>' width='15'></li>";
 		if(data.status==0){
 			html+=" <li class='money'>+"+data.money+"元</li>";
 		}else if(data.status==1){
@@ -150,10 +139,11 @@ function createHtml(data){
 			
 			html+=" <li class='money'>被驳回</li>"; 
 		}
-	}
-    	html+=" <li class='time'>"+data.createTime+"</li>";
-	
+		html+=" <li class='money'>-20 元</li>"; 
 
+	}
+    	html+=" <li class='time'>"+data.create_time+"</li>";
+	
 
 	html+="</ul>";
 	html+="</div>";

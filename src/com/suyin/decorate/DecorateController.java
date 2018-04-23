@@ -64,9 +64,11 @@ public class DecorateController {
 	@RequestMapping(value="/mydata.html")
 	public ModelAndView mydata(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
 		String openId = Utils.getOpenId(request);
     	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/expdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
 		model.put("result",result);	
+		model.put("expId", expId);
 		return new ModelAndView("decorate/mydata",model);
 	}
 	/**
@@ -78,6 +80,8 @@ public class DecorateController {
 	@RequestMapping(value="/invite.html")
 	public ModelAndView invite(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
+		model.put("expId", expId);
 		return new ModelAndView("decorate/invite",model);
 	}
 	
@@ -100,6 +104,8 @@ public class DecorateController {
 	@RequestMapping(value="/voucher.html")
 	public ModelAndView voucher(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
+		model.put("expId", expId);
 		return new ModelAndView("decorate/voucher",model);
 	}
 
@@ -112,6 +118,8 @@ public class DecorateController {
 	@RequestMapping(value="/message.html")
 	public ModelAndView message(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
+		model.put("expId", expId);
 		return new ModelAndView("decorate/message",model);
 	}
 	
@@ -128,6 +136,30 @@ public class DecorateController {
 		String expId=request.getParameter("id");
 		model.put("expId", expId);
 		return new ModelAndView("decorate/wallet",model);
+	}
+	/**
+	 * 提现到账户
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value="/cashtoali.html")
+	public ModelAndView cashtoali(HttpServletRequest request,HttpServletResponse response){
+		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
+		model.put("expId", expId);
+		String openId = Utils.getOpenId(request);
+    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/expdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
+		model.put("result",result);	
+		return new ModelAndView("decorate/cashtoali",model);
+	}
+	/**
+	 * 保存订单
+	 */
+	@RequestMapping(value="/withdrawCreateOrder")
+	public @ResponseBody String withdrawCreateOrder(HttpServletRequest request,HttpServletResponse response){
+	      String result=HttpClientUtils.postRemote("/expdecorateuser/withdrawCreateOrder",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+		return result;
 	}
 	/**
 	 * 新手指南页面跳转
