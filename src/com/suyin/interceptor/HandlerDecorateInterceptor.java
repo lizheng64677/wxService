@@ -31,26 +31,26 @@ public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		String path = request.getServletPath()+"?"+request.getQueryString();
 		//这里保证session中一定有open_id
-		if(request.getSession().getAttribute(Constant.SESSION_OPEN_ID)==null) {
-			if(request.getParameter("code")==null) {
-				response.sendRedirect(Utils.getRedirectUserInfoWeiXinUrl(path));
-				return false;
-			}else {    
-				JSONObject jso=Utils.getWecharUserInfo(request.getParameter("code"));
-				LoginUser user=this.setForm(request,jso);
-				//查询数据库中是否存在，不存在则进行保存          
-				createUserInfo(user);
-
-			}
-		} else{
-			LoginUser user=(LoginUser)request.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
-			if(null!=user){
-				createUserInfo(user);
-			}
-		}
+//		if(request.getSession().getAttribute(Constant.SESSION_OPEN_ID)==null) {
+//			if(request.getParameter("code")==null) {
+//				response.sendRedirect(Utils.getRedirectUserInfoWeiXinUrl(path));
+//				return false;
+//			}else {    
+//				JSONObject jso=Utils.getWecharUserInfo(request.getParameter("code"));
+//				LoginUser user=this.setForm(request,jso);
+//				//查询数据库中是否存在，不存在则进行保存          
+//				createUserInfo(user);
+//
+//			}
+//		} else{
+//			LoginUser user=(LoginUser)request.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
+//			if(null!=user){
+//				createUserInfo(user);
+//			}
+//		}
 
 		//测试时放开
-		//    	LoginUser user=testFormData(request);
+		LoginUser user=testFormData(request);
 
 		return true;
 	}
@@ -90,9 +90,9 @@ public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 	 */
 	private LoginUser testFormData(HttpServletRequest request){
 		LoginUser user = new LoginUser();
-		user.setNickname("四季");
-		user.setHeadimg("http://thirdwx.qlogo.cn/mmopen/vi_32/x39icrW2tia0Go4hxjic4tAsGhDYs8IuENhuKmA5edkvH7OvVc0BYibE6HY5UziarwiaeGraLGFMOzde7uAKFD3zexmw/132");
-		user.setOpenid("oEWBhuH1TWxGFhibxzLM4XYtbDYo");
+		user.setNickname("不要说话");
+		user.setHeadimg("http://thirdwx.qlogo.cn/mmopen/vi_32/rwcMH8wNj9TkWOqxjFzXds8KePEYDQpTHVcQFicr1SBVE2q3A8nZYlo5jR0LFB2vibicgow7BubTX5AzE5XSwrzag/132");
+		user.setOpenid("oEWBhuPHaetpzoS4RA2W-Zsa79C4");
 		request.getSession().setAttribute(Constant.SESSION_LOGIN_USER,user);
 		request.getSession().setAttribute(Constant.SESSION_OPEN_ID,user.getOpenid());	
 		return user;
