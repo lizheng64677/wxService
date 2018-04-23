@@ -111,7 +111,7 @@ function initRank(){
 		}else{
 			html.push('<li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
 		}
-		html.push('<li class="hdgzFont">'+data.expDecorateUser.userPhone+'</li>');
+		html.push('<li class="hdgzFont">'+createPhone(data.expDecorateUser.userPhone)+'</li>');
 		html.push('<li class="hdgzFont">'+data.expDecorateUser.countPrice+'</li>');
 		html.push('    <li class="hdgzCg">'+data.rankNumber+'</li>');
 		/* if(data.status==0)
