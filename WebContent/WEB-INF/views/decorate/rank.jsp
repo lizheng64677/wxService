@@ -106,10 +106,11 @@ function initRank(){
 	.then(function(d){
 		var data=d.data;
 		var html=[];
-		if(data.head_image_url)
-			html.push('    <li class="hdgzContentPic"><img src="'+data.head_image_url+'"></li>');
-		else
-			html.push('    <li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
+		if(data.head_image_url){
+			html.push('<li class="hdgzContentPic"><img src="'+data.head_image_url+'"></li>');
+		}else{
+			html.push('<li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
+		}
 		html.push('<li class="hdgzFont">'+data.share_num+'</li>');
 		html.push('<li class="hdgzFont">'+data.rank+'</li>');
 		if(data.status==0)
