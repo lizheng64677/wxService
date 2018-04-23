@@ -6,8 +6,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>我的邀请</title>
-<link href="<c:url value='/resources/css/web/involvement.css'/>"  rel="stylesheet" type="text/css"/></head>
+<link href="<c:url value='/resources/css/web/involvement.css'/>"  rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="<c:url value='/resources/css/web/pull/pull.css'/>" />
+<style type="text/css">
+
+ .boxcg {
+     width: 55%;
+    float: left;
+ }
+  #main .pic {
+    float: left;
+    width: 25%;
+    }
+ #main .pic img{
+	border-radius: 160px;
+	width:80px; 
+	height:80px;
+}
+.nametext{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+</style>
+</head>
 <body>
 <div data-role="page" data-iscroll="enable">
 	<div data-role="header">
@@ -78,7 +101,6 @@ function initScroller(){
 
 //显示数据，所有的tab可以共用这一个显示方法
 function display(data) {
-	debugger;
 	var main=$("#main");
 	for(var i=0;i<data.data.length;i++){
 		main.append($(createSingleLi(data.data[i])));
@@ -90,13 +112,14 @@ function createSingleLi(data){
 	tempHtml.push('<div class="box" qmType='+data.qmType+' orderId="'+data.orderId+'"  orderType="'+data.orderType+'"  expId="'+data.expId+'" showType="'+data.showType+'">');
 	tempHtml.push('<ul>');
 	tempHtml.push('<li class="pic"><img src="'+data.head_img+'"></li>');
-	tempHtml.push('<li class="boxfont">'+data.title+'</li>');
-	tempHtml.push('<li class="boxcg"><span class="Conduct">进行中</span></li>');
+	tempHtml.push('<li class="boxfont">昵称:'+data.nick_name+'</li>');
+	tempHtml.push('<li class="boxcg"><span class="nametext">增加'+data.commission_price+'(元)</span></li>');
+	tempHtml.push('<li class="boxcg"><span class="nametext">时间：'+data.create_time+'</span></li>');
 	tempHtml.push('</ul>');
 	tempHtml.push('</div>');
 	tempHtml.push('</li>');
 	return tempHtml.join('');
-}
+} 
 
 function work(){
 	
