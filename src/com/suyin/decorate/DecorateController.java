@@ -114,6 +114,21 @@ public class DecorateController {
 		ModelMap  model=new ModelMap();
 		return new ModelAndView("decorate/message",model);
 	}
+	
+	
+	/**
+	 * 跳转至我的钱包
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value="/wallet.html")
+	public ModelAndView wallet(HttpServletRequest request,HttpServletResponse response){
+		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
+		model.put("expId", expId);
+		return new ModelAndView("decorate/wallet",model);
+	}
 	/**
 	 * 新手指南页面跳转
 	 * @param request

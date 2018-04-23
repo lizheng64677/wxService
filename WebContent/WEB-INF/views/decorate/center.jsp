@@ -23,14 +23,14 @@
 </div>   
 
 <div class="twoNavBox">
-	<a href="<c:url value='/user/toCoin'/>" class="leftBox">
+	<a href="#" class="leftBox">
     	<ul>
             
             <li class="zcFont">总收益</li>
             <li class="zcFont">￥<span id="coin"></span><i></i></li>
         </ul>
     </a>
-    <a href="<c:url value='/user/toWallet'/>">
+    <a href="<c:url value='/decorate/wallet.html?id=${expId }'/>">
     	<ul>
            
             <li class="zcFont">余额</li>
