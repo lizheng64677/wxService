@@ -100,14 +100,14 @@
  			post("/decorate/withdrawCreateOrder",{"withdrawPrice":m,"password":p},true,'提交中')
  			.then(function(data){
  		
- 				if(data.message=='success'){
+ 				if(data.result.message=='success'){
  					$(".turnOut").show();
- 				}else if(data.message=='invalidP'){
+ 				}else if(data.result.message=='invalidP'){
  					showAlert("提现密码错误！！");
- 				}else if(data.message=='lessmoney'){
+ 				}else if(data.result.message=='lessmoney'){
  					
  					showAlert("账户中金额不足！"); 					
- 				}else if(data.message=='notaudit'){
+ 				}else if(data.result.message=='notaudit'){
  					showAlert("您上次提现的金额暂未审核，审核通过后才可继续提现！");
  				}else{
  					showAlert("发生未知错误，请联系客服！");
