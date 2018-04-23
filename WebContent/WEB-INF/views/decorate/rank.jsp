@@ -45,9 +45,9 @@
     <div class="hdgzData">
          <ul>
              <li>头像</li>
+             <li>号码</li>
              <li>金额 </li>
-             <li>排名</li>
-             <li>参与状态</li>
+             <li>排名</li>           
          </ul>
     </div>
     <div class="hdgzContent">
