@@ -66,7 +66,7 @@ public class DecorateController {
 		ModelMap  model=new ModelMap();
 		String expId=request.getParameter("id");
 		String openId = Utils.getOpenId(request);
-    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/expdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
+    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/inexpdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
 		model.put("result",result);	
 		model.put("expId", expId);
 		return new ModelAndView("decorate/mydata",model);
@@ -144,7 +144,7 @@ public class DecorateController {
 	 */
 	@RequestMapping("/findOrderRecord")
 	public @ResponseBody String findOrderRecord(HttpServletRequest request){
-		String result=HttpClientUtils.postRemote("/expdecorateuser/findOrderRecord",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+		String result=HttpClientUtils.postRemote("/inexpdecorateuser/findOrderRecord",  Utils.convert(request, ModuleNameService.EXP),null).toString();
 		return result;
 	}
 	/**
@@ -159,7 +159,7 @@ public class DecorateController {
 		String expId=request.getParameter("id");
 		model.put("expId", expId);
 		String openId = Utils.getOpenId(request);
-    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/expdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
+    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/inexpdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
 		model.put("result",result);	
 		return new ModelAndView("decorate/cashtoali",model);
 	}
@@ -168,7 +168,7 @@ public class DecorateController {
 	 */
 	@RequestMapping(value="/withdrawCreateOrder")
 	public @ResponseBody String withdrawCreateOrder(HttpServletRequest request,HttpServletResponse response){
-	      String result=HttpClientUtils.postRemote("/expdecorateuser/withdrawCreateOrder",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+	      String result=HttpClientUtils.postRemote("/inexpdecorateuser/withdrawCreateOrder",  Utils.convert(request, ModuleNameService.EXP),null).toString();
 		return result;
 	}
 	/**
