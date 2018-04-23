@@ -64,7 +64,7 @@
       <ul>
           <li>头像</li>
           <li>号码</li>
-          <li>人气</li>
+          <li>金额</li>
           <li>排名</li>
       </ul>
  </div>	
