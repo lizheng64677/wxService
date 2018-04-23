@@ -56,7 +56,8 @@
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
-         <a href="<c:url value='/decorate/voucher.html?id=${expId }'/>"><li>
+<%--         <c:url value='/decorate/voucher.html?id=${expId }'/> --%>
+         <a href="#" id="voucher"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/20.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的券</span>
@@ -116,6 +117,9 @@
 			if(data.balancePrice >0){
 				$(".yuan").show();
 			}
+		});
+		$("#voucher").on("click",function(){
+			showAlert("暂未实现");
 		});
 	});
 </script>
