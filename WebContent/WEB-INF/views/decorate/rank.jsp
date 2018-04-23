@@ -103,24 +103,24 @@ $(document).ready(function(){
 });
 
 function initRank(){
-	post("/experience/findRankForMySelf",{detailId:'${exp_detail_id}'},false)
-	.then(function(d){
-		var data=d.data;
+	post("/rank/findMyRankInfo",{},false)
+	.then(function(data){
 		var html=[];
-		if(data.head_img){
-			html.push('<li class="hdgzContentPic"><img src="'+data.head_img+'"></li>');
+		if(data.expDecorateUser.headImg.length != 0){
+			html.push('<li class="hdgzContentPic"><img src="'+data.expDecorateUser.headImg+'"></li>');
 		}else{
 			html.push('<li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
 		}
-		html.push('<li class="hdgzFont">'+data.share_num+'</li>');
-		html.push('<li class="hdgzFont">'+data.rank+'</li>');
-		if(data.status==0)
+		html.push('<li class="hdgzFont">'+data.expDecorateUser.userPhone+'</li>');
+		html.push('<li class="hdgzFont">'+data.expDecorateUser.countPrice+'</li>');
+		html.push('    <li class="hdgzCg">'+data.rankNumber+'</li>');
+		/* if(data.status==0)
 			html.push('<li class="hdgzCg">进行中</li>');
 		else if(data.status==1)
 			html.push('<li class="hdgzCg">成功</li>');
 		else if(data.status==2){
 			html.push('<li class="hdgzCg">失败</li>');
-		}
+		} */
 		$("#fuckf").html($(html.join("")));
 	});
 }
