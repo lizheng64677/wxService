@@ -18,22 +18,22 @@ body{
 	background:#ffffff;
 }
 .topMiddle{	
-	margin:5px;
-	border:1px #cccccc solid;
+ 	margin:1px; 
 	height: 90%;
-	width: 90%;
-	padding: 10px;
-}
+	width: 99%;
+ }
 .topMiddle img{
+	   margin-left:1px;
 	   height: 500px;
-	   width: 80$;
+	   width: 100%;
 }
 .topMainBox {
 	    background-size: cover;
 	    text-align: center;
-	    padding-top: 20px;
-	    text-align: center;
-    }
+	    padding-top: 1px;
+
+ }
+
 </style>
 </head>
 
