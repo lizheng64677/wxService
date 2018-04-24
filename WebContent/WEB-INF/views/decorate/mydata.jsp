@@ -103,7 +103,7 @@
 			post("/expdecorateuser/saveOrUptateExpDecorateUserInfo",data,
 					true,'提交中').then(function(result){
 						if(result.result==1){
-							showDialog("信息提交成功！","","取消","<c:url value='/decorate/center.html'/>","确定");
+							showDialog("信息提交成功！","","取消","<c:url value='/decorate/center.html?id=${expId}'/>","确定");
 						}else{
 							showAlert("信息提交失败！",3);
 						} 

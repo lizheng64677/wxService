@@ -111,7 +111,7 @@
 	$(document).ready(function(){
 		post("/expdecorateuser/findUserInfoByUserIdOrOpenId",{},false).then(function(data){
 			$("#money").html(data.balancePrice);
-			$("#coin").html(data.balancePrice);
+			$("#coin").html(data.countPrice);
 			$("#nickName").html(data.nickName);
 			$("#imgpic").attr("src",data.headImg);
 			if(data.balancePrice >0){
