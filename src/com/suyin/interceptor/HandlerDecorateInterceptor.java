@@ -31,26 +31,26 @@ public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		String path = request.getServletPath()+"?"+request.getQueryString();
 		//这里保证session中一定有open_id
-//		if(request.getSession().getAttribute(Constant.SESSION_OPEN_ID)==null) {
-//			if(request.getParameter("code")==null) {
-//				response.sendRedirect(Utils.getRedirectUserInfoWeiXinUrl(path));
-//				return false;
-//			}else {    
-//				JSONObject jso=Utils.getWecharUserInfo(request.getParameter("code"));
-//				LoginUser user=this.setForm(request,jso);
-//				//查询数据库中是否存在，不存在则进行保存          
-//				createUserInfo(user);
-//
-//			}
-//		} else{
-//			LoginUser user=(LoginUser)request.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
-//			if(null!=user){
-//				createUserInfo(user);
-//			}
-//		}
+		if(request.getSession().getAttribute(Constant.SESSION_OPEN_ID)==null) {
+			if(request.getParameter("code")==null) {
+				response.sendRedirect(Utils.getRedirectUserInfoWeiXinUrl(path));
+				return false;
+			}else {    
+				JSONObject jso=Utils.getWecharUserInfo(request.getParameter("code"));
+				LoginUser user=this.setForm(request,jso);
+				//查询数据库中是否存在，不存在则进行保存          
+				createUserInfo(user);
+
+			}
+		} else{
+			LoginUser user=(LoginUser)request.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
+			if(null!=user){
+				createUserInfo(user);
+			}
+		}
 
 		//测试时放开
-		LoginUser user=testFormData(request);
+//		LoginUser user=testFormData(request);
 
 		return true;
 	}
@@ -64,7 +64,7 @@ public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 		list.add(new BasicNameValuePair("openid", user.getOpenid()));	
 		list.add(new BasicNameValuePair("headImg", user.getHeadimg()));	
 		list.add(new BasicNameValuePair("nickName", user.getNickname()));	
-		HttpClientUtils.postRemote("/expdecorateuser/initSaveDecorateUser",list,null);
+		HttpClientUtils.postRemote("/inexpdecorateuser/initSaveDecorateUser",list,null);
 
 
 	}
