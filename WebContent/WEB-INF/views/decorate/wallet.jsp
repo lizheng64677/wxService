@@ -112,7 +112,7 @@ function display(data) {
 
 function work11(){
 	 if("yes"==$("#issubmit").val()){
-		window.location.href="<c:url value='/decorate/cashtoali.html'/>";
+		window.location.href="<c:url value='/decorate/cashtoali.html?id=${expId}'/>";
 	 }else{
 		showDialog("请先补全资料","","取消","<c:url value='/decorate/mydata.html?id=${expId }'/>","确定");
 	 }

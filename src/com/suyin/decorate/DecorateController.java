@@ -133,7 +133,7 @@ public class DecorateController {
 	@RequestMapping(value="/wallet.html")
 	public ModelAndView wallet(HttpServletRequest request,HttpServletResponse response){
 		ModelMap  model=new ModelMap();
-		String expId=request.getParameter("id");
+		String expId=request.getParameter("id");	
 		model.put("expId", expId);
 		return new ModelAndView("decorate/wallet",model);
 	}	
@@ -160,6 +160,8 @@ public class DecorateController {
 		model.put("expId", expId);
 		String openId = Utils.getOpenId(request);
     	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/inexpdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
+    	net.sf.json.JSONObject decorate=HttpClientUtils.getRemote("/indecorate/findDecorateById?id="+expId);
+		model.put("decorate", decorate);
 		model.put("result",result);	
 		return new ModelAndView("decorate/cashtoali",model);
 	}

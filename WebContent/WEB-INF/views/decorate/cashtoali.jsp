@@ -15,7 +15,8 @@
              </ul>  
     </div> -->
        <input type="hidden" name="openid"  id="openid" value="${result.openid}" />
-       <input type="hidden" name="userId"   id="userId" value="${result.userId}" />      
+       <input type="hidden" name="userId"   id="userId" value="${result.userId}" />    
+       <input type="hidden" id="tqMoney" value="${decorate.tqMoney }"/>  
        
     <div class="content">
        <div class="box">
@@ -46,7 +47,7 @@
     </div>
     <div class="footer">
         <input type="button" value="提交" id="submit">
-<!--         <p class="notes">*提现起提数是5元，不足5元不可提现。</p> -->
+        <p class="notes">*提现起提数是${decorate.tqMoney }元，不足${decorate.tqMoney }元不可提现。</p>
     </div>
      <!--end-->
      <!--转出提示-->
@@ -75,6 +76,7 @@
  			var name=$("#name").val();
  			var p=$("#password").val();
  			var ali=$("#ali").val();
+ 			var tqmoney=$("#tqMoney").val();
  			var money=$("#blackmoney").val();
  			if(m.isEmpty()){
  				showAlert("提取金额不能为空！"); return ;
@@ -91,9 +93,9 @@
  			if(!m.isMoney()){
  				showAlert("提取金额的格式不正确！");return ;
  			}
-//  			if(5>m){
-//  				showAlert("提取金额必须大于5！");return ;
-//  			}
+ 			if(tqmoney>m){
+ 				showAlert("提取金额必须大于"+tqmoney+"元！");return ;
+ 			}
  			if(m>money){
  				showAlert("账户中金额不足！");return ;
  			}
