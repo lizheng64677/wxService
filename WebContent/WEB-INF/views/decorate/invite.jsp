@@ -102,9 +102,11 @@ function initScroller(){
 //显示数据，所有的tab可以共用这一个显示方法
 function display(data) {
 	var main=$("#main");
-	for(var i=0;i<data.data.length;i++){
-		main.append($(createSingleLi(data.data[i])));
-		tempHtml=[];
+	if(data.data){
+		for(var i=0;i<data.data.length;i++){
+			main.append($(createSingleLi(data.data[i])));
+			tempHtml=[];
+		}
 	}
 }
 function createSingleLi(data){
