@@ -32,8 +32,6 @@ import com.suyin.utils.Utils;
 @RequestMapping("/decorate")
 public class DecorateController {
 
-	//	    String result=HttpClientUtils.getRemote("/activity/numberplus").toString();
-	//      String result=HttpClientUtils.postRemote("/actrecord/joinAct",  Utils.convert(request, ModuleNameService.EXP),null).toString();
 	/**
 	 * 进入平台介绍页面
 	 * @return
@@ -53,7 +51,6 @@ public class DecorateController {
 
 		ModelMap  model=new ModelMap();
 		return new ModelAndView("/decorate/agreement",model);
-
 	}
 	/**
 	 * 我的资料面跳转
@@ -66,7 +63,7 @@ public class DecorateController {
 		ModelMap  model=new ModelMap();
 		String expId=request.getParameter("id");
 		String openId = Utils.getOpenId(request);
-    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/inexpdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
+		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/inexpdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
 		model.put("result",result);	
 		model.put("expId", expId);
 		return new ModelAndView("decorate/mydata",model);
@@ -84,7 +81,7 @@ public class DecorateController {
 		model.put("expId", expId);
 		return new ModelAndView("decorate/invite",model);
 	}
-	
+
 	/**
 	 * 查询我的邀请
 	 * @param request
@@ -122,8 +119,8 @@ public class DecorateController {
 		model.put("expId", expId);
 		return new ModelAndView("decorate/message",model);
 	}
-	
-	
+
+
 	/**
 	 * 跳转至我的钱包
 	 * @param request
@@ -159,8 +156,8 @@ public class DecorateController {
 		String expId=request.getParameter("id");
 		model.put("expId", expId);
 		String openId = Utils.getOpenId(request);
-    	net.sf.json.JSONObject result=HttpClientUtils.getRemote("/inexpdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
-    	net.sf.json.JSONObject decorate=HttpClientUtils.getRemote("/indecorate/findDecorateById?id="+expId);
+		net.sf.json.JSONObject result=HttpClientUtils.getRemote("/inexpdecorateuser/findUserInfoByUserIdOrOpenId" + "?openId="+openId);
+		net.sf.json.JSONObject decorate=HttpClientUtils.getRemote("/indecorate/findDecorateById?id="+expId);
 		model.put("decorate", decorate);
 		model.put("result",result);	
 		return new ModelAndView("decorate/cashtoali",model);
@@ -170,7 +167,7 @@ public class DecorateController {
 	 */
 	@RequestMapping(value="/withdrawCreateOrder")
 	public @ResponseBody String withdrawCreateOrder(HttpServletRequest request,HttpServletResponse response){
-	      String result=HttpClientUtils.postRemote("/inexpdecorateuser/withdrawCreateOrder",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+		String result=HttpClientUtils.postRemote("/inexpdecorateuser/withdrawCreateOrder",  Utils.convert(request, ModuleNameService.EXP),null).toString();
 		return result;
 	}
 	/**
@@ -214,14 +211,14 @@ public class DecorateController {
 			//当前活动id
 			String expId=request.getParameter("expId");
 			//根据活动id查询活动信息
-		    list.add(new BasicNameValuePair("id", expId));	
+			list.add(new BasicNameValuePair("id", expId));	
 			//当前查看者openid(被邀请者)插入到记录表中
 			//将发起者的营销金额增加
 			String accptopenid=Utils.getOpenId(request);
 			//根据发起者openid 和 受邀者openid  添加数据记录到 t_exp_decorate_record 金额根据 活动配置范围随机，
 			//变更邀请者账户
-		    list.add(new BasicNameValuePair("accptopenid", accptopenid));	
-		    net.sf.json.JSONObject result=HttpClientUtils.postRemote("/qrcode/findShareProjecss",list,null);
+			list.add(new BasicNameValuePair("accptopenid", accptopenid));	
+			net.sf.json.JSONObject result=HttpClientUtils.postRemote("/qrcode/findShareProjecss",list,null);
 			//查询分享主题信息
 			model=setDataInfo(expId);
 			model.put("expId", expId);

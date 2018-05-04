@@ -9,6 +9,8 @@
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.0.0.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
+<link href="<c:url value='/resources/css/web/expdetail/common.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/resources/css/web/expdetail/dialog.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/web/share/share.css"></c:url>" rel="stylesheet" type="text/css" />
 <style>
 .nametext{
@@ -58,7 +60,17 @@ function toDetail(detailId,userId){
         <div class="ckxq"><input type="button" value="查看活动" onclick="toDetail('${expId}');"/></div>
     </div>
 </div>
+<input type="hidden" id="isActDate" value="${decorate.isActDate }"/>
+<input type="hidden" id="status" value="${decorate.status }"/>
 
+<div class="sqSuccessBox hidden" id="actstatus">
+	<div class="sqSuccess">
+    	<div class="Successbox">
+            <h1 id="acttitle"></h1>
+            <div><input type="button" value="确定" id="btnactstatus"/></div>
+        </div>
+    </div>
+</div>
 <div class="bottomPic"><img src="${bottomPic}" /></div>
 
 </body>
@@ -85,7 +97,28 @@ var shareData = {
 $(document).ready(function(){
 
 	prodetailshar(shareData);//回调处理   
-	
+	//关闭活动状态提示框
+	$("#btnactstatus").on("click",function(){
+		$("#actstatus").hide();
+	});
+	var isActDate=$("#isActDate").val();
+	var actStatus=$("#status").val(); 
+	if(1==isActDate){
+		if(1!=actStatus){
+			//未启动活动，正在维护
+			$("#acttitle").html("活动正在停止维护中，数据暂停服务，继续操作将不记录您与本活动之间的参与分享及扫码数据，为您带来的不便，敬请谅解!");
+			$("#actstatus").show();
+		}
+	}else{
+		if(0==isActDate){
+			//未开始
+			$("#acttitle").html("活动暂未开始，活动开始时间为${decorate.beginTime}请耐心等候!");
+		}else if(2==isActDate){
+			//已结束
+			$("#acttitle").html("活动已结束，活动截止时间为${decorate.endTime}请关注后续活动!");
+		}
+		$("#actstatus").show();
+	}
 });
 
 </script>

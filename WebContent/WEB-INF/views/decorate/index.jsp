@@ -72,6 +72,16 @@
         <div class="delBox" onclick="closeDialog(0)"><img src="<c:url value='/resources/css/images/del.png'/>" /></div>
     </div>
 </div>
+
+
+<div class="sqSuccessBox hidden" id="actstatus">
+	<div class="sqSuccess">
+    	<div class="Successbox">
+            <h1 id="acttitle"></h1>
+            <div><input type="button" value="确定" id="btnactstatus"/></div>
+        </div>
+    </div>
+</div>
 	<div class="bottom">
 	  <ul>
 	      <a href="<c:url value='/decorate/index.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
@@ -93,6 +103,10 @@
 		$("#share").on("click",function(){
 		
 			$("#sqSuccessBox").show();
+		});
+		//关闭活动状态提示框
+		$("#btnactstatus").on("click",function(){
+			$("#actstatus").hide();
 		});
 		//生成海报请求
 		$("#imgh").on("click",function(){
@@ -116,6 +130,22 @@
 			$("#image").attr("src",data.activeImg);
 			$("#sellerDescription").html(data.sellerDescription);
 			$("#rule").html(data.description);
+			if(1==data.isActDate){
+				if(1!=data.status){
+					//未启动活动，正在维护
+					$("#acttitle").html("活动正在停止维护中，数据暂停服务，继续操作将不记录您与本活动之间的参与分享及扫码数据，为您带来的不便，敬请谅解!");
+					$("#actstatus").show();
+				}
+			}else{
+				if(0==data.isActDate){
+					//未开始
+					$("#acttitle").html("活动暂未开始，活动开始时间为"+data.beginTime+"请耐心等候!");
+				}else if(2==data.isActDate){
+					//已结束
+					$("#acttitle").html("本次活动已经结束了，活动截止时间为"+data.endTime+"请关注后续活动!");
+				}
+				$("#actstatus").show();
+			}
 			shareData.title=data.shareTitle;
 			shareData.desc=data.shareTitle;
 			shareData.imgUrl='http://'+location.host+'/'+data.shareImg;
