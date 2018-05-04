@@ -36,7 +36,7 @@ public class WxUtils extends Utils {
 		}else {
 			result=applicationContext.getAttribute(Constant.APPLICATION_JSPAPI_TICKET).toString();
 		}
-		logger.info("this jsp api ticket is: "+result);
+		logger.debug("this jsp api ticket is: "+result);
 		return result;
 	}
 		
@@ -60,7 +60,7 @@ public class WxUtils extends Utils {
 		}else {
 			result=applicationContext.getAttribute(Constant.APPLICATION_ACCESS_TOKEN).toString();
 		}
-		logger.info("this access_token is: "+result);
+		logger.debug("this access_token is: "+result);
 		return result;
 	}
 
