@@ -35,6 +35,9 @@
 	    border-radius: 0px;
 	    margin: 1px;
 	}
+	.action{
+	     margin-bottom: 1px;
+	}
 </style>
 </head>
 <body>
@@ -44,17 +47,16 @@
        <div class="Profit">
          	<a class="aclass" id="share" href="#">分享好友</a>
          	<a class="aclass" id="imgh" href="#">获取海报</a>
-      </div>
-      <div class="introduction">
-           <p><span>商家介绍</span></p>
-           <div  id="sellerDescription"  class="introductionFont">
-           </div>
-      </div>
-     
+      </div>    
    </div>
+     <div class="action">
+            <div class="actionContent"><span>商家介绍</span></div>
+            	<div id="sellerDescription" class="introductionFont" >
+            </div>
+      </div>
     <div class="action">
              <div class="actionContent"><span>活动规则</span></div>
-            <div id="rule" class="introductionFont" >
+             	<div id="rule" class="introductionFont" >
             </div>
       </div>
    <div class="he60"></div>
