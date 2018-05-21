@@ -59,6 +59,8 @@ function loadInitImg(){
 			   $("#price").html(result.price);
 			   $("#uprice").html(result.price);
 			   $("#info").html(result.content);
+			   $("#num").html(result.num);
+			   $("#rnum").html(result.remNum);
 
 
     });
@@ -75,17 +77,20 @@ function loadInitImg(){
 				<div class="textNameBox">
 					<h1 class="fLeft">
 						<lz id="name"></lz><font id="ftitle"></font>
-					</h1>
-					<div class="fRight">
-						<span></span>
-					</div>
+					</h1>		
+				<div class="fRight">
+				
+        		</div>
 				</div>
 			</div>
 		</div>
 		<div class="titleTextBox">
 			<h2><lz id="uprice"></lz>元<s id="price"></s></h2>
 		   <div class="ljsqHighLigth"><input type="button" value="购买优惠" id="buy" onclick="buy();"></div>
-		      
+	      	<p>
+			  <span>共<font id="num"></font>张</span>
+	          <span>已购<font id="rnum"></font>张</span>	
+	       </p>
 		</div>
 	</div>
 
