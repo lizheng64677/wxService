@@ -11,18 +11,10 @@
 <link href="<c:url value='/resources/css/web/expdetail/dialog.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/web/Task.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/web/My.css'/>"  rel="stylesheet" type="text/css"/>
+<link href="<c:url value='/resources/css/web/xjjj.css'/>"  rel="stylesheet" type="text/css"/>
+
 <!-- 重新样式 -->
 <style>
-
-	.mokuai {
-	    width: 33.3%;
-	    height: 60px;
-	    color: #999;
-	    font-size: 12px;
-	    text-align: center;
-	    padding-top: 8px;
-	    float: left;
-	}
 	.Profit{
 			padding:10px;
 			margin-buttom:18px;
@@ -88,6 +80,7 @@
 	  <ul>
 	      <a href="<c:url value='/decorate/index.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/home_1.png'/>"><p class="he20">首页</p></li></a>
 	      <a href="<c:url value='/decorate/rank.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/faxian_1.png'/>"><p class="he20">排名</p></li></a>
+	      <a href="<c:url value='/decorate/vouchehome.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/bottomIcon02-2.png'/>"><p class="he20">福券</p></li></a>
 	      <a href="<c:url value='/decorate/center.html?id=${expId }'/>"><li class="mokuai"><img src="<c:url value='/resources/images/web/my_1.png'/>"/><p class="he20">我的</p></li></a>
 	  </ul>
 	</div>
@@ -117,8 +110,8 @@
 		})
 	});
 	var shareData = {
-			title: 'NO团网',
-		    desc: 'NO团网', 
+			title: '禧居家居',
+		    desc: '禧居家居', 
 		    link: 'http://'+location.host+'/wxService/decorate/share.html',
 		    imgUrl: 'http://'+location.host+'/wxService/resources/images/web/rankpm.png', 
 		    requrl: 'http://'+location.host+'/wxService/share/sharePrepare',

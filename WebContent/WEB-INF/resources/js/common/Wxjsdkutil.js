@@ -1,3 +1,34 @@
+//扫一扫
+function scanQRCode(shareData){
+	$.ajax({
+		type:"get",
+		url:shareData.requrl,
+		data:{"url":shareData.param},
+		dataType:"json",
+		success:function(result){
+			if(result.status=="ok"){
+				wx.config({
+					debug: false,
+					appId:result.appId,
+					timestamp:result.timestamp,
+					nonceStr: result.nonceStr,
+					signature:result.signature,
+					jsApiList: ['scanQRCode']
+				});
+			}
+		}
+	})
+}
+
+function ddddd(){
+    wx.scanQRCode({
+        needResult: 1,
+        desc: 'scanQRCode desc',
+        success: function (res) {
+          alert(JSON.stringify(res));
+        }
+      });	
+}
 //去除微信的基本上所有的菜单
 function hideOptionMenu(shareData){
 	$.ajax({
@@ -77,7 +108,9 @@ function prodetailshar(shareData){
 					            'showMenuItems',
 					            'hideOptionMenu',
 					            'showOptionMenu',
-					            'getNetworkType'
+					            'getNetworkType',
+					            'scanQRCode'
+					          
 					            ]
 				});
 				wx.ready(function () {

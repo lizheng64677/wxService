@@ -31,7 +31,40 @@ import com.suyin.utils.Utils;
 @Controller
 @RequestMapping("/decorate")
 public class DecorateController {
-
+	
+	/**
+	 * 进入券详情
+	 * @return
+	 */
+	@RequestMapping("/voucherdetail.html")
+	public ModelAndView toVoucherdetail(HttpServletRequest request){
+		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
+		String detailId=request.getParameter("detailId");
+		String publishopenid=Utils.getOpenId(request);
+		model.put("publishopenid", publishopenid);
+		net.sf.json.JSONObject decorate=HttpClientUtils.getRemote("/indecorate/findDecorateById?id="+expId);
+		model.put("decorate", decorate);
+		model.put("expId", expId);
+		model.put("detailId", detailId);
+		return new ModelAndView("/decorate/voucherdetail",model);
+	}
+	/**
+	 * 进入福利券首页
+	 * @return
+	 */
+	@RequestMapping("/vouchehome.html")
+	public ModelAndView toVouche(HttpServletRequest request){
+		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
+		//获取当前操作者的openid
+		String publishopenid=Utils.getOpenId(request);
+		model.put("publishopenid", publishopenid);
+		net.sf.json.JSONObject decorate=HttpClientUtils.getRemote("/indecorate/findDecorateById?id="+expId);
+		model.put("decorate", decorate);
+		model.put("expId", expId);
+		return new ModelAndView("/decorate/vouchehome",model);
+	}
 	/**
 	 * 进入平台介绍页面
 	 * @return
