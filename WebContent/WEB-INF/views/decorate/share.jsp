@@ -12,6 +12,7 @@
 <link href="<c:url value='/resources/css/web/expdetail/common.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/web/expdetail/dialog.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/web/share/share.css"></c:url>" rel="stylesheet" type="text/css" />
+
 <style>
 .nametext{
 	overflow: hidden;
@@ -22,6 +23,29 @@
     width: 20%;
     border-radius: 160px;
     height: 20%;
+    }
+.he60{
+	height:60px;
+	}
+    
+.syqq {
+	width: 100%;
+    background: #e83228;
+	position: fixed;
+	bottom: 0;
+	padding: 10px 0;
+	padding-top: 0px;
+	text-align: center;
+}
+.aclass {
+    display: inline-block;
+    width: 40%;
+    border-radius: 20px;
+    padding: 8px 0;
+    background: #e83228;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
     }
 </style>
 <script type="text/javascript">
@@ -72,7 +96,13 @@ function toDetail(detailId,userId){
     </div>
 </div>
 <div class="bottomPic"><img src="${bottomPic}" /></div>
-
+	<div class="he60"></div>
+	<c:if test="${1==isVoucher}">
+	 <div class="syqq">
+		 <a href="javascript:void(0);"></a>
+		 <a href="javascript:void(0);" class="aclass" id="buy" onclick="buy();">${voucherPrice}(元)体验.${voucherName}</a>
+	 </div>   
+ 	</c:if>
 </body>
 <script>
 var img="";

@@ -22,28 +22,11 @@
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
 <script type="text/javascript">
 $(function(){
-	//加载图像 
+	//初始化加载
 	loadInitImg();
-    $("#btnExp").click(function(){
-        $("#shareDialog").hide();
-      	$("#sqSuccessBox").show();
-        $(".sqSuccess").hide();
-        $("#share").show();
-
-    });
-    $("#d2").on("click",".c1",function(){
-		
-		 $(".c2").attr("src",this.src);
-		 $(".hide").show();
-	});
-	
-	$(".hide").click(function(){
-		$(this).hide();
-	});
-    
 });
 
-//参与任务 
+//购买
 function buy(){
 
 	involvedExp();
@@ -53,57 +36,9 @@ function involvedExp(){
 	$.ajax({
 		type:"post",
 		url:"<c:url value='/expVolved/involVedEchage'/>",
-		data:{"detailId":"${exp_detail_id}","memberId":"${member_id}","expId":"${exp_id}"},
+		data:{"detailId":"${detailId}","id":"${expId}"},
 		dataType:"json",
 		success:function(res){
-
-			if("invalidDetailInfo"==res.message){
-
-				showAlert("您已经参与过本期活动了!");
-				return false;
-			}else if("invalidExpInfo"==res.message){
-				
-				showAlert("当前活动查询异常！");
-				return false;
-				
-			}else if("started"==res.message){
-				
-				showAlert("活动暂未开始");
-				return false;
-			}else if("invalidTimeExp"==res.message){
-				 
-				showAlert("本期活动已经结束，请期待后期项目！");
-				return false;
-			}else if("yprize"==res.message){
-				
-				showDialog("恭喜你兑换成功了！","","取消","<c:url value='/user/toVouch'/>","查看劵号"); 
-				return false;
-			}else if("invalidUser"==res.message){
-				
-				showAlert("用户信息查询有误！");
-				return false;
-			}else if("invlidProNum"==res.message){ 
-				showAlert("很遗憾，本期奖品已经被兑光了！");
-				return false;
-			}else if("invalidIntegral"==res.message){
-				
-				showAlert("您的金币不足！");
-				return false;
-			}else if("Notperfect"==res.message){
-				
-				showDialog("您的资料不完善，请完善资料后再来参与！","","取消","<c:url value='/userProblem'/>","确定"); 
-				return false;
-			}else if("NotInfoExp"==res.message){
-				
-				showDialog("亲，您不符合该活动的参与条件，请查看其他活动，谢谢！","","取消","","确定");
-				return false;
-				
-			}else if("notregUser"==res.message){
-				
-				showDialog("你还没有登录，前往登录！","","取消","<c:url value='/user/toLogin'/>","确定");
-				return false;
-			}
-			
 			
 		}
 	})
@@ -171,16 +106,11 @@ function loadInitImg(){
 	</div>
 
 	<div class="he60"></div>
-   
-  		 <div class="syqq">
-  		 <a href="javascript:void(0);"><img class="intro" src="<c:url value='/resources/images/web/intro.png'/>"></a>
-  		 <a href="javascript:void(0);" class="aclass" id="buy" onclick="buy();">立即购买</a>
-  		 </div>     
-        <div class="hide" style="display:none;">
-		   <div class="boximg">
-				<img  class="c2" src="images/11.png" />
-		   </div>
- 	    </div>
+ 
+	 <div class="syqq">
+	 <a href="javascript:void(0);"><img class="intro" src="<c:url value='/resources/images/web/intro.png'/>"></a>
+	 <a href="javascript:void(0);" class="aclass" id="buy" onclick="buy();">立即购买</a>
+	 </div>     
 </body>
 <script type="text/javascript">
 var shareData = {

@@ -287,6 +287,13 @@ public class DecorateController {
 				model.put("themeLogo", s.get("theme_logo"));
 				model.put("themeTitle", s.get("theme_title"));
 				model.put("themePic", s.get("theme_pic"));
+				model.put("isVoucher", s.get("is_voucher"));
+				if(!"".equals(s.get("is_voucher"))){
+					model.put("voucherId", s.get("voucher_id"));
+					model.put("voucherPrice", s.get("price"));
+					model.put("voucherName", s.get("name"));
+
+				}
 			}
 		}else{
 
@@ -295,6 +302,10 @@ public class DecorateController {
 			model.put("themeLogo", "");
 			model.put("themeTitle", "");
 			model.put("themePic", "");
+			model.put("isVoucher", "");
+			model.put("voucherId","");
+			model.put("voucherPrice", "");
+			model.put("voucherName","");
 		}
 
 		return model;
