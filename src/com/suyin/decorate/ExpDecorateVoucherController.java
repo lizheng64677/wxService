@@ -19,6 +19,16 @@ import com.suyin.utils.Utils;
 public class ExpDecorateVoucherController {
 	
 	/**
+	 * 个人模块 查询我的券
+	 * findVoucher
+	 * @return
+	 */
+	@RequestMapping("/findByUserVoucher")
+	public @ResponseBody String findByUserVoucher(HttpServletRequest request){
+		String result=HttpClientUtils.postRemote("/indecoratevoucher/findByUserVoucherList",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+		return result;
+	}
+	/**
 	 * 查询首页模块 信息固定六条
 	 * findVoucher
 	 * @return
