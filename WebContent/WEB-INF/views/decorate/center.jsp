@@ -58,8 +58,8 @@
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
-<%--         <c:url value='/decorate/voucher.html?id=${expId }'/> --%>
-         <a href="#" id="voucher"><li>
+<!--         id="voucher" -->
+         <a href="<c:url value='/decorate/voucher.html?id=${expId }'/>" ><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/20.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">我的券</span>

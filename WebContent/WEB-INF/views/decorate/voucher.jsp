@@ -52,55 +52,46 @@ $(document) .bind("pageshow", function() {
 		$("#main").empty();
 		$(".nav li a").removeClass("chooseBox");
 		$(this).find("a").addClass("chooseBox");
-		scroll.setSearchCondition({"page.currentPage":1,status:$(this).data("status")});
+		scroll.setSearchCondition({"page.currentPage":1,state:$(this).data("status")});
 		scroll.initSearch(); 
 	});
 });
 
 function initScroller(){
 	scroll=fixed($(document),46,43);
-	scroll.setUrl("<c:url value='/sen/getVouch' />");
-	scroll.setSearchCondition({"page.currentPage":1,status:0});
+	scroll.setUrl("<c:url value='/wxDecorateVoucher/findByUserVoucher' />");
+	scroll.setSearchCondition({"page.currentPage":1,state:0});
 	scroll.setDisplay(display);
 	scroll.initSearch(); 
 }
 
 function display(data) {
 	var main=$("#main");
-	if(2 == $("#liStatus").val()) {
-		for(var i=0;i<data.data.length;i++){
-			main.append($(createSingleLi(data.data[i])));
-			$("[class^=bgColor]").eq(i).attr("class", "bgColor6");
-		}
-	} else {
-		for(var i=0;i<data.data.length;i++){
-			main.append($(createSingleLi(data.data[i])));
-			$("[class^=bgColor]").eq((data.args.page.currentPage-1)*10+i).show();
-			$("[class^=bgColor]").eq((data.args.page.currentPage-1)*10+i).attr("class", "bgColor" + (i%5+1)); 
+	if(data.data){
+		if("2"== $("#liStatus").val()) {
+			for(var i=0;i<data.data.length;i++){
+				main.append($(createSingleLi(data.data[i])));
+				$("[class^=bgColor]").eq(i).show();
+				$("[class^=bgColor]").eq(i).attr("class", "bgColor6");
+			}
+		} else {
+			for(var i=0;i<data.data.length;i++){
+				main.append($(createSingleLi(data.data[i])));
+				$("[class^=bgColor]").eq((data.args.page.currentPage-1)*10+i).show();
+				$("[class^=bgColor]").eq((data.args.page.currentPage-1)*10+i).attr("class", "bgColor" + (i%5+1)); 
+			}
 		}
 	}
 	
 }
 function createSingleLi(data){
 	var html=$("#htmlText").html();
-	 var ht="";
-	 if(data.isDiscuss==1 && data.status==1){
-			ht='<a href="javascript:void(0)">已评价</a>';
-	 }else if(data.isDiscuss!=1 && data.status==1){
-
-			ht='<a href="javascript:void(0)"  class="vouch" data-detailid="#detailId" data-proid="#proId" data-memberid="#memberId" data-userid="#userId" data-exptype="#expType">评价</a>';
-		}
-	return html.replace("#vouCode",data.vouCode)
-	.replace("#isDiscuss",ht)
-	.replace("#validity",data.validity)
-	.replace("#title",data.proName)
-	.replace("#proId",data.proId)
-	.replace("#memberId",data.memberId)
-	.replace("#userId",data.userId)
-	.replace("#detailId",data.detailId)
-	.replace("#expType",data.type)
-	.replace("#type",data.status)
-	;
+    var ht="";
+	return html.replace("#vouCode",data.vourcheCode)
+	.replace("#validity",data.model=="0"?"长期":data.validityDay+"(天)")
+	.replace("#title",data.name)
+	.replace("#voucherType",data.type=="0"?"福利券":data.type=="1"?"体验券":"优惠券");
+	
 }
 
 var shareData = {			
@@ -111,17 +102,6 @@ $(function(){
 	//个人中心不允许有多余菜单出现 
 	hideOptionMenu(shareData);
 
-	//评价
-	$(".qListBox").on("click",".vouch",function(){
-		var proId=$(this).data("proid");
-		var memberId=$(this).data("memberid");
-		var userId=$(this).data("userid");
-		var detailId=$(this).data("detailid");
-		var expType=$(this).data("exptype");
-		window.location.href="<c:url value='/discuz/toDiscuz?proId="+proId
-				+"&memberId="+memberId+"&userId="+userId+"&detailId="+detailId+"&expType="+expType+"'/>";
-	});
-	
 });
 
 </script>
@@ -142,10 +122,7 @@ $(function(){
          </div>
          
          <div class="fRight rightButon">
-         	<h3>免费券</h3>
-         </div>
-         <div   style="width: 20%; float: left; margin-top: 11px;margin-left: 10px;" id="ddsds">
-         	#isDiscuss
+         	<h3>#voucherType</h3>
          </div>
     </div>
     <div class="byBox1"><img src="<c:url value='/resources/images/web/leftby.png'/>" /></div>
