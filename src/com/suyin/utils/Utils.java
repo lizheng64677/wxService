@@ -24,13 +24,19 @@ import org.apache.http.protocol.HttpContext;
 import com.suyin.model.LoginUser;
 
 public class Utils {
-	public static String appId,secret,rootUrl,remoteUrl;
+	public static String appId,secret,rootUrl,remoteUrl,wxcallBackUrl,cerUrl,mchID,mchKey;
 	static {
 		appId=SystemPropertiesHolder.get("APP_ID");
 		secret=SystemPropertiesHolder.get("APP_SECRET");
 		rootUrl=SystemPropertiesHolder.get("ROOT_URL");
 		remoteUrl=SystemPropertiesHolder.get("REMOTE_URL");
+		wxcallBackUrl=SystemPropertiesHolder.get("CALL_URL");
+		cerUrl=SystemPropertiesHolder.get("CER_URL");
+		mchID=SystemPropertiesHolder.get("MCHID");
+		mchKey=SystemPropertiesHolder.get("MCHKEY");
+
 	}
+	
 
 	public static String getOpenId(String code) {
 		String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid="+appId+ "&secret="+secret+"&code="+code+"&grant_type=authorization_code";
