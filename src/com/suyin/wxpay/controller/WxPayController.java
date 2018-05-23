@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,7 +39,8 @@ public class WxPayController {
 	@RequestMapping("/wxBuyPay")
 	public @ResponseBody String wxBuyPay(HttpServletRequest request){
 		String str="";
-		String ip = request.getParameter("ip");  
+//		String ip = request.getParameter("ip");  
+		String ip="58.240.21.178";
 		return getMess(ip);
 	}
 	/**
@@ -67,6 +69,7 @@ public class WxPayController {
 			System.out.println("money1"+cardmoney);
 			String totalproce=String.valueOf(cardmoney);
 			String orderNum="jspapi"+this.getRandomString(12);
+			String timestamp=Long.toString(System.currentTimeMillis() / 1000);
 			//插入一条订单记录
 			MyConfig config = new MyConfig();
 			WXPay wxpay = new WXPay(config);
@@ -78,6 +81,7 @@ public class WxPayController {
 			data.put("spbill_create_ip",ip);
 			data.put("notify_url", config.getCallBackUrl());
 			data.put("trade_type", "JSAPI");  // 微信公众号支付
+			data.put("openid","");
 			Map<String, String> resp = wxpay.unifiedOrder(data);
 			JSONObject jo=JSONObject.fromObject(resp);
 			Map<String, String> data1 = new HashMap<String, String>();
@@ -87,7 +91,7 @@ public class WxPayController {
 				data1.put("prepayid", jo.getString("prepay_id"));
 				data1.put("package","Sign=WXPay");
 				data1.put("noncestr",jo.getString("nonce_str"));
-				data1.put("timestamp",System.currentTimeMillis()+"");
+				data1.put("timestamp",timestamp);
 				String sign = WXPayUtil.generateSignature(data1,config.getKey(),SignType.MD5);//再签名一次
 				System.out.println(sign);
 				data1.put("sign", sign);
