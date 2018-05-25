@@ -1,8 +1,11 @@
 package com.suyin.decorate;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +15,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +26,10 @@ import com.suyin.model.LoginUser;
 import com.suyin.utils.Constant;
 import com.suyin.utils.HttpClientUtils;
 import com.suyin.utils.Utils;
+import com.suyin.wxpay.WXPayUtil;
+import com.suyin.wxpay.WXPayConstants.SignType;
+import com.suyin.wxpay.service.WXPay;
+import com.suyin.wxpay.service.impl.MyConfig;
 
 /**
  * 装修活动接口请求类
@@ -31,7 +39,134 @@ import com.suyin.utils.Utils;
 @Controller
 @RequestMapping("/decorate")
 public class DecorateController {
+	/**
+	 * 购买券
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/wxBuyPay")
+	public @ResponseBody String wxBuyPay(HttpServletRequest request){
+		String str="";
+		String id = request.getParameter("id");  
+		String openId=Utils.getOpenId(request);
+		String ip=Utils.getIpAddr(request);
+		System.out.println(ip);
+		return getMess(request,ip,openId);
+	}
+
+	private String getMess(HttpServletRequest request,String ip,String openId) {
+		JSONObject joo=new JSONObject();
+		try {
+			String cardname="testcardname";
+			String orderNum=Utils.getRandomString(32);
+			System.out.println("内部订单号"+orderNum);
+			//插入一条订单记录
+			MyConfig config = new MyConfig();
+			WXPay wxpay = new WXPay(config);
+			Map<String, String> data = new HashMap<String, String>();
+			data.put("body", "pro-"+cardname);
+			data.put("total_fee", "1");
+			data.put("spbill_create_ip",ip);
+			data.put("notify_url", config.getCallBackUrl());
+			data.put("out_trade_no", orderNum);//生成随机订单号
+			data.put("trade_type", "JSAPI");  // 微信公众号支付
+			data.put("device_info","WEB");
+			data.put("openid",openId);
+			Map<String, String> resp = wxpay.unifiedOrder(data);
+			net.sf.json.JSONObject jo=net.sf.json.JSONObject.fromObject(resp);
+			Map<String, String> data1 = new HashMap<String, String>();
+			if(jo.get("result_code").equals("SUCCESS") &&jo.get("return_code").equals("SUCCESS")){
+				data1.put("appId",config.getAppID());
+				data1.put("partnerid", Utils.getRandomString(12));//生成随机订单号
+				data1.put("prepayid", jo.getString("prepay_id"));
+				data1.put("packageStr","prepay_id=" + jo.getString("prepay_id"));
+				data1.put("nonceStr",jo.getString("nonce_str"));
+				String timestamp=Long.toString(System.currentTimeMillis() / 1000);
+				data1.put("timeStamp",timestamp);
+				data1.put("signType", SignType.MD5.toString());
+				String sign = WXPayUtil.generateSignature(data1,config.getKey(),SignType.MD5);//再签名一次
+				System.out.println(sign);
+				data1.put("paySign", sign);
+
+			}
+			net.sf.json.JSONObject jj=net.sf.json.JSONObject.fromObject(data1);
+			joo.put("info", jj);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return joo.toString();
+	}
+
+	/**
+	 * 成功后的回调地址
+	 * @param request
+	 * @param response
+	 * @throws IOException 
+	 */
+	@RequestMapping("/wxCallServer")
+	public @ResponseBody String  wxCallServer(HttpServletRequest request) throws IOException{
+		request.setCharacterEncoding("utf-8");
+		System.out.println("來到了這裏");
+		BufferedReader reader = request.getReader();
+		String line="";
+		String returnXML ="";
+		StringBuffer inputString=new StringBuffer();
+		while((line=reader.readLine())!=null){
+			inputString.append(line);
+		}
+		request.getReader().close();
+		System.out.println("接受到的報文"+inputString.toString());
+		String result_code = "";
+		String return_code = "";
+		String out_trade_no = "";
+		try {
+			Map<String, String> map = WXPayUtil.xmlToMap(inputString.toString());
+			result_code = map.get("result_code");
+			out_trade_no = map.get("out_trade_no");
+			return_code = map.get("return_code");
+			MyConfig config=new MyConfig();
+			//重新签名判断签名是否正确
+			boolean signatureValid = WXPayUtil.isSignatureValid(map,config.getKey());
+			if(signatureValid){//签名正确
+				//更新数据库  1，订单 2，userid表
+				//告诉微信服务器，我收到信息了，不要在调用回调action了
+				//				boolean updateOrderInfo = WxAndAliPayService.updateOrderInfo(out_trade_no);
+				returnXML = returnXML(return_code);
+			}else{
+				returnXML = returnXML("FAIL");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return returnXML;
+	}
+
+
+	/** 
+	 * 返回给微信服务器的消息 
+	 * @param return_code 
+	 * @return 
+	 */  
+	private String returnXML(String return_code) {  
+		return "<xml><return_code><![CDATA["  
+				+ return_code  
+				+ "]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";  
+	}  
 	
+	/**
+	 * 进入订单页面
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/order.html")
+	public ModelAndView toUserOrder(HttpServletRequest request){
+		ModelMap  model=new ModelMap();
+		String expId=request.getParameter("id");
+		model.put("expId", expId);
+		return new ModelAndView("/decorate/order",model);
+
+	}
 	/**
 	 * 进入券详情
 	 * @return

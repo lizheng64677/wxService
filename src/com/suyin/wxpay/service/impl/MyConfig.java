@@ -10,14 +10,14 @@ import com.suyin.wxpay.service.WXPayConfig;
 
 public class MyConfig implements WXPayConfig{
 	private byte[] certData;
-	public MyConfig() throws Exception {	
-		//从微信商户平台下载的安全证书存放的目录
-		File file = new File(Utils.cerUrl);
-		InputStream certStream = new FileInputStream(file);
-		this.certData = new byte[(int) file.length()];
-		certStream.read(this.certData);
-		certStream.close();
-	}
+//	public MyConfig() throws Exception {	
+//		//从微信商户平台下载的安全证书存放的目录
+//		File file = new File(Utils.cerUrl);
+//		InputStream certStream = new FileInputStream(file);
+//		this.certData = new byte[(int) file.length()];
+//		certStream.read(this.certData);
+//		certStream.close();
+//	}
 	public String getAppID() {
 		return Utils.appId;//如初appid
 	}
@@ -27,7 +27,7 @@ public class MyConfig implements WXPayConfig{
 	}	
 
 	public String getKey() {
-		return Utils.wxcallBackUrl;//密钥
+		return Utils.mchKey;//密钥
 	}
 
 	public InputStream getCertStream() {

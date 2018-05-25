@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="telephone=no" name="format-detection"> 
-<title>我的券</title>
+<title>我的订单</title>
 <link href="<c:url value='/resources/css/web/quan.css'/>"  rel="stylesheet" type="text/css"/></head>
 <link rel="stylesheet" href="<c:url value='/resources/css/web/pull/pull.css'/>" />
 <body>
@@ -15,9 +15,9 @@
 		<div class="qNavBox">
 			<input type="hidden" id="liStatus" />
 			<ul class="nav">
-		    	<li data-status="0"><a class="wxf chooseBox"  href="#">未消费</a></li>
-		        <li data-status="1"><a href="#">已消费</a></li>
-		        <li data-status="2"><a class="yxf" href="#">已作废</a></li>
+		    	<li data-status=""><a class="wxf chooseBox"  href="#">全部</a></li>
+		        <li data-status="0"><a href="#">未支付</a></li>
+		        <li data-status="1"><a class="yxf" href="#">已支付</a></li>
 		    </ul>
 		</div>
 	</div>
@@ -59,7 +59,7 @@ $(document) .bind("pageshow", function() {
 
 function initScroller(){
 	scroll=fixed($(document),46,43);
-	scroll.setUrl("<c:url value='/wxDecorateVoucher/findByUserVoucher' />");
+	scroll.setUrl("<c:url value='/wxDecorateVoucher/findOrderListByIdInfo' />");
 	scroll.setSearchCondition({"page.currentPage":1,state:0});
 	scroll.setDisplay(display);
 	scroll.initSearch(); 
@@ -87,10 +87,10 @@ function display(data) {
 function createSingleLi(data){
 	var html=$("#htmlText").html();
     var ht="";
-	return html.replace("#vouCode",data.vourcheCode)
+	return html.replace("#vouCode",data.orderCode)
 	.replace("#validity",data.model=="0"?"长期":data.validityDay+"(天)")
-	.replace("#title",data.name)
-	.replace("#voucherType",data.type=="0"?"福利券":data.type=="1"?"体验券":"优惠券");
+	.replace("#title",data.orderName)
+	.replace("#voucherType",data.orderType=="0"?"福利券":data.orderType=="1"?"体验券":"优惠券");
 	
 }
 
@@ -109,7 +109,7 @@ $(function(){
 	
 <li  class="bgColor"  style="display: none;" >
 	<div class="nameTimeBox">
-      	<h1 class="fLeft">券号：#vouCode</h1>
+      	<h1 class="fLeft">订单号：#vouCode</h1>
         <p class="fRight"><img src="<c:url value='/resources/images/web/time.png'/>" /><span>有效期：#validity</span></p>        	
     </div>
     <div class="qCommentBox">

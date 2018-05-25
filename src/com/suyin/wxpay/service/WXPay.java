@@ -54,7 +54,7 @@ public class WXPay {
         else if (SignType.HMACSHA256.equals(this.signType)) {
             reqData.put("sign_type", WXPayConstants.HMACSHA256);
         }
-        System.out.println("this.signType"+this.signType);
+//        System.out.println("this.signType"+this.signType);
         
         reqData.put("sign", WXPayUtil.generateSignature(reqData, config.getKey(), this.signType));
         return reqData;
@@ -116,6 +116,7 @@ public class WXPay {
     public String requestWithoutCert(String strUrl, Map<String, String> reqData, int connectTimeoutMs, int readTimeoutMs) throws Exception {
         String UTF8 = "UTF-8";
         String reqBody = WXPayUtil.mapToXml(reqData);
+//        System.out.println("==="+reqBody);
         URL httpUrl = new URL(strUrl);
         HttpURLConnection httpURLConnection = (HttpURLConnection) httpUrl.openConnection();
         httpURLConnection.setDoOutput(true);
@@ -316,9 +317,9 @@ public class WXPay {
         else {
             url = WXPayConstants.UNIFIEDORDER_URL;
         }
-        System.out.println(url);
+//        System.out.println(url);
         String respXml = this.requestWithoutCert(url, this.fillRequestData(reqData), connectTimeoutMs, readTimeoutMs);
-        System.out.println("this.processResponseXml(respXml)"+respXml);
+//        System.out.println("this.processResponseXml(respXml)"+respXml);
         return this.processResponseXml(respXml);
     }
 

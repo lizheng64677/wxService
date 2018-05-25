@@ -42,6 +42,9 @@ public class VerificationHandlerInterceptor extends HandlerInterceptorAdapter {
         if(path.startsWith("/user/toMyInfo")) return true;
 
         if(path.startsWith("/shareDowload")){return true;}
+        
+        if(path.startsWith("/wxPay")){return true;}
+
         //这里保证session中一定有open_id
 //        if(request.getSession().getAttribute(Constant.SESSION_OPEN_ID)==null) {
 //            if(request.getParameter("code")==null) {

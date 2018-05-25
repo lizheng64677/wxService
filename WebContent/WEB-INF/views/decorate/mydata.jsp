@@ -54,7 +54,7 @@
  <script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script>
  <script type="text/javascript" src="<c:url value='/resources/js/common/validate.js'/>"></script>
  <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
- <script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.0.0.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.2.0.js'/>"></script>
  <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
  <script type="text/javascript">
 	var shareData = {			

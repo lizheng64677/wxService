@@ -18,6 +18,28 @@ import com.suyin.utils.Utils;
 @RequestMapping("/wxDecorateVoucher")
 public class ExpDecorateVoucherController {
 	
+	 /**
+     * 通过用户openId查询我的消息
+     * @param userId
+     * @param openId
+     * @return
+     */
+    @RequestMapping(value="/findUserInfoByOpenIdMessage")
+    public @ResponseBody String findUserInfoByOpenIdMessage(HttpServletRequest request) {
+		String result=HttpClientUtils.postRemote("/indecoratemessage/findUseMessageList",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+		return result;
+    }
+	 /**
+     * 通过用户openId查询我的订单
+     * @param userId
+     * @param openId
+     * @return
+     */
+    @RequestMapping(value="/findOrderListByIdInfo")
+    public @ResponseBody String findOrderInfoByOpenId(HttpServletRequest request) {
+		String result=HttpClientUtils.postRemote("/indecoratebuyorder/findUserOrderList",  Utils.convert(request, ModuleNameService.EXP),null).toString();
+		return result;
+    }
 	/**
 	 * 个人模块 查询我的券
 	 * findVoucher

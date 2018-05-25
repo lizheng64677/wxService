@@ -1,3 +1,44 @@
+function wecharPay(payData){
+	$.ajax({
+		type:"post",
+		url:payData.requrl,
+		data:{"id":payData.vouId,"name":payData.name},
+		dataType:"json",
+		success:function(data){
+//			WeixinJSBridge.invoke(
+//				    'getBrandWCPayRequest', {
+//				        "appId":data.info.appId,//公众号名称，由商户传入       
+//				        "timeStamp":data.info.timeStamp,     //时间戳，自1970年以来的秒数       
+//				        "nonceStr":data.info.nonceStr, //随机串       
+//				        "package":data.info.packageStr,       
+//				        "signType":data.info.signType,         //微信签名方式：       
+//				        "paySign":data.info.paySign  //微信签名   
+//				    },  
+//				    function(res){
+//				    	alert(res.err_mg);
+//				        if(res.err_msg == "get_brand_wcpay_request:ok" ) {}     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。   
+//				    }  
+//				);    		
+	
+			wx.chooseWXPay({
+				appId:data.info.appId,
+				timestamp: data.info.timeStamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+				nonceStr: data.info.nonceStr, // 支付签名随机串，不长于 32 位
+				package: data.info.packageStr, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
+				signType: data.info.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+				paySign: data.info.paySign, // 支付签名
+				success: function (res) {
+					alert("is ok");
+					debugger;
+				// 支付成功后的回调函数
+				//window.location.href=data[0].sendUrl;  
+				}
+			});
+		   }
+		});
+	
+}
+
 //扫一扫
 function scanQRCode(shareData){
 	$.ajax({
@@ -20,7 +61,7 @@ function scanQRCode(shareData){
 	})
 }
 
-function ddddd(){
+function scanQRCode(){
     wx.scanQRCode({
         needResult: 1,
         desc: 'scanQRCode desc',
@@ -128,7 +169,6 @@ function prodetailshar(shareData){
 						imgUrl:shareData.imgUrl, 
 						success: function () { 				
 							
-							experience();
 						}
 					});
 					//分享给朋友
@@ -139,7 +179,6 @@ function prodetailshar(shareData){
 						imgUrl:shareData.imgUrl, 
 						success: function (res) {
 		
-							experience();
 						}
 					});
 				});
@@ -168,7 +207,7 @@ function sharTimelineFun(shareData){
 			if(result.status=="ok"){
 			
 				wx.config({
-					debug: false,
+					debug: true,
 					appId:result.appId,
 					timestamp:result.timestamp,
 					nonceStr: result.nonceStr,
@@ -182,7 +221,8 @@ function sharTimelineFun(shareData){
 					            'showMenuItems',
 					            'hideOptionMenu',
 					            'showOptionMenu',
-					            'getNetworkType'
+					            'getNetworkType',
+					            'chooseWXPay'
 					            ]
 				});
 				wx.ready(function(){
@@ -193,7 +233,6 @@ function sharTimelineFun(shareData){
 						           'menuItem:openWithQQBrowser'
 						          ]
 					});
-			
 					wx.onMenuShareTimeline({
 						title: shareData.title,
 						desc:shareData.desc,

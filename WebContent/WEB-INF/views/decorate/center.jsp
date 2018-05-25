@@ -46,7 +46,7 @@
 	<ul>
 	     <a href="<c:url value='/decorate/mydata.html?id=${expId }'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/70.png'/>" /></p>
-            <div class="fRight rightTextBox lastBox">
+            <div class="fRight rightTextBox">
             	<span class="mycj">我的资料</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
@@ -58,11 +58,18 @@
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
+        <a href="<c:url value='/decorate/order.html?id=${expId }'/>"><li>
+            <p class="fLeft"><img src="<c:url value='/resources/images/web/my/50.png'/>" /></p>
+            <div class="fRight rightTextBox">
+            	<span class="mycj">我的订单<b class="yuan" style="display: none;"></b></span>
+                <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
+            </div>
+        </li></a>
 <!--         id="voucher" -->
          <a href="<c:url value='/decorate/voucher.html?id=${expId }'/>" ><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/20.png'/>" /></p>
             <div class="fRight rightTextBox">
-            	<span class="mycj">我的券</span>
+            	<span class="mycj">我的福券</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
@@ -77,15 +84,15 @@
     </ul>
     <ul>
         <a href="<c:url value='/decorate/newhelp.html'/>"><li>
-            <p class="fLeft"><img style="height: 20px; width: 15px;" src="<c:url value='/resources/images/web/my/50.png'/>" /></p>
+            <p class="fLeft"><img style="height: 20px; width: 15px;" src="<c:url value='/resources/images/web/my/60.png'/>" /></p>
             <div class="fRight rightTextBox">
             	<span class="mycj">新手指南</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
         <a href="<c:url value='/decorate/about.html'/>"><li>
-            <p class="fLeft"><img src="<c:url value='/resources/images/web/my/60.png'/>" /></p>
-            <div class="fRight rightTextBox">
+            <p class="fLeft"><img src="<c:url value='/resources/images/web/my/50.png'/>" /></p>
+            <div class="fRight rightTextBox lastBox">
             	<span class="mycj">关于我们</span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
@@ -108,7 +115,7 @@
 <script type="text/javascript" src="<c:url value='/resources/js/fileCompress/mobileBUGFix.mini.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/fileCompress/compress.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.2.0.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){

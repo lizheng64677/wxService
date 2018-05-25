@@ -68,7 +68,7 @@
 <script src="<c:url value='/resources/js/pull/fastclick.js'/>"></script>
 <script src="<c:url value='/resources/js/pull/iscroll.js'/>"></script>
 <script src="<c:url value='/resources/js/pull/initScroll.js'/>"></script>
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.2.0.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
 
 <script type="text/javascript">

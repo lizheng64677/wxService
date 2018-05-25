@@ -31,7 +31,7 @@
 <script src="<c:url value='/resources/js/pull/fastclick.js'/>"></script>
 <script src="<c:url value='/resources/js/pull/iscroll.js'/>"></script>
 <script src="<c:url value='/resources/js/pull/initScrollList.js'/>"></script>
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.2.0.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
 <script type="text/javascript">
 var scroll;
@@ -47,7 +47,7 @@ $(document) .bind("pageshow", function() {
 
 function initScroller(){
 	scroll=fixed($(document),46,43);
-	scroll.setUrl("<c:url value='/sen/getMessage' />");
+	scroll.setUrl("<c:url value='/wxDecorateVoucher/findUserInfoByOpenIdMessage' />");
 	scroll.setSearchCondition({"page.currentPage":1});
 	scroll.setDisplay(display);
 	scroll.initSearch(); 
@@ -55,13 +55,15 @@ function initScroller(){
 
 function display(data) {
 	var main=$("#main");
-	for(var i=0;i<data.data.length;i++){
-		main.append($(createSingleLi(data.data[i])));
+	if(data.data){
+		for(var i=0;i<data.data.length;i++){
+			main.append($(createSingleLi(data.data[i])));
+		}
 	}
 }
 function createSingleLi(data){
 	return $("#htmlText").html().replace("#content",data.content?data.content:"未知操作")
-	.replace("#createTime",data.create_time);
+	.replace("#createTime",data.createTime);
 }
 var shareData = {			
 		requrl:"<c:url value='/share/sharePrepare'></c:url>",

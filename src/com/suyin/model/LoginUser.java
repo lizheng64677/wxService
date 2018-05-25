@@ -7,6 +7,7 @@ public class LoginUser {
 	private String userid;
 	private String userPhone;
 	private String openid;
+	private String useOpenid;
 	private String nickname;
 	private String headimg;
 	private String state;
@@ -67,6 +68,13 @@ public class LoginUser {
 	}
 	public void setHeadimg(String headimg) {
 		this.headimg = headimg;
+	}
+	
+	public String getUseOpenid() {
+		return useOpenid;
+	}
+	public void setUseOpenid(String useOpenid) {
+		this.useOpenid = useOpenid;
 	}
 	@Override
 	public String toString() {

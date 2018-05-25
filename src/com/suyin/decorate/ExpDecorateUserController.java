@@ -23,6 +23,7 @@ public class ExpDecorateUserController{
 
     private final static Logger log=Logger.getLogger(ExpDecorateUserController.class);
    
+   
     /**
      * 通过用户ID和openId查询用户信息
      * @param userId
@@ -36,6 +37,11 @@ public class ExpDecorateUserController{
 		return result.toString();
     }
     
+    /**
+     * 保存提现订单
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/saveOrUptateExpDecorateUserInfo")
     public @ResponseBody String saveOrUptateExpDecorateUserInfo(HttpServletRequest request) {
         ModelMap map=new ModelMap();

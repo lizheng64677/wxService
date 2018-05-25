@@ -6,7 +6,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>${pro_name }</title>
+<title>${decorate.shareTitle}</title>
 <link href="<c:url value='/resources/css/web/expdetail/common.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/web/expdetail/dialog.css'/>"rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/web/expdetail/zeroQiangDetical.css'/>"	rel="stylesheet" type="text/css" />
@@ -18,30 +18,22 @@
 <script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script> 
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
 <script src="<c:url value='/resources/js/expdetail/swipe.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.0.0.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.2.0.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
 <script type="text/javascript">
 $(function(){
 	//初始化加载
 	loadInitImg();
 });
-
+var payData = {
+		requrl:"<c:url value='/wxPay/wxBuyPay'></c:url>",
+		param:location.href
+    };
 //购买
 function buy(){
-
-	involvedExp();
-	
-}
-function involvedExp(){
-	$.ajax({
-		type:"post",
-		url:"<c:url value='/expVolved/involVedEchage'/>",
-		data:{"detailId":"${detailId}","id":"${expId}"},
-		dataType:"json",
-		success:function(res){
-			
-		}
-	})
+	payData.vouId=$("#vouId").val();
+	payData.name=$("#name").html();
+	wecharPay(payData);
 	
 }
 //加载头部产品图片 
@@ -61,7 +53,7 @@ function loadInitImg(){
 			   $("#info").html(result.content);
 			   $("#num").html(result.num);
 			   $("#rnum").html(result.remNum);
-
+			   $("#vouId").val(result.id);
 
     });
 	}
@@ -84,6 +76,7 @@ function loadInitImg(){
 				</div>
 			</div>
 		</div>
+		<input type="hidden" id="vouId"/>
 		<div class="titleTextBox">
 			<h2><lz id="uprice"></lz>元<s id="price"></s></h2>
 		   <div class="ljsqHighLigth"><input type="button" value="购买优惠" id="buy" onclick="buy();"></div>

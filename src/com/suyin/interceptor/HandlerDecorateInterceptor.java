@@ -40,7 +40,6 @@ public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 				LoginUser user=this.setForm(request,jso);
 				//查询数据库中是否存在，不存在则进行保存          
 				createUserInfo(user);
-
 			}
 		} else{
 			LoginUser user=(LoginUser)request.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
@@ -63,7 +62,8 @@ public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 		List<NameValuePair> list=new ArrayList<NameValuePair>();
 		list.add(new BasicNameValuePair("openid", user.getOpenid()));	
 		list.add(new BasicNameValuePair("headImg", user.getHeadimg()));	
-		list.add(new BasicNameValuePair("nickName", user.getNickname()));	
+		list.add(new BasicNameValuePair("nickName", user.getNickname()));
+		list.add(new BasicNameValuePair("useOpenid", user.getUseOpenid()));	
 		HttpClientUtils.postRemote("/inexpdecorateuser/initSaveDecorateUser",list,null);
 
 
@@ -74,10 +74,13 @@ public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 	 * @param jso
 	 */
 	private LoginUser setForm(HttpServletRequest request,JSONObject jso){
+		//获取当前邀请人的openid 连接中带的那个参数
+		String publishopenid=request.getParameter("publishopenid");
 		LoginUser user = new LoginUser();
 		user.setNickname(jso.getString("nickname"));
 		user.setHeadimg(jso.getString("headimgurl"));
 		user.setOpenid(jso.getString("openid"));
+		user.setUseOpenid(publishopenid);
 		request.getSession().setAttribute(Constant.SESSION_LOGIN_USER,user);
 		request.getSession().setAttribute(Constant.SESSION_OPEN_ID,user.getOpenid());	
 		return user;
@@ -93,6 +96,7 @@ public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 		user.setNickname("不要说话");
 		user.setHeadimg("http://thirdwx.qlogo.cn/mmopen/vi_32/rwcMH8wNj9TkWOqxjFzXds8KePEYDQpTHVcQFicr1SBVE2q3A8nZYlo5jR0LFB2vibicgow7BubTX5AzE5XSwrzag/132");
 		user.setOpenid("oEWBhuPHaetpzoS4RA2W-Zsa79C4");
+		user.setUseOpenid("oEWBhuPHaetpzoS4RA2W-Zsa79C5");
 		request.getSession().setAttribute(Constant.SESSION_LOGIN_USER,user);
 		request.getSession().setAttribute(Constant.SESSION_OPEN_ID,user.getOpenid());	
 		return user;
