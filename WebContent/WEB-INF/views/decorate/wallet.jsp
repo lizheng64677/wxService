@@ -43,6 +43,7 @@
 </div>
 <div class="button">
 	<input type="hidden" id="issubmit" value="no"/>
+	<input type="hidden" id="tiyan" value="no"/>
 	<input type="button" onclick="work11()" value="提现">
 </div>
 
@@ -89,7 +90,10 @@ $(document) .bind("pageshow", function() {
 		$("#money").html(data.balancePrice);
 		 if(""!=data.password && ""!=data.alipayNumber){
 			 $("#issubmit").val("yes");
-		 }	
+		 }	 
+		 if(data.useNum>=2 || 1==data.isExpUser){
+			 $("#tiyan").val("yes");
+		 }
 	});
 	initScroller();
 });
@@ -112,7 +116,11 @@ function display(data) {
 
 function work11(){
 	 if("yes"==$("#issubmit").val()){
-		window.location.href="<c:url value='/decorate/cashtoali.html?id=${expId}'/>";
+		 if("yes"==$("#tiyan").val()){
+			window.location.href="<c:url value='/decorate/cashtoali.html?id=${expId}'/>";
+		 }else{
+			showAlert("成为体验用户，或成功邀请2位朋友以上，才可以提现.");
+		 }
 	 }else{
 		showDialog("请先补全资料","","取消","<c:url value='/decorate/mydata.html?id=${expId }'/>","确定");
 	 }

@@ -7,8 +7,55 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="telephone=no" name="format-detection"> 
 <title>我的订单</title>
-<link href="<c:url value='/resources/css/web/quan.css'/>"  rel="stylesheet" type="text/css"/></head>
+<link href="<c:url value='/resources/css/web/quan.css'/>"  rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="<c:url value='/resources/css/web/pull/pull.css'/>" />
+<style>
+.qNavBox .wxf{
+    border-radius: 0px 0 0 0px; 
+}
+.qNavBox .yxf {
+    border-radius: 0 0px 00px 0;
+}
+.newBgcolor{
+	border:1px solid #ccc;
+	background:#fff;
+}
+.qListBox .nameTimeBox h1 {
+    color: #989090;
+    font-size: 14px;
+    height: 30px;
+    line-height: 20px;
+}
+.qListBox .nameTimeBox p span {
+    color: #989090;
+    font-size: 12px;
+    vertical-align: middle;
+    margin-left: 6px;
+    line-height: 24px;
+}
+.qListBox .nameTimeBox {
+    border-bottom: 1px dashed rgba(129, 165, 165, 0.7);
+    overflow: hidden;
+}
+.qListBox .leftNameBox h2 {
+    color: #989090;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 22px;
+    height: 44px;
+}
+.qListBox .rightButon a {
+    display: inline-block;
+    width: 80px;
+    padding: 8px 0;
+    border: 1px solid #989090;
+    border-radius: 3px;
+    text-align: center;
+    color: #989090;
+    font-size: 14px;
+}
+</style>
+</head>
 <body>
 <div data-role="page" data-iscroll="enable">
 	<div data-role="header">
@@ -56,7 +103,16 @@ $(document) .bind("pageshow", function() {
 		scroll.initSearch(); 
 	});
 });
-
+//购买
+function buy(id){
+	var payData = {
+			requrl:"<c:url value='/decorate/orderWxPay'></c:url>",
+			id:id,
+			name:$("#name").html()
+	    };
+	wecharPay(payData);
+	
+}
 function initScroller(){
 	scroll=fixed($(document),46,43);
 	scroll.setUrl("<c:url value='/wxDecorateVoucher/findOrderListByIdInfo' />");
@@ -68,17 +124,23 @@ function initScroller(){
 function display(data) {
 	var main=$("#main");
 	if(data.data){
-		if("2"== $("#liStatus").val()) {
+		if("1"== $("#liStatus").val()) {
 			for(var i=0;i<data.data.length;i++){
 				main.append($(createSingleLi(data.data[i])));
 				$("[class^=bgColor]").eq(i).show();
-				$("[class^=bgColor]").eq(i).attr("class", "bgColor6");
+				$("[class^=bgColor]").eq(i).attr("class",  "newBgcolor");
 			}
-		} else {
+		}else if("0"== $("#liStatus").val()){
+			for(var i=0;i<data.data.length;i++){
+				main.append($(createSingleLi(data.data[i])));
+				$("[class^=bgColor]").eq(i).show();
+				$("[class^=bgColor]").eq(i).attr("class",  "newBgcolor");
+			}
+		}else{
 			for(var i=0;i<data.data.length;i++){
 				main.append($(createSingleLi(data.data[i])));
 				$("[class^=bgColor]").eq((data.args.page.currentPage-1)*10+i).show();
-				$("[class^=bgColor]").eq((data.args.page.currentPage-1)*10+i).attr("class", "bgColor" + (i%5+1)); 
+				$("[class^=bgColor]").eq((data.args.page.currentPage-1)*10+i).attr("class", "newBgcolor"); 
 			}
 		}
 	}
@@ -87,10 +149,16 @@ function display(data) {
 function createSingleLi(data){
 	var html=$("#htmlText").html();
     var ht="";
+	 if("0"!=data.orderState){
+			ht='<a href="javascript:void(0)">已支付</a>';
+	 }else{
+
+			ht='<a href="javascript:void(0)"  class="vouch" onclick="buy('+data.orderId+')">待支付</a>';
+		}
 	return html.replace("#vouCode",data.orderCode)
-	.replace("#validity",data.model=="0"?"长期":data.validityDay+"(天)")
 	.replace("#title",data.orderName)
-	.replace("#voucherType",data.orderType=="0"?"福利券":data.orderType=="1"?"体验券":"优惠券");
+	.replace("#validity",data.createTime)
+	.replace("#voucherType",ht);
 	
 }
 
@@ -110,23 +178,19 @@ $(function(){
 <li  class="bgColor"  style="display: none;" >
 	<div class="nameTimeBox">
       	<h1 class="fLeft">订单号：#vouCode</h1>
-        <p class="fRight"><img src="<c:url value='/resources/images/web/time.png'/>" /><span>有效期：#validity</span></p>        	
+        <p class="fRight"><img src="<c:url value='/resources/images/web/time.png'/>" /><span>订单日期：#validity</span></p>        	
+             	
     </div>
     <div class="qCommentBox">
         <div class="fLeft leftNameBox">
            <h2>#title</h2>
-           <p>*此券不得转让，仅限本人使用
-           		
-           </p>
-           
+              
          </div>
          
          <div class="fRight rightButon">
          	<h3>#voucherType</h3>
          </div>
     </div>
-    <div class="byBox1"><img src="<c:url value='/resources/images/web/leftby.png'/>" /></div>
-    <div class="byBox2"><img src="<c:url value='/resources/images/web/rightby.png'/>" /></div>
 </li>
 </ul>
 </body>

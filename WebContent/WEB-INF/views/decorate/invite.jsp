@@ -34,12 +34,12 @@
 <body>
 <div data-role="page" data-iscroll="enable">
 	<div data-role="header">
-	   <div class="headerContent">
-	       <ul>
-	       	  <a href="javascript:history.go(-1);"><li class="headerimg"><img src="<c:url value='/resources/images/web/leftjt.png'/>" width="20"></li></a>
-	          <li class="headerFont">我的邀请名单</li>
-	       </ul>  
-	    </div>  
+<!-- 	   <div class="headerContent"> -->
+<!-- 	       <ul> -->
+<%-- 	       	  <a href="javascript:history.go(-1);"><li class="headerimg"><img src="<c:url value='/resources/images/web/leftjt.png'/>" width="20"></li></a> --%>
+<!-- 	          <li class="headerFont">我的邀请名单</li> -->
+<!-- 	       </ul>   -->
+<!-- 	    </div>   -->
 <!-- 	    <div class="nav"> -->
 <!-- 	          <ul> -->
 <%-- 	               <li data-status="-1" class="line">全部<span><img src="<c:url value='/resources/images/web/u3.png'/>"></span></li> --%>
@@ -132,7 +132,7 @@ var shareData = {
 };	
 $(function(){
 	//个人中心不允许有多余菜单出现 
-	sharTimelineFun(shareData);
+	hideOptionMenu(shareData);
 	
 })
 </script>

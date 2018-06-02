@@ -2,6 +2,7 @@ package com.suyin.decorate;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,62 +41,118 @@ import com.suyin.wxpay.service.impl.MyConfig;
 @RequestMapping("/decorate")
 public class DecorateController {
 	/**
+	 * 个人中心待支付
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/orderWxPay")
+	public @ResponseBody String orderWxPay(HttpServletRequest request){
+		JSONObject joo=new JSONObject();
+		try {
+			String openId=Utils.getOpenId(request);
+			List<NameValuePair> params=new ArrayList<NameValuePair>();
+			String id=request.getParameter("id");
+			params.add(new BasicNameValuePair("id", id));
+			String ip=Utils.getIpAddr(request);
+			//查询订单
+			net.sf.json.JSONObject orderOld=HttpClientUtils.postRemote("/indecoratebuyorder/findOrderByIdInfo",params,null);
+			String orderNum=orderOld.getString("orderCode");
+			orderOld.put("price",orderOld.getString("orderPrice"));
+			orderOld.put("name", orderOld.getString("orderName"));
+			if(null!=orderOld){
+				net.sf.json.JSONObject jo=this.unifiedOrder(orderOld, orderNum, openId, ip);
+				joo=this.generateSignature(jo);
+			}
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return joo.toString();
+	}
+
+	/**
+	 * 分享页面
+	 * 详情页面
 	 * 购买券
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(value="/wxBuyPay")
 	public @ResponseBody String wxBuyPay(HttpServletRequest request){
-		String str="";
-		String id = request.getParameter("id");  
-		String openId=Utils.getOpenId(request);
-		String ip=Utils.getIpAddr(request);
-		System.out.println(ip);
-		return getMess(request,ip,openId);
-	}
-
-	private String getMess(HttpServletRequest request,String ip,String openId) {
 		JSONObject joo=new JSONObject();
 		try {
-			String cardname="testcardname";
-			String orderNum=Utils.getRandomString(32);
-			System.out.println("内部订单号"+orderNum);
-			//插入一条订单记录
-			MyConfig config = new MyConfig();
-			WXPay wxpay = new WXPay(config);
-			Map<String, String> data = new HashMap<String, String>();
-			data.put("body", "pro-"+cardname);
-			data.put("total_fee", "1");
-			data.put("spbill_create_ip",ip);
-			data.put("notify_url", config.getCallBackUrl());
-			data.put("out_trade_no", orderNum);//生成随机订单号
-			data.put("trade_type", "JSAPI");  // 微信公众号支付
-			data.put("device_info","WEB");
-			data.put("openid",openId);
-			Map<String, String> resp = wxpay.unifiedOrder(data);
-			net.sf.json.JSONObject jo=net.sf.json.JSONObject.fromObject(resp);
-			Map<String, String> data1 = new HashMap<String, String>();
-			if(jo.get("result_code").equals("SUCCESS") &&jo.get("return_code").equals("SUCCESS")){
-				data1.put("appId",config.getAppID());
-				data1.put("partnerid", Utils.getRandomString(12));//生成随机订单号
-				data1.put("prepayid", jo.getString("prepay_id"));
-				data1.put("packageStr","prepay_id=" + jo.getString("prepay_id"));
-				data1.put("nonceStr",jo.getString("nonce_str"));
-				String timestamp=Long.toString(System.currentTimeMillis() / 1000);
-				data1.put("timeStamp",timestamp);
-				data1.put("signType", SignType.MD5.toString());
-				String sign = WXPayUtil.generateSignature(data1,config.getKey(),SignType.MD5);//再签名一次
-				System.out.println(sign);
-				data1.put("paySign", sign);
-
+			String openId=Utils.getOpenId(request);
+			String orderNum=Utils.getRandomString(16);
+			List<NameValuePair> params=new ArrayList<NameValuePair>();
+			String id=request.getParameter("id");
+			params.add(new BasicNameValuePair("id", id));
+			params.add(new BasicNameValuePair("orderNum", orderNum));
+			params.add(new BasicNameValuePair("openid", openId));
+			String ip=Utils.getIpAddr(request);
+			net.sf.json.JSONObject result=HttpClientUtils.postRemote("/indecoratevoucher/findBuyDetial",params,null);
+			if(null!=result){
+				net.sf.json.JSONObject jo=this.unifiedOrder(result, orderNum, openId, ip);
+				joo=this.generateSignature(jo);
 			}
-			net.sf.json.JSONObject jj=net.sf.json.JSONObject.fromObject(data1);
-			joo.put("info", jj);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return joo.toString();
+	}
+	/**
+	 * 二次签名
+	 * @param jo
+	 * @return
+	 * @throws Exception
+	 */
+	private JSONObject  generateSignature(net.sf.json.JSONObject jo) throws Exception{
+		JSONObject joo=new JSONObject();
+		MyConfig config = new MyConfig();
+		Map<String, String> data1 = new HashMap<String, String>();
+		if(jo.get("result_code").equals("SUCCESS") &&jo.get("return_code").equals("SUCCESS")){
+			data1.put("appId",config.getAppID());
+			data1.put("package","prepay_id=" + jo.getString("prepay_id"));
+			data1.put("nonceStr",jo.getString("nonce_str"));
+			String timestamp=Long.toString(System.currentTimeMillis() / 1000);
+			data1.put("timeStamp",timestamp);
+			data1.put("signType", SignType.MD5.toString());
+			String sign = WXPayUtil.generateSignature(data1,config.getKey(),SignType.MD5);//再签名一次
+			data1.put("paySign", sign);
+			data1.put("partnerid", Utils.getRandomString(12));//生成随机订单号
+			data1.put("prepayid", jo.getString("prepay_id"));
+		}
+		net.sf.json.JSONObject jj=net.sf.json.JSONObject.fromObject(data1);
+		joo.put("info", jj);
+		return joo;
+	}
+	/**
+	 * 统一下单获取预支付ID
+	 * @param result
+	 * @param orderNum
+	 * @param openId
+	 * @param ip
+	 * @return
+	 * @throws Exception
+	 */
+	private net.sf.json.JSONObject unifiedOrder(net.sf.json.JSONObject result,String orderNum,String openId,String ip) throws Exception{
+		MyConfig config = new MyConfig();
+		WXPay wxpay = new WXPay(config);
+		Map<String, String> data = new HashMap<String, String>();
+		BigDecimal b=new BigDecimal(result.getString("price"));  
+		BigDecimal price=b.multiply(new BigDecimal(100));//乘以100(单位：分)  
+		data.put("body", result.getString("name"));
+		data.put("total_fee",price.intValue()+"");
+		data.put("spbill_create_ip",ip);
+		data.put("notify_url", config.getCallBackUrl());
+		data.put("out_trade_no", orderNum);//生成随机订单号
+		data.put("trade_type", "JSAPI");  // 微信公众号支付
+		data.put("device_info","WEB");
+		data.put("openid",openId);
+		Map<String, String> resp = wxpay.unifiedOrder(data);
+		net.sf.json.JSONObject jo=net.sf.json.JSONObject.fromObject(resp);
+		return jo;
 	}
 
 	/**
@@ -107,7 +164,6 @@ public class DecorateController {
 	@RequestMapping("/wxCallServer")
 	public @ResponseBody String  wxCallServer(HttpServletRequest request) throws IOException{
 		request.setCharacterEncoding("utf-8");
-		System.out.println("來到了這裏");
 		BufferedReader reader = request.getReader();
 		String line="";
 		String returnXML ="";
@@ -116,22 +172,25 @@ public class DecorateController {
 			inputString.append(line);
 		}
 		request.getReader().close();
-		System.out.println("接受到的報文"+inputString.toString());
 		String result_code = "";
 		String return_code = "";
 		String out_trade_no = "";
+		String openid="";
 		try {
 			Map<String, String> map = WXPayUtil.xmlToMap(inputString.toString());
 			result_code = map.get("result_code");
 			out_trade_no = map.get("out_trade_no");
 			return_code = map.get("return_code");
+			openid=map.get("openid");
 			MyConfig config=new MyConfig();
 			//重新签名判断签名是否正确
 			boolean signatureValid = WXPayUtil.isSignatureValid(map,config.getKey());
 			if(signatureValid){//签名正确
-				//更新数据库  1，订单 2，userid表
 				//告诉微信服务器，我收到信息了，不要在调用回调action了
-				//				boolean updateOrderInfo = WxAndAliPayService.updateOrderInfo(out_trade_no);
+				List<NameValuePair> params=new ArrayList<NameValuePair>();
+				params.add(new BasicNameValuePair("tradeNo", out_trade_no));
+				params.add(new BasicNameValuePair("openid", openid));
+				HttpClientUtils.postRemote("/indecoratebuyorder/orderState",params,null);
 				returnXML = returnXML(return_code);
 			}else{
 				returnXML = returnXML("FAIL");
@@ -153,7 +212,7 @@ public class DecorateController {
 				+ return_code  
 				+ "]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";  
 	}  
-	
+
 	/**
 	 * 进入订单页面
 	 * @param request

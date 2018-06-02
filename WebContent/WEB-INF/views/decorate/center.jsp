@@ -14,6 +14,10 @@
 	.headerbotton{
     border: 0px solid #fff; 
     }
+    .weizhi{
+        height: 40px;
+    top: 215px;
+    }
 </style>
 </head>
 <body>
@@ -24,19 +28,15 @@
  <div class="qiandao"><a class="headerbotton" id='nickName'href="#"></a>
 </div>   
 
-<div class="twoNavBox">
+<div class="twoNavBox weizhi">
 	<a href="#" class="leftBox">
     	<ul>
-            
-            <li class="zcFont">总收益</li>
-            <li class="zcFont">￥<span id="coin"></span><i></i></li>
+            <li class="zcFont">收益 <span id="coin"></span><i></i></li>
         </ul>
     </a>
     <a href="<c:url value='/decorate/wallet.html?id=${expId }'/>">
-    	<ul>
-           
-            <li class="zcFont">余额</li>
-            <li class="qbFont">￥<span id="money"></span></li>
+    	<ul>          
+            <li class="zcFont">余额 <span id="money"></span></li>
         </ul>
     </a>
    
@@ -61,7 +61,7 @@
         <a href="<c:url value='/decorate/order.html?id=${expId }'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/50.png'/>" /></p>
             <div class="fRight rightTextBox">
-            	<span class="mycj">我的订单<b class="yuan" style="display: none;"></b></span>
+            	<span class="mycj">我的订单<b  style="display: none;"></b></span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>
@@ -77,7 +77,7 @@
         <a href="<c:url value='/decorate/message.html?id=${expId }'/>"><li>
             <p class="fLeft"><img src="<c:url value='/resources/images/web/my/40.png'/>" /></p>
             <div class="fRight rightTextBox">
-            	<span class="mycj">我的消息<b class="yuan" style="display: none;"></b></span>
+            	<span class="mycj">我的消息<b style="display: none;"></b></span>
                 <span><img src="<c:url value='/resources/images/web/memberjt.png'/>" /></span>
             </div>
         </li></a>

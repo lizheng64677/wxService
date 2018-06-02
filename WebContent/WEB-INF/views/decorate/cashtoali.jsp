@@ -44,6 +44,8 @@
              <li class="alipayGoldNumber"><input class="input" type="password" id="password" maxlength="18" placeholder="提取密码"></li>
           </ul>
         </div>
+        <input type="hidden" id="isExpUser" value="${decorate.isExpUser }"/>
+        <input type="hidden" id="useNum" value="${decorate.useNum }"/>
     </div>
     <div class="footer">
         <input type="button" value="提交" id="submit">
@@ -64,13 +66,16 @@
 <script type="text/javascript" src="<c:url value='/resources/js/common/jweixin-1.2.0.js'/>"></script>
  <script type="text/javascript" src="<c:url value='/resources/js/common/Wxjsdkutil.js'/>"></script>
  <script type="text/javascript">
-	var shareData = {			
+	$(function(){
+		var shareData = {			
 			requrl:"<c:url value='/share/sharePrepare'></c:url>",
 			param:location.href
-	    };		
+	    };	
+		hideOptionMenu(shareData);
+	})
+
  	$(document).ready(function(){
- 		//个人中心不允许有多余菜单出现 
- 		hideOptionMenu(shareData);
+ 	
  		$("#submit").on("click",function(){
  			var m=$("#money").val();
  			var name=$("#name").val();
@@ -78,26 +83,33 @@
  			var ali=$("#ali").val();
  			var tqmoney=$("#tqMoney").val();
  			var money=$("#blackmoney").val();
- 			if(m.isEmpty()){
- 				showAlert("提取金额不能为空！"); return ;
- 			}
- 			if(name.isEmpty()){
- 				showAlert("姓名不能为空！");return ;
- 			}
-			if(p.isEmpty()){
-				showAlert("密码不能为空！");return ;
-			}
- 			if(ali.isEmpty()){
- 				showAlert("支付宝不能为空！");return ;
- 			}
- 			if(!m.isMoney()){
- 				showAlert("提取金额的格式不正确！");return ;
- 			}
- 			if(tqmoney>m){
- 				showAlert("提取金额必须大于"+tqmoney+"元！");return ;
- 			}
- 			if(m>money){
- 				showAlert("账户中金额不足！");return ;
+ 			var isExpUser=$("#isExpUser").val();
+ 			var useNum=$("#useNum").val();
+ 			if(1==isExpUser || useNum>=2){
+	 			if(m.isEmpty()){
+	 				showAlert("提取金额不能为空！"); return ;
+	 			}
+	 			if(name.isEmpty()){
+	 				showAlert("姓名不能为空！");return ;
+	 			}
+				if(p.isEmpty()){
+					showAlert("密码不能为空！");return ;
+				}
+	 			if(ali.isEmpty()){
+	 				showAlert("支付宝不能为空！");return ;
+	 			}
+	 			if(!m.isMoney()){
+	 				showAlert("提取金额的格式不正确！");return ;
+	 			}
+	 			if(tqmoney>m){
+	 				showAlert("提取金额必须大于"+tqmoney+"元！");return ;
+	 			}
+	 			if(m>money){
+	 				showAlert("账户中金额不足！");return ;
+	 			}
+ 			}else{
+ 				
+ 				showAlert("成为体验用户，或成功邀请2位朋友以上，才可以提现.");return ;
  			}
  			post("/decorate/withdrawCreateOrder",{"withdrawPrice":m,"password":p},true,'提交中')
  			.then(function(data){

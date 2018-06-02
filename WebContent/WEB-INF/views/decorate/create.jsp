@@ -62,11 +62,8 @@ $(function(){
 })
 //查询数据
 function initData(){  
-	post('/createpost/writeImage',{id:'${expId}',"openid":"${publishopenid}",url:"http://"+location.host+"/wxService/decorate/share.html?expId=${expId}&publishopenid=${publishopenid}"},true,"专属海报生成中...").then(function(data){
-	
-		$("#image").attr("src",data.imgUrl);
-	
-	});
+	var url="http://"+location.host+"/wxService/decorate/share.html";
+	$("#image").attr("src","<c:url value='/createpost/writeImageStream'></c:url>?id=${expId}&openid=${publishopenid}&url="+url);
 }
 </script>
 <script>
@@ -90,7 +87,8 @@ var shareData = {
 
 $(document).ready(function(){
 
-	prodetailshar(shareData);//回调处理
+	//个人中心不允许有多余菜单出现 
+	hideOptionMenu(shareData);
 
 });
 

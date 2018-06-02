@@ -26,7 +26,7 @@ define(function(require, exports, module){
 			$("#swipe-wrap").html(html.join(''));	
 			
 			$(".bannerBox img").lazyload({ 
-				placeholder : "/wxService/resources/images/web/notuan_default.png",  
+				placeholder : "/wxService/resources/images/web/rankpm.png",
 				effect : "fadeIn", 
 				threshold : 300,
 				failurelimit : 10
@@ -62,7 +62,7 @@ define(function(require, exports, module){
 				$("#youhui").append($(createQMZhuanHtml(data.data["2"])));
 			}
 			$(".hotProductBox img").lazyload({ 
-				placeholder : "/wxService/resources/images/web/notuan_default.png",  
+				placeholder : "/wxService/resources/images/web/rankpm.png",  
 				effect : "fadeIn", 
 				threshold : 300,
 				failurelimit : 10

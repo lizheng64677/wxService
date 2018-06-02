@@ -19,10 +19,34 @@
 .swipe-wrap img {height:200px;}
 .textNameBox{height:35px;}
 .he20{line-height:21px;}
+.line{
+	border-bottom:2px #f00 solid;
+	height:35px;
+	}
+.nav{
+	width:100%;
+	height:40px;
+	background:#fff;
+    float: left;
+	}
+.nav ul li{
+	width:20%;
+	float:left;
+	text-align:center;
+	line-height:30px;
+	color: #4f4f4f;
+}
+.nav ul li span{
+	float: right;
+	}
+.paddingcss{
+    padding: 5px;
+}
 </style>
 </head>
 <body>
 <div data-role="page" data-iscroll="enable">
+
 <div class="detialCommentBox">
 	<div id="slider">
 		<div class="swipe-wrap" style="height: 200px;">
@@ -37,37 +61,46 @@
 	        </div>
 	    </div>
     </div>
-    <div class="titleTextBox">
-      
+    <div class="titleTextBox paddingcss">
+	    <div class="nav">
+	          <ul>
+	               <li data-status="-1" class="line">总收益榜<span><img src="<c:url value='/resources/images/web/u3.png'/>"></span></li>
+	               <li data-status="0">人气榜<span><img src="<c:url value='/resources/images/web/u3.png'/>"></span></li>
+	               <li data-status="1">体验榜<span><img src="<c:url value='/resources/images/web/u3.png'/>"></span></li>
+	               <li data-status="2">签单榜<span><img src="<c:url value='/resources/images/web/u3.png'/>"></span></li>
+ 			       <li data-status="3">社区榜<span><img src="<c:url value='/resources/images/web/u3.png'/>"></span></li>
+	          </ul>
+	          <span></span>
+	    </div>
     </div>
 </div>
 <div class="hdgzBox">
 	<div class="hdgz">
-        <span>我的排名</span>
+        <span>整体排名</span>
     </div>
-    <div class="hdgzData">
-         <ul>
-             <li>头像</li>
-             <li>号码</li>
-             <li>金额 </li>
-             <li>排名</li>           
-         </ul>
-    </div>
-    <div class="hdgzContent">
-         <ul id="fuckf">
+<!--     <div class="hdgzData"> -->
+<!--          <ul> -->
+<!--              <li>头像</li> -->
+<!--              <li>号码</li> -->
+<!--              <li>金额 </li> -->
+<!--              <li>排名</li>            -->
+<!--          </ul> -->
+<!--     </div> -->
+<!--     <div class="hdgzContent"> -->
+<!--          <ul id="fuckf"> -->
             
-         </ul>
-    </div>
+<!--          </ul> -->
+<!--     </div> -->
     
 </div>
-<div class="hdgz">
-       <span>整体排名</span>
- </div>  
+<!-- <div class="hdgz"> -->
+<!--        <span>整体排名</span> -->
+<!--  </div>   -->
  <div class="hdgzData">
       <ul>
           <li>头像</li>
           <li>号码</li>
-          <li>金额</li>
+          <li id="sellName">金额</li>
           <li>排名</li>
       </ul>
  </div>	
@@ -101,13 +134,38 @@
 <script src="<c:url value='/resources/js/expdetail/swipe.js'/>"></script>
 <script src="<c:url value='/resources/js/pull/fastclick.js'/>"></script>
 <script type="text/javascript">
+var scroll;
 $(document).ready(function(){
-	initRank();
-	initScroller();
+// 	initRank("-1");
+	initScroller("-1");
+	$(".nav").on("click","li",function(){
+		$("#main").empty();
+		$(".nav li").removeClass("line"); 
+		$(this).addClass("line");
+		if($(this).data("status")=="-1"){
+		 		initRank("-1");
+		 		initScroller("-1");
+		 		$("#sellName").html("金额");
+		}else if($(this).data("status")=="0"){
+		 		initRank("0");
+		 		initScroller("0");
+		 		$("#sellName").html("人气");
+		}else if($(this).data("status")=="1"){
+		 		initRank("1");
+		 		initScroller("1");
+		 		$("#sellName").html("位数");
+		}else if($(this).data("status")=="2"){
+		 		initRank("2");
+		 		initScroller("2");
+		 		$("#sellName").html("单数");
+		}else if($(this).data("status")=="3"){
+			  showAlert("即将开放社区榜!");
+		}
+	});
 });
 
-function initRank(){
-	post("/rank/findMyRankInfo",{},false)
+function initRank(type){
+	post("/rank/findMyRankInfo",{type:type},false)
 	.then(function(data){
 		var html=[];
 		if(data.expDecorateUser.headImg.length != 0){
@@ -122,15 +180,18 @@ function initRank(){
 	});
 }
 
-var page={"page.currentPage":0,"page.showCount":5,detailId:'${exp_detail_id}'};
+var page={"page.currentPage":0,"page.showCount":5,type:'-1'};
 var total;
-function initScroller(){
+function initScroller(type){
+	page.type=type;
 	startLoading();
 	post("/rank/findAllRanInfoList",page,false)
 	.then(function(data){
 		total=data.args.page.totalPage;
 		if(data.data){
-			display(data);
+			if(data.data.length>0){
+				display(data,type);
+			}
 		}
 		stopLoading();
 	});
@@ -166,26 +227,34 @@ function initClicker(){
 }
 
 
-function display(data) {
+function display(data,type) {
 	var main=$("#main");
 	for(var i=0;i<data.data.length;i++){
-		main.append($(createSingle(data.data[i])));
+		main.append($(createSingle(data.data[i],type)));
 		tempHtml=[];
 	}
 }
 
-function createSingle(data){
+function createSingle(data,type){
 	var html=[];
 	html.push('<li>');
 	html.push('<div class="hdgzContent">');
 	html.push('<ul>');
 
-	if(data.head_img.length != 0)
+	if(data.head_img)
 		html.push('<li class="hdgzContentPic"><img src="'+data.head_img+'"></li>');
 	else
 		html.push('<li class="hdgzContentPic"><img src="'+'<c:url value="/resources/images/web/tx.png"/>'+'"></li>');
 	html.push('    <li class="hdgzFont">'+createPhone(data.user_phone)+'</li>');
-	html.push('	   <li class="hdgzFont">'+data.count_price+'(元)</li>');
+	if("-1"==type){
+		html.push('	   <li class="hdgzFont">'+data.count_price+'(元)</li>');
+	}else if("0"==type){
+		html.push('	   <li class="hdgzFont">'+data.countpop+'(人气)</li>');
+	}else if("1"==type){
+		html.push('	   <li class="hdgzFont">'+data.countpop+'(位)</li>');
+	}else if("2"==type){
+		html.push('	   <li class="hdgzFont">'+data.countpop+'(单)</li>');
+	}
 	html.push('    <li class="hdgzCg">'+data.rankNum+'</li>');
 	html.push('</ul>');
 	html.push('</div>');

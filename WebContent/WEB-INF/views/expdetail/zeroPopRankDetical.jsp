@@ -93,10 +93,8 @@
 <script type="text/javascript" src="<c:url value='/resources/js/layer.m/layer.m.js'/>"></script> 
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
 <script src="<c:url value='/resources/js/expdetail/swipe.js'/>"></script>
-<%-- <script src="<c:url value='/resources/js/pull/jquery.mobile.min.js'/>"></script> --%>
 <script src="<c:url value='/resources/js/pull/fastclick.js'/>"></script>
-<%-- <script src="<c:url value='/resources/js/pull/iscroll.js'/>"></script>
-<script src="<c:url value='/resources/js/pull/initScroll1.js'/>"></script> --%>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	loadInitImg();
@@ -126,14 +124,6 @@ function initRank(){
 	});
 }
 
-
-/* function initScroller(){
-	scroll=fixed($(document),300,43);
-	scroll.setUrl("<c:url value='/experience/findExpRank'/>");
-	scroll.setSearchCondition({"page.currentPage":1,detailId:'${exp_detail_id}'});
-	scroll.setDisplay(display);
-	scroll.initSearch(); 
-} */
 
 var page={"page.currentPage":0,"page.showCount":5,detailId:'${exp_detail_id}'};
 var total;

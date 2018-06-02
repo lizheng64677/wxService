@@ -25,15 +25,20 @@ $(function(){
 	//初始化加载
 	loadInitImg();
 });
-var payData = {
-		requrl:"<c:url value='/wxPay/wxBuyPay'></c:url>",
-		param:location.href
-    };
 //购买
 function buy(){
-	payData.vouId=$("#vouId").val();
-	payData.name=$("#name").html();
-	wecharPay(payData);
+	var rnum=$("#rnum").html();
+	var num=$("#num").html();
+	if(rnum==num){
+		showAlert("福券数量不足，无法继续购买!");
+	}else{
+		var payData = {
+				requrl:"<c:url value='/decorate/wxBuyPay'></c:url>",
+				id:$("#vouId").val(),
+				name:$("#name").html()
+		    };
+		wecharPay(payData);
+	}
 	
 }
 //加载头部产品图片 

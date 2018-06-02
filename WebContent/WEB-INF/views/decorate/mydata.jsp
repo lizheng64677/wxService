@@ -9,14 +9,14 @@
 <title>我的资料</title>
 <link href="<c:url value='/resources/css/web/accountSecurity.css'/>"  rel="stylesheet" type="text/css"/></head>
 <body>
-      <div class="headerContent">
-           <ul>
-           	  <a href="javascript:history.go(-1);">
-           	  <li class="headerimg"><img src="<c:url value='/resources/images/web/leftjt.png'/>" width="20"></li>
-           	  </a>
-              <li class="headerFont">我的资料</li>
-           </ul>  
-        </div>  
+<!--       <div class="headerContent"> -->
+<!--            <ul> -->
+<!--            	  <a href="javascript:history.go(-1);"> -->
+<%--            	  <li class="headerimg"><img src="<c:url value='/resources/images/web/leftjt.png'/>" width="20"></li> --%>
+<!--            	  </a> -->
+<!--               <li class="headerFont">我的资料</li> -->
+<!--            </ul>   -->
+<!--         </div>   -->
         
    <div class="content">
      <input type="hidden" name="openid"  id="openid" value="${result.openid}" />

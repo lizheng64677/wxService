@@ -100,7 +100,7 @@ function toDetail(detailId,userId){
 	<c:if test="${1==isVoucher}">
 	 <div class="syqq">
 		 <a href="javascript:void(0);"></a>
-		 <a href="javascript:void(0);" class="aclass" id="buy" onclick="buy();">${voucherPrice}(元)体验.${voucherName}</a>
+		 <a href="javascript:void(0);" class="aclass" id="buy" onclick="buy(${voucherId});">${voucherPrice}(元)体验.${voucherName}</a>
 	 </div>   
  	</c:if>
 </body>
@@ -123,7 +123,16 @@ var shareData = {
 		requrl:"<c:url value='/share/sharePrepare'></c:url>",
 		param:location.href
     };
-
+//购买
+function buy(id){
+	var payData = {
+			requrl:"<c:url value='/decorate/wxBuyPay'></c:url>",
+			id:id,
+			name:$("#name").html()
+	    };
+	wecharPay(payData);
+	
+}
 $(document).ready(function(){
 
 	prodetailshar(shareData);//回调处理   

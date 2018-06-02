@@ -6,10 +6,16 @@ import java.io.StringWriter;
 import java.util.*;
 import java.security.MessageDigest;
 
+import net.sf.json.JSONObject;
+
+import org.apache.log4j.Logger;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.suyin.utils.Utils;
 import com.suyin.wxpay.WXPayConstants.SignType;
+import com.suyin.wxpay.service.WXPay;
+import com.suyin.wxpay.service.impl.MyConfig;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -23,7 +29,40 @@ import javax.xml.transform.stream.StreamResult;
 
 
 public class WXPayUtil {
-
+	
+    private final static Logger log=Logger.getLogger(WXPayUtil.class);
+	/**
+	 * 首次签名
+	 * @param name
+	 * @param openId
+	 * @param ip
+	 * @return
+	 */
+	public static JSONObject unifiedSign(String name,String openId,String ip){
+		String orderNum=Utils.getRandomString(32);
+		//插入一条订单记录
+		MyConfig config = new MyConfig();
+		WXPay wxpay = new WXPay(config);
+		Map<String, String> data = new HashMap<String, String>();
+		data.put("body", name);
+		data.put("total_fee", "1");
+		data.put("spbill_create_ip",ip);
+		data.put("notify_url", config.getCallBackUrl());
+		data.put("out_trade_no", orderNum);//生成随机订单号
+		data.put("trade_type", "JSAPI");  // 微信公众号支付
+		data.put("device_info","WEB");
+		data.put("openid",openId);
+		try {
+			Map<String, String> resp= wxpay.unifiedOrder(data);
+			JSONObject jo=JSONObject.fromObject(resp);
+			return jo;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			log.error(e);
+		}
+		return null;
+		
+	}
     /**
      * XML格式字符串转换为Map
      *

@@ -78,9 +78,7 @@ $(function(){
 <script id="htmlText">
 <div class="drMainList">
 <div class="nameBox">
-    <div class="name">
-        <span class="tx"><img src="<c:url value='/resources/images/web/sjlogo01.png'/>"></span>
-    </div> 
+
 </div>
 
 <div class="storyCommentBox">

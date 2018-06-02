@@ -95,8 +95,8 @@ public class HandlerDecorateInterceptor extends HandlerInterceptorAdapter {
 		LoginUser user = new LoginUser();
 		user.setNickname("不要说话");
 		user.setHeadimg("http://thirdwx.qlogo.cn/mmopen/vi_32/rwcMH8wNj9TkWOqxjFzXds8KePEYDQpTHVcQFicr1SBVE2q3A8nZYlo5jR0LFB2vibicgow7BubTX5AzE5XSwrzag/132");
-		user.setOpenid("oEWBhuPHaetpzoS4RA2W-Zsa79C4");
-		user.setUseOpenid("oEWBhuPHaetpzoS4RA2W-Zsa79C5");
+		user.setOpenid("oLV4P1q9Y64S1tGATCZCjicr9SsQ");
+		user.setUseOpenid("oLV4P1uNa45fZ3q_CQ5jKRZAanpA");
 		request.getSession().setAttribute(Constant.SESSION_LOGIN_USER,user);
 		request.getSession().setAttribute(Constant.SESSION_OPEN_ID,user.getOpenid());	
 		return user;

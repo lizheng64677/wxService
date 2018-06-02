@@ -121,7 +121,8 @@ var shareData = {
 	}
 
 	$(document).ready(function(){
-		sharTimelineFun(shareData);
+		//个人中心不允许有多余菜单出现 
+		hideOptionMenu(shareData);
 		initClicker();
 	});
 

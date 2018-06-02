@@ -1,5 +1,14 @@
 package com.suyin.decorate;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.zxing.WriterException;
 import com.suyin.common.service.ModuleNameService;
 import com.suyin.utils.HttpClientUtils;
+import com.suyin.utils.QrCodeWriterUtils;
 import com.suyin.utils.Utils;
 /**
  * 我的专属海报生成
@@ -29,10 +40,38 @@ public class CreatePosterController {
 	 * @param request
 	 * @param response
 	 */
-	@RequestMapping("/writeImage")
+	@RequestMapping("/writeImageUrl")
 	public @ResponseBody String getWriteImages(HttpServletRequest request,HttpServletResponse response){
 		String result=HttpClientUtils.postRemote("/qrcode/create",  Utils.convert(request, ModuleNameService.EXP),null).toString();
 		return result;
+	}
+	@RequestMapping(value="/writeImageStream")
+	public @ResponseBody void ddd(HttpServletRequest request,HttpServletResponse response) throws Exception{
+		try {
+			response.setContentType("image/jpeg");
+			String expId=request.getParameter("id");//活动id
+			String tourl=request.getParameter("url");//跳转的url(二维码内的连接)
+			String openid=request.getParameter("openid");
+			tourl=tourl+"?expId="+expId+"&publishopenid="+openid;
+			//用户二维码生成路径
+			String templatePath=request.getSession().getServletContext().getRealPath("/");
+			BufferedImage image=QrCodeWriterUtils.createQrcodeImage(openid,tourl);
+			File templatefile=new File(templatePath+"/WEB-INF/resources/images/web/template1.jpg");
+			
+		    //BufferedImage 转 InputStream
+		    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		    ImageOutputStream imageOutput = ImageIO.createImageOutputStream(byteArrayOutputStream);
+		    ImageIO.write(image, "png", imageOutput);
+		    InputStream inputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+		    //合成图片
+			QrCodeWriterUtils.generateCode(templatefile.toString(), inputStream, openid, openid,response);
+		} catch (WriterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 *  创建海报页面跳转
